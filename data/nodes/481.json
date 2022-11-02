@@ -1,0 +1,1 @@
+{"location": [[4.0, -4.0], [4.0, 3.0], [4.0, -3.0], [4.0, -10.0]], "intersection": [false, false, false, false], "node_type": ["S", "A1", "A1", "B1"], "node_id": [-1, 0, 1, 2], "length": [20.0, 6.0, 6.0, 15.0], "rotation": [0, 0, 0, 1], "width": [15.0, 8.0, 8.0, 8.0]}
