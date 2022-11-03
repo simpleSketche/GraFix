@@ -1,12 +1,4 @@
-"""Provides a scripting component.
-    Inputs:
-        x: The x script variable
-        y: The y script variable
-    Output:
-        a: The a output variable"""
 
-__author__ = "YYang"
-__version__ = "2022.10.31"
 
 
 import rhinoinside

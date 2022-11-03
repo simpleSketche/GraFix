@@ -1,12 +1,4 @@
-"""Provides a scripting component.
-    Inputs:
-        x: The x script variable
-        y: The y script variable
-    Output:
-        a: The a output variable"""
 
-__author__ = "YYang"
-__version__ = "2022.10.31"
 
 import rhinoinside
 import Rhino
@@ -69,45 +61,3 @@ class Edge_json():
         edge_data = self.create_json_data()
         with open(cur_path, 'w') as f:
             f.write(json.dumps(edge_data))
-
-
-# cur_path.append('training\\trial1\\nodes\\{}.json'.format(int(option)))
-
-# cur_path = "\\".join(cur_path)
-# print (cur_path)
-
-# site_length = abs(siteLength[0] - siteLength[1])
-# site_width = abs(siteWidth[0] - siteWidth[1])
-
-# """
-# The root node of each design option graph should be the site,
-# and each node should connected to the site
-# """
-
-# # output data format
-# # {"node_type":"", "width":0, "length":0, "location":[x,y], "rotation":0,"intersection":[False], "node_id":-1}
-
-# # assign site first, S -> site
-# output_nodes_data = {"node_type":["S"], "width":[round(site_width,5)], "length":[round(site_length,5)], "location":[[round(siteLoc.X,5), round(siteLoc.Y,5)]], "rotation":[0], "intersection":[False], "node_id":[-1]}
-
-# # assign the rest of nodes
-# for node in boxes:
-#     center_location = rg.AreaMassProperties.Compute(node.footprint.ToNurbsCurve()).Centroid
-#     rotation_degree = round(node.rotation * 57.2958) # convert to degrees
-#     output_nodes_data["node_type"].append(node.type)
-#     output_nodes_data["width"].append(round(node.width,5))
-#     output_nodes_data["length"].append(round(node.depth,5))
-#     output_nodes_data["location"].append([round(center_location.X,5), round(center_location.Y,5)])
-#     output_nodes_data["intersection"].append(node.intersection)
-#     output_nodes_data["node_id"].append(node.id)
-#     rotation = output_nodes_data["rotation"]
-    
-#     if(rotation_degree == 0 or rotation_degree == 180):
-#         rotation.append(0) # if the box is not rotated
-#     else:
-#         rotation.append(1) # if the box is rotated
-
-# result = output_nodes_data
-
-# with open(cur_path, 'w') as f:
-#     f.write(json.dumps(result))
