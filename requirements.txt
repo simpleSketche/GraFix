@@ -1,9 +1,37 @@
-autopep8==1.6.0
-certifi==2022.9.24
-cffi==1.15.1
-clr-loader==0.2.4
-pycodestyle==2.8.0
-pycparser==2.21
-pythonnet==3.0.1
-rhinoinside==0.6.0
-toml==0.10.2
+brotlipy==0.7.0
+certifi @ file:///C:/b/abs_ac29jvt43w/croot/certifi_1665076682579/work/certifi
+cffi @ file:///C:/Windows/Temp/abs_6808y9x40v/croots/recipe/cffi_1659598653989/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+colorama @ file:///C:/Windows/TEMP/abs_9439aeb1-0254-449a-96f7-33ab5eb17fc8apleb4yn/croots/recipe/colorama_1657009099097/work
+cryptography @ file:///C:/b/abs_36x9ifdcl4/croot/cryptography_1665612655344/work
+idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
+Jinja2 @ file:///C:/b/abs_7cdis66kl9/croot/jinja2_1666908141852/work
+joblib @ file:///C:/b/abs_e60_bwl1v6/croot/joblib_1666298845728/work
+MarkupSafe @ file:///C:/ci/markupsafe_1654508036328/work
+mkl-fft==1.3.1
+mkl-random @ file:///C:/ci_310/mkl_random_1643050563308/work
+mkl-service==2.4.0
+networkx==2.8.8
+numpy @ file:///C:/b/abs_53f_dbvhzc/croot/numpy_and_numpy_base_1665773185489/work
+Pillow==9.2.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
+pyparsing @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_7f_7lba6rl/croots/recipe/pyparsing_1661452540662/work
+PySocks @ file:///C:/ci_310/pysocks_1642089375450/work
+requests @ file:///C:/ci/requests_1657735340829/work
+scikit-learn @ file:///C:/b/abs_32ip6y8czd/croot/scikit-learn_1665482026161/work
+scipy==1.9.1
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263681/work
+torch==1.12.1
+torch-cluster @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-cluster_1656605766206/work
+torch-geometric @ file:///C:/Miniconda/envs/test/conda-bld/pyg_1665661679775/work
+torch-scatter @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-scatter_1656601602522/work
+torch-sparse @ file:///C:/Miniconda/envs/test/conda-bld/pytorch-sparse_1665389480042/work
+torchaudio==0.12.1
+torchvision==0.13.1
+tqdm @ file:///C:/b/abs_0axbz66qik/croots/recipe/tqdm_1664392691071/work
+typing_extensions @ file:///C:/Windows/TEMP/abs_dd2d0moa85/croots/recipe/typing_extensions_1659638831135/work
+urllib3 @ file:///C:/b/abs_a8_3vfznn_/croot/urllib3_1666298943664/work
+win-inet-pton @ file:///C:/ci_310/win_inet_pton_1642658466512/work
+wincertstore==0.2
