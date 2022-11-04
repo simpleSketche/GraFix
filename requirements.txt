@@ -2,6 +2,7 @@ brotlipy==0.7.0
 certifi @ file:///C:/b/abs_ac29jvt43w/croot/certifi_1665076682579/work/certifi
 cffi @ file:///C:/Windows/Temp/abs_6808y9x40v/croots/recipe/cffi_1659598653989/work
 charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+clr-loader==0.2.4
 colorama @ file:///C:/Windows/TEMP/abs_9439aeb1-0254-449a-96f7-33ab5eb17fc8apleb4yn/croots/recipe/colorama_1657009099097/work
 cryptography @ file:///C:/b/abs_36x9ifdcl4/croot/cryptography_1665612655344/work
 idna @ file:///C:/b/abs_bdhbebrioa/croot/idna_1666125572046/work
@@ -18,7 +19,9 @@ pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
 pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
 pyparsing @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_7f_7lba6rl/croots/recipe/pyparsing_1661452540662/work
 PySocks @ file:///C:/ci_310/pysocks_1642089375450/work
+pythonnet==3.0.1
 requests @ file:///C:/ci/requests_1657735340829/work
+rhinoinside==0.6.0
 scikit-learn @ file:///C:/b/abs_32ip6y8czd/croot/scikit-learn_1665482026161/work
 scipy==1.9.1
 six @ file:///tmp/build/80754af9/six_1644875935023/work

@@ -1,1 +1,1 @@
-null
+{"node_type": ["S", "A1", "C1", "C1", "A1", "A1"], "width": [12, 8, 16, 16, 8, 8], "length": [12, 6, 6, 6, 6, 6], "location": [[0.0, 0.0], [4.0, 3.0], [4.0, -3.0], [15.0, -3.0], [22.0, -3.0], [4.0, 10.0]], "rotation": [0, 0, 0, 1, 1, 1], "intersection": [false, false, false, false, false, false], "node_id": [-1, 0, 1, 2, 3, 4]}

@@ -54,6 +54,7 @@ class Node_json():
                 rotation.append(0) # if the box is not rotated
             else:
                 rotation.append(1) # if the box is rotated
+        return output_nodes_data
     
     def save_json_data(self):
         cur_path = self.parse_json_path()
