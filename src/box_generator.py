@@ -8,6 +8,7 @@ import generator
 import rule
 import Rhino.Geometry as rg
 import option
+import random
 
 
 
@@ -49,11 +50,13 @@ def generate(num_option):
 
         bricks = stack_bricks.bricks
 
+        # create correct edges
         edge_json = create_edge_json.Edge_json(
             bricks, 12, 12, rg.Point3d(0, 0, 0), option)
         edge_json.parse_path()
         edge_json.save_json_data()
-
+        
+        generate_error_data(bricks)
         node_json = create_node_json.Node_json(
             bricks, 12, 12, rg.Point3d(0, 0, 0), option)
         node_json.parse_path()
@@ -62,6 +65,21 @@ def generate(num_option):
         print("currently creating data point {}".format(i))
         print("Finished creating data point {}".format(i))
         print("------------------------------------------")
+
+def generate_error_data(bricks):
+    for brick in bricks:
+        footprint = brick.footprint.ToNurbsCurve()
+        cnt = rg.AreaMassProperties.Compute(footprint).Centroid
+        cur_brick_loc = cnt
+        trans = create_random_loc(cur_brick_loc)
+        brick.move(trans)
+
+def create_random_loc(originPt):
+    randomX = round(random.random(), 5)
+    randomY = round(random.random(), 5)
+    newVec = rg.Vector3d(randomX*0.5, randomY*0.5, 0)
+    trans = rg.Transform.Translation(newVec)
+    return trans
 
 
 if __name__ == "__main__":
