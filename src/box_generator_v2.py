@@ -51,16 +51,19 @@ def generate(num_option):
         bricks = stack_bricks.bricks
 
         # create correct edges
-        edge_json = create_edge_json_v2.Edge_json(
-            bricks, 12, 12, rg.Point3d(0, 0, 0), option)
-        edge_json.parse_path()
-        edge_json.save_json_data()
-        
         intersections = get_all_intersections(bricks)
-
         is_bad_data = test_bad_data(intersections)
-        print(is_bad_data)
+        
+
         if(is_bad_data == False):
+            # edges are from ground truth correct design option
+            edge_json = create_edge_json_v2.Edge_json(
+            bricks, 12, 12, rg.Point3d(0, 0, 0), option)
+            edge_json.parse_path()
+            edge_json.save_json_data()
+
+            # modify and intentionally make bad data by randomly
+            # moving the boxes
             generate_error_data(bricks)
             node_json = create_node_json_v2.Node_json(
                 bricks, 12, 12, rg.Point3d(0, 0, 0), option)
