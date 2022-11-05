@@ -1,1 +1,1 @@
-option = 10000
+option = 5000

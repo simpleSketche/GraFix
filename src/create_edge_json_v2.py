@@ -23,7 +23,7 @@ class Edge_json():
 
     def parse_path(self):
         root_path = self.get_cur_path()
-        root_path.append('data\\edges')
+        root_path.append('data\\room_base_graph\\edges')
         new_path = '\\'.join(root_path)
         is_path_exist = os.path.exists(new_path)
         if(is_path_exist==False):
@@ -32,7 +32,7 @@ class Edge_json():
     
     def parse_json_path(self):
         json_path = self.get_cur_path()
-        json_path.append('data\\edges\\{}.json'.format(int(self.option)))
+        json_path.append('data\\room_base_graph\\edges\\{}.json'.format(int(self.option)))
         new_json_path = '\\'.join(json_path)
         return new_json_path
 
