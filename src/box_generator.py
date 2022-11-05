@@ -56,15 +56,18 @@ def generate(num_option):
         edge_json.parse_path()
         edge_json.save_json_data()
         
-        generate_error_data(bricks)
-        node_json = create_node_json.Node_json(
-            bricks, 12, 12, rg.Point3d(0, 0, 0), option)
-        node_json.parse_path()
-        node_json.save_json_data()
-        print("------------------------------------------")
-        print("currently creating data point {}".format(i))
-        print("Finished creating data point {}".format(i))
-        print("------------------------------------------")
+        is_bad_data = test_bad_data(bricks.intersection)
+
+        if(is_bad_data == False):
+            generate_error_data(bricks)
+            node_json = create_node_json.Node_json(
+                bricks, 12, 12, rg.Point3d(0, 0, 0), option)
+            node_json.parse_path()
+            node_json.save_json_data()
+            print("------------------------------------------")
+            print("currently creating data point {}".format(i))
+            print("Finished creating data point {}".format(i))
+            print("------------------------------------------")
 
 def generate_error_data(bricks):
     for brick in bricks:
@@ -80,6 +83,13 @@ def create_random_loc(originPt):
     newVec = rg.Vector3d(randomX*0.5, randomY*0.5, 0)
     trans = rg.Transform.Translation(newVec)
     return trans
+
+def test_bad_data(intersections):
+    is_bad = False
+    for intersection in intersections:
+        if(intersection == True):
+            is_bad = True
+            return is_bad
 
 
 if __name__ == "__main__":
