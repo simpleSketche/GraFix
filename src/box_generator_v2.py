@@ -1,7 +1,7 @@
 import rhinoinside
 rhinoinside.load()
-import create_node_json
-import create_edge_json
+import create_node_json_v2
+import create_edge_json_v2
 import math
 import box
 import generator
@@ -51,16 +51,18 @@ def generate(num_option):
         bricks = stack_bricks.bricks
 
         # create correct edges
-        edge_json = create_edge_json.Edge_json(
+        edge_json = create_edge_json_v2.Edge_json(
             bricks, 12, 12, rg.Point3d(0, 0, 0), option)
         edge_json.parse_path()
         edge_json.save_json_data()
         
-        is_bad_data = test_bad_data(bricks.intersection)
+        intersections = get_all_intersections(bricks)
 
+        is_bad_data = test_bad_data(intersections)
+        print(is_bad_data)
         if(is_bad_data == False):
             generate_error_data(bricks)
-            node_json = create_node_json.Node_json(
+            node_json = create_node_json_v2.Node_json(
                 bricks, 12, 12, rg.Point3d(0, 0, 0), option)
             node_json.parse_path()
             node_json.save_json_data()
@@ -84,12 +86,19 @@ def create_random_loc(originPt):
     trans = rg.Transform.Translation(newVec)
     return trans
 
+def get_all_intersections(bricks):
+    intersections = []
+    for brick in bricks:
+        intersections.append(brick.intersection)
+    return intersections
+
 def test_bad_data(intersections):
     is_bad = False
     for intersection in intersections:
         if(intersection == True):
             is_bad = True
             return is_bad
+    return is_bad
 
 
 if __name__ == "__main__":
