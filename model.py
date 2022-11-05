@@ -1,3 +1,10 @@
+"""
+I build VAE by taking these code as example
+https://github.com/chendaichao/VAE-pytorch/blob/master/Models/VAE/model.py
+https://github.com/timbmg/VAE-CVAE-MNIST/blob/master/models.py
+"""
+
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -59,7 +66,7 @@ class VGAE(nn.Module):
         return recon_x, mu, log_var, z
 
     def generate(self, node_num, edge_index):
-        z = torch.randn((n, self.hidden_dim)).to(edge_index.device)
+        z = torch.randn((node_num, self.hidden_dim)).to(edge_index.device)
         recon_x = self.decoder(z, edge_index)
         return recon_x
 

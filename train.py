@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 
 import dataset
 from model import *
-from utils import binary_classification_accracy
-from utils import R2_score
+from utils import binary_classification_accracy, R2_score
+from utils import visualize_generation
 
 
 
@@ -24,8 +24,8 @@ from utils import R2_score
 def main(args):
 
 	print(f"Using device: {args.device}")
-	args.ckpt_dir = os.path.join(args.ckpt_dir, datetime.now().strftime("%Y_%m_%d__%H_%M_%S"))
-	os.mkdir(args.ckpt_dir)
+	args.ckpt_dir = args.ckpt_dir / datetime.now().strftime("%Y_%m_%d__%H_%M_%S")
+	args.ckpt_dir.mkdir(parents=True, exist_ok=True)
 	logger = get_loggings(args.ckpt_dir)
 	logger.info(args)
 
@@ -63,6 +63,7 @@ def main(args):
 
 	# init optimizer
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+	scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=10, min_lr=3e-5)
 	best_eval_loss = np.inf
 
 	for epoch in range(1, args.num_epoch+1):
@@ -108,6 +109,9 @@ def main(args):
 			acc_reg_eval /= iter_eval
 			acc_cls_eval /= iter_eval
 
+		# learning rate scheduler 
+		scheduler.step(loss_eval)
+
 		logger.info(f"epoch: {epoch:4d}, train_reg_acc: {acc_reg_train:.4f}, eval_reg_acc: {acc_reg_eval:.4f}, train_cls_acc: {acc_cls_train:.4f}, eval_cls_acc: {acc_cls_eval:.4f}, train_loss: {loss_train:.4f}, eval_loss: {loss_eval:.4f}")
 
 		# save model
@@ -115,6 +119,25 @@ def main(args):
 			best_eval_loss = loss_eval
 			logger.info(f"Trained model saved, eval loss: {best_eval_loss:.4f}")
 			torch.save(model.state_dict(), os.path.join(args.ckpt_dir, "model.pt"))
+
+
+	# Generation
+	with torch.no_grad():
+		generation_path = args.ckpt_dir / "Generation"
+		generation_path.mkdir(parents=True, exist_ok=True)
+		model = globals()[args.model_name](encoder, decoder).to(args.device)
+		model.load_state_dict(torch.load(args.ckpt_dir / "model.pt"))
+		model.eval()
+		for i in range(args.generation_num):
+			save_path = generation_path / f"generation_{i}.png"
+			logger.info(f"Start visualizing: {save_path}")
+			node_num = 5
+			edge_index = torch.tensor([
+				[0, 1, 1, 2, 3, 0, 4, 3],
+				[1, 0, 2, 1, 0, 3, 3, 4]
+			], dtype=torch.long).to("cuda")
+			recon_x = model.generate(node_num, edge_index)
+			visualize_generation(recon_x, edge_index, save_path=save_path)
 		
 		
 
@@ -155,7 +178,8 @@ def parse_args() -> Namespace:
 	parser.add_argument(
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
-	parser.add_argument("--num_epoch", type=int, default=500)
+	parser.add_argument("--num_epoch", type=int, default=1000)
+	parser.add_argument("--generation_num", type=int, default=50)
 
 	args = parser.parse_args()
 	return args
