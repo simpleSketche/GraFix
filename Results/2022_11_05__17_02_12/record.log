@@ -1,0 +1,1030 @@
+2022-11-05 17:02:12,492 - graphVAE - INFO - Namespace(batch_size=32, ckpt_dir='Results\\2022_11_05__17_02_12', data_num=5000, data_path=WindowsPath('data'), decoder_name='VariationalGraphDecoder', device=device(type='cuda'), encoder_name='VariationalGraphEncoder', hidden_dim=256, kl_loss_ratio=0.003, lr=0.001, model_name='VGAE', num_epoch=500)
+2022-11-05 17:02:15,680 - graphVAE - INFO - Dataset length: 2155
+2022-11-05 17:02:15,680 - graphVAE - INFO - train, valid, test dataset len: 1724, 431, 0
+2022-11-05 17:02:15,805 - graphVAE - INFO - VGAE(
+  (encoder): VariationalGraphEncoder(
+    (conv1): GCNConv(10, 256)
+    (linear_mu): Linear(in_features=256, out_features=256, bias=True)
+    (linear_logvar): Linear(in_features=256, out_features=256, bias=True)
+  )
+  (decoder): VariationalGraphDecoder(
+    (linear_1): Linear(in_features=256, out_features=256, bias=True)
+    (conv1): GCNConv(256, 256)
+    (linear_2): Linear(in_features=256, out_features=3, bias=True)
+  )
+)
+2022-11-05 17:02:17,273 - graphVAE - INFO - BCE: 0.686, MSE: 2.047, KLD: 1.754
+2022-11-05 17:02:17,711 - graphVAE - INFO - epoch:    1, train_reg_acc: 0.0709, eval_reg_acc: 0.2904, train_cls_acc: 0.5841, eval_cls_acc: 0.6094, train_loss: 2.1789, eval_loss: 1.9268
+2022-11-05 17:02:17,711 - graphVAE - INFO - Trained model saved, eval loss: 1.9268
+2022-11-05 17:02:17,711 - graphVAE - INFO - BCE: 0.668, MSE: 0.802, KLD: 0.192
+2022-11-05 17:02:18,133 - graphVAE - INFO - epoch:    2, train_reg_acc: 0.4300, eval_reg_acc: 0.4984, train_cls_acc: 0.5870, eval_cls_acc: 0.6343, train_loss: 1.7780, eval_loss: 1.6895
+2022-11-05 17:02:18,133 - graphVAE - INFO - Trained model saved, eval loss: 1.6895
+2022-11-05 17:02:18,148 - graphVAE - INFO - BCE: 0.684, MSE: 0.807, KLD: 0.283
+2022-11-05 17:02:18,554 - graphVAE - INFO - epoch:    3, train_reg_acc: 0.4441, eval_reg_acc: 0.5935, train_cls_acc: 0.5872, eval_cls_acc: 0.5624, train_loss: 1.7579, eval_loss: 1.5690
+2022-11-05 17:02:18,554 - graphVAE - INFO - Trained model saved, eval loss: 1.5690
+2022-11-05 17:02:18,570 - graphVAE - INFO - BCE: 0.696, MSE: 0.742, KLD: 0.258
+2022-11-05 17:02:18,976 - graphVAE - INFO - epoch:    4, train_reg_acc: 0.4538, eval_reg_acc: 0.5160, train_cls_acc: 0.5929, eval_cls_acc: 0.4811, train_loss: 1.7448, eval_loss: 1.6963
+2022-11-05 17:02:18,976 - graphVAE - INFO - BCE: 0.644, MSE: 0.895, KLD: 0.414
+2022-11-05 17:02:19,398 - graphVAE - INFO - epoch:    5, train_reg_acc: 0.4594, eval_reg_acc: 0.6528, train_cls_acc: 0.5897, eval_cls_acc: 0.4635, train_loss: 1.7404, eval_loss: 1.5011
+2022-11-05 17:02:19,398 - graphVAE - INFO - Trained model saved, eval loss: 1.5011
+2022-11-05 17:02:19,398 - graphVAE - INFO - BCE: 0.652, MSE: 0.863, KLD: 0.341
+2022-11-05 17:02:19,804 - graphVAE - INFO - epoch:    6, train_reg_acc: 0.4667, eval_reg_acc: 0.6722, train_cls_acc: 0.6035, eval_cls_acc: 0.4535, train_loss: 1.7224, eval_loss: 1.5096
+2022-11-05 17:02:19,804 - graphVAE - INFO - BCE: 0.690, MSE: 0.617, KLD: 0.369
+2022-11-05 17:02:20,210 - graphVAE - INFO - epoch:    7, train_reg_acc: 0.4656, eval_reg_acc: 0.6085, train_cls_acc: 0.6014, eval_cls_acc: 0.4819, train_loss: 1.7261, eval_loss: 1.5640
+2022-11-05 17:02:20,226 - graphVAE - INFO - BCE: 0.673, MSE: 0.782, KLD: 0.356
+2022-11-05 17:02:20,632 - graphVAE - INFO - epoch:    8, train_reg_acc: 0.4658, eval_reg_acc: 0.6878, train_cls_acc: 0.6081, eval_cls_acc: 0.4715, train_loss: 1.7226, eval_loss: 1.4784
+2022-11-05 17:02:20,632 - graphVAE - INFO - Trained model saved, eval loss: 1.4784
+2022-11-05 17:02:20,648 - graphVAE - INFO - BCE: 0.663, MSE: 0.643, KLD: 0.355
+2022-11-05 17:02:21,054 - graphVAE - INFO - epoch:    9, train_reg_acc: 0.4646, eval_reg_acc: 0.6911, train_cls_acc: 0.6009, eval_cls_acc: 0.4392, train_loss: 1.7307, eval_loss: 1.4935
+2022-11-05 17:02:21,054 - graphVAE - INFO - BCE: 0.653, MSE: 0.716, KLD: 0.263
+2022-11-05 17:02:21,491 - graphVAE - INFO - epoch:   10, train_reg_acc: 0.4641, eval_reg_acc: 0.7486, train_cls_acc: 0.6054, eval_cls_acc: 0.4534, train_loss: 1.7332, eval_loss: 1.3900
+2022-11-05 17:02:21,491 - graphVAE - INFO - Trained model saved, eval loss: 1.3900
+2022-11-05 17:02:21,491 - graphVAE - INFO - BCE: 0.645, MSE: 0.708, KLD: 0.383
+2022-11-05 17:02:21,898 - graphVAE - INFO - epoch:   11, train_reg_acc: 0.4639, eval_reg_acc: 0.7055, train_cls_acc: 0.6188, eval_cls_acc: 0.4541, train_loss: 1.7175, eval_loss: 1.4613
+2022-11-05 17:02:21,898 - graphVAE - INFO - BCE: 0.644, MSE: 0.673, KLD: 0.401
+2022-11-05 17:02:22,304 - graphVAE - INFO - epoch:   12, train_reg_acc: 0.4704, eval_reg_acc: 0.7047, train_cls_acc: 0.6192, eval_cls_acc: 0.4544, train_loss: 1.7200, eval_loss: 1.4492
+2022-11-05 17:02:22,320 - graphVAE - INFO - BCE: 0.647, MSE: 0.743, KLD: 0.347
+2022-11-05 17:02:22,710 - graphVAE - INFO - epoch:   13, train_reg_acc: 0.4643, eval_reg_acc: 0.6978, train_cls_acc: 0.6244, eval_cls_acc: 0.4670, train_loss: 1.7215, eval_loss: 1.4283
+2022-11-05 17:02:22,726 - graphVAE - INFO - BCE: 0.638, MSE: 0.747, KLD: 0.242
+2022-11-05 17:02:23,132 - graphVAE - INFO - epoch:   14, train_reg_acc: 0.4739, eval_reg_acc: 0.6928, train_cls_acc: 0.6356, eval_cls_acc: 0.4903, train_loss: 1.7107, eval_loss: 1.4150
+2022-11-05 17:02:23,132 - graphVAE - INFO - BCE: 0.646, MSE: 0.788, KLD: 0.427
+2022-11-05 17:02:23,538 - graphVAE - INFO - epoch:   15, train_reg_acc: 0.4645, eval_reg_acc: 0.7275, train_cls_acc: 0.6403, eval_cls_acc: 0.5433, train_loss: 1.7110, eval_loss: 1.4116
+2022-11-05 17:02:23,538 - graphVAE - INFO - BCE: 0.629, MSE: 0.608, KLD: 0.425
+2022-11-05 17:02:23,945 - graphVAE - INFO - epoch:   16, train_reg_acc: 0.4720, eval_reg_acc: 0.7028, train_cls_acc: 0.6444, eval_cls_acc: 0.5548, train_loss: 1.7043, eval_loss: 1.4204
+2022-11-05 17:02:23,945 - graphVAE - INFO - BCE: 0.641, MSE: 0.758, KLD: 0.368
+2022-11-05 17:02:24,366 - graphVAE - INFO - epoch:   17, train_reg_acc: 0.4647, eval_reg_acc: 0.7160, train_cls_acc: 0.6502, eval_cls_acc: 0.5012, train_loss: 1.7224, eval_loss: 1.4136
+2022-11-05 17:02:24,366 - graphVAE - INFO - BCE: 0.588, MSE: 0.753, KLD: 0.319
+2022-11-05 17:02:24,773 - graphVAE - INFO - epoch:   18, train_reg_acc: 0.4679, eval_reg_acc: 0.6706, train_cls_acc: 0.6589, eval_cls_acc: 0.6054, train_loss: 1.6991, eval_loss: 1.4182
+2022-11-05 17:02:24,773 - graphVAE - INFO - BCE: 0.610, MSE: 0.724, KLD: 0.317
+2022-11-05 17:02:25,179 - graphVAE - INFO - epoch:   19, train_reg_acc: 0.4652, eval_reg_acc: 0.6844, train_cls_acc: 0.6587, eval_cls_acc: 0.5920, train_loss: 1.7119, eval_loss: 1.4238
+2022-11-05 17:02:25,195 - graphVAE - INFO - BCE: 0.651, MSE: 0.689, KLD: 0.335
+2022-11-05 17:02:25,601 - graphVAE - INFO - epoch:   20, train_reg_acc: 0.4695, eval_reg_acc: 0.6916, train_cls_acc: 0.6653, eval_cls_acc: 0.5256, train_loss: 1.7056, eval_loss: 1.4346
+2022-11-05 17:02:25,616 - graphVAE - INFO - BCE: 0.598, MSE: 0.697, KLD: 0.300
+2022-11-05 17:02:26,023 - graphVAE - INFO - epoch:   21, train_reg_acc: 0.4690, eval_reg_acc: 0.7305, train_cls_acc: 0.6578, eval_cls_acc: 0.5942, train_loss: 1.7091, eval_loss: 1.3762
+2022-11-05 17:02:26,023 - graphVAE - INFO - Trained model saved, eval loss: 1.3762
+2022-11-05 17:02:26,023 - graphVAE - INFO - BCE: 0.635, MSE: 0.759, KLD: 0.376
+2022-11-05 17:02:26,445 - graphVAE - INFO - epoch:   22, train_reg_acc: 0.4688, eval_reg_acc: 0.7346, train_cls_acc: 0.6630, eval_cls_acc: 0.5978, train_loss: 1.7172, eval_loss: 1.3775
+2022-11-05 17:02:26,445 - graphVAE - INFO - BCE: 0.630, MSE: 0.707, KLD: 0.416
+2022-11-05 17:02:26,866 - graphVAE - INFO - epoch:   23, train_reg_acc: 0.4635, eval_reg_acc: 0.7276, train_cls_acc: 0.6621, eval_cls_acc: 0.5885, train_loss: 1.7105, eval_loss: 1.3761
+2022-11-05 17:02:26,866 - graphVAE - INFO - Trained model saved, eval loss: 1.3761
+2022-11-05 17:02:26,882 - graphVAE - INFO - BCE: 0.620, MSE: 0.708, KLD: 0.345
+2022-11-05 17:02:27,288 - graphVAE - INFO - epoch:   24, train_reg_acc: 0.4641, eval_reg_acc: 0.7424, train_cls_acc: 0.6577, eval_cls_acc: 0.5949, train_loss: 1.7200, eval_loss: 1.3672
+2022-11-05 17:02:27,288 - graphVAE - INFO - Trained model saved, eval loss: 1.3672
+2022-11-05 17:02:27,288 - graphVAE - INFO - BCE: 0.600, MSE: 0.792, KLD: 0.389
+2022-11-05 17:02:27,710 - graphVAE - INFO - epoch:   25, train_reg_acc: 0.4673, eval_reg_acc: 0.6858, train_cls_acc: 0.6716, eval_cls_acc: 0.6618, train_loss: 1.7071, eval_loss: 1.4056
+2022-11-05 17:02:27,710 - graphVAE - INFO - BCE: 0.620, MSE: 0.801, KLD: 0.371
+2022-11-05 17:02:28,132 - graphVAE - INFO - epoch:   26, train_reg_acc: 0.4752, eval_reg_acc: 0.7667, train_cls_acc: 0.6707, eval_cls_acc: 0.6161, train_loss: 1.6992, eval_loss: 1.3140
+2022-11-05 17:02:28,132 - graphVAE - INFO - Trained model saved, eval loss: 1.3140
+2022-11-05 17:02:28,132 - graphVAE - INFO - BCE: 0.678, MSE: 0.736, KLD: 0.334
+2022-11-05 17:02:28,554 - graphVAE - INFO - epoch:   27, train_reg_acc: 0.4712, eval_reg_acc: 0.7580, train_cls_acc: 0.6684, eval_cls_acc: 0.6516, train_loss: 1.7008, eval_loss: 1.3214
+2022-11-05 17:02:28,554 - graphVAE - INFO - BCE: 0.580, MSE: 0.755, KLD: 0.368
+2022-11-05 17:02:28,976 - graphVAE - INFO - epoch:   28, train_reg_acc: 0.4679, eval_reg_acc: 0.7311, train_cls_acc: 0.6640, eval_cls_acc: 0.5910, train_loss: 1.7061, eval_loss: 1.3696
+2022-11-05 17:02:28,976 - graphVAE - INFO - BCE: 0.620, MSE: 0.811, KLD: 0.370
+2022-11-05 17:02:29,382 - graphVAE - INFO - epoch:   29, train_reg_acc: 0.4717, eval_reg_acc: 0.7453, train_cls_acc: 0.6711, eval_cls_acc: 0.6216, train_loss: 1.7081, eval_loss: 1.3378
+2022-11-05 17:02:29,398 - graphVAE - INFO - BCE: 0.669, MSE: 0.646, KLD: 0.335
+2022-11-05 17:02:29,804 - graphVAE - INFO - epoch:   30, train_reg_acc: 0.4737, eval_reg_acc: 0.7532, train_cls_acc: 0.6639, eval_cls_acc: 0.6179, train_loss: 1.7005, eval_loss: 1.3165
+2022-11-05 17:02:29,820 - graphVAE - INFO - BCE: 0.590, MSE: 0.781, KLD: 0.363
+2022-11-05 17:02:30,226 - graphVAE - INFO - epoch:   31, train_reg_acc: 0.4792, eval_reg_acc: 0.7477, train_cls_acc: 0.6688, eval_cls_acc: 0.6075, train_loss: 1.6891, eval_loss: 1.3635
+2022-11-05 17:02:30,226 - graphVAE - INFO - BCE: 0.636, MSE: 0.676, KLD: 0.322
+2022-11-05 17:02:30,648 - graphVAE - INFO - epoch:   32, train_reg_acc: 0.4736, eval_reg_acc: 0.7275, train_cls_acc: 0.6586, eval_cls_acc: 0.5526, train_loss: 1.7037, eval_loss: 1.3587
+2022-11-05 17:02:30,648 - graphVAE - INFO - BCE: 0.623, MSE: 0.718, KLD: 0.304
+2022-11-05 17:02:31,085 - graphVAE - INFO - epoch:   33, train_reg_acc: 0.4631, eval_reg_acc: 0.7530, train_cls_acc: 0.6660, eval_cls_acc: 0.6060, train_loss: 1.7111, eval_loss: 1.3420
+2022-11-05 17:02:31,085 - graphVAE - INFO - BCE: 0.575, MSE: 0.703, KLD: 0.325
+2022-11-05 17:02:31,491 - graphVAE - INFO - epoch:   34, train_reg_acc: 0.4828, eval_reg_acc: 0.7205, train_cls_acc: 0.6717, eval_cls_acc: 0.6331, train_loss: 1.6944, eval_loss: 1.3599
+2022-11-05 17:02:31,507 - graphVAE - INFO - BCE: 0.630, MSE: 0.686, KLD: 0.315
+2022-11-05 17:02:31,913 - graphVAE - INFO - epoch:   35, train_reg_acc: 0.4685, eval_reg_acc: 0.7479, train_cls_acc: 0.6591, eval_cls_acc: 0.5944, train_loss: 1.7067, eval_loss: 1.3279
+2022-11-05 17:02:31,913 - graphVAE - INFO - BCE: 0.599, MSE: 0.796, KLD: 0.436
+2022-11-05 17:02:32,320 - graphVAE - INFO - epoch:   36, train_reg_acc: 0.4836, eval_reg_acc: 0.7569, train_cls_acc: 0.6642, eval_cls_acc: 0.5605, train_loss: 1.6856, eval_loss: 1.3397
+2022-11-05 17:02:32,320 - graphVAE - INFO - BCE: 0.608, MSE: 0.737, KLD: 0.355
+2022-11-05 17:02:32,741 - graphVAE - INFO - epoch:   37, train_reg_acc: 0.4758, eval_reg_acc: 0.7484, train_cls_acc: 0.6692, eval_cls_acc: 0.6216, train_loss: 1.6972, eval_loss: 1.3376
+2022-11-05 17:02:32,741 - graphVAE - INFO - BCE: 0.554, MSE: 0.772, KLD: 0.353
+2022-11-05 17:02:33,148 - graphVAE - INFO - epoch:   38, train_reg_acc: 0.4703, eval_reg_acc: 0.7231, train_cls_acc: 0.6561, eval_cls_acc: 0.5397, train_loss: 1.7065, eval_loss: 1.3758
+2022-11-05 17:02:33,163 - graphVAE - INFO - BCE: 0.623, MSE: 0.678, KLD: 0.416
+2022-11-05 17:02:33,585 - graphVAE - INFO - epoch:   39, train_reg_acc: 0.4766, eval_reg_acc: 0.7453, train_cls_acc: 0.6675, eval_cls_acc: 0.6825, train_loss: 1.6934, eval_loss: 1.3209
+2022-11-05 17:02:33,585 - graphVAE - INFO - BCE: 0.587, MSE: 0.750, KLD: 0.351
+2022-11-05 17:02:34,023 - graphVAE - INFO - epoch:   40, train_reg_acc: 0.4692, eval_reg_acc: 0.7558, train_cls_acc: 0.6668, eval_cls_acc: 0.6165, train_loss: 1.7028, eval_loss: 1.3323
+2022-11-05 17:02:34,023 - graphVAE - INFO - BCE: 0.583, MSE: 0.664, KLD: 0.339
+2022-11-05 17:02:34,429 - graphVAE - INFO - epoch:   41, train_reg_acc: 0.4686, eval_reg_acc: 0.7425, train_cls_acc: 0.6689, eval_cls_acc: 0.6267, train_loss: 1.7054, eval_loss: 1.3456
+2022-11-05 17:02:34,429 - graphVAE - INFO - BCE: 0.599, MSE: 0.663, KLD: 0.393
+2022-11-05 17:02:34,866 - graphVAE - INFO - epoch:   42, train_reg_acc: 0.4756, eval_reg_acc: 0.7085, train_cls_acc: 0.6751, eval_cls_acc: 0.5943, train_loss: 1.6924, eval_loss: 1.3724
+2022-11-05 17:02:34,866 - graphVAE - INFO - BCE: 0.624, MSE: 0.756, KLD: 0.268
+2022-11-05 17:02:35,288 - graphVAE - INFO - epoch:   43, train_reg_acc: 0.4775, eval_reg_acc: 0.7898, train_cls_acc: 0.6648, eval_cls_acc: 0.5791, train_loss: 1.7046, eval_loss: 1.2972
+2022-11-05 17:02:35,288 - graphVAE - INFO - Trained model saved, eval loss: 1.2972
+2022-11-05 17:02:35,288 - graphVAE - INFO - BCE: 0.591, MSE: 0.836, KLD: 0.360
+2022-11-05 17:02:35,695 - graphVAE - INFO - epoch:   44, train_reg_acc: 0.4776, eval_reg_acc: 0.8100, train_cls_acc: 0.6708, eval_cls_acc: 0.6214, train_loss: 1.6964, eval_loss: 1.2621
+2022-11-05 17:02:35,695 - graphVAE - INFO - Trained model saved, eval loss: 1.2621
+2022-11-05 17:02:35,710 - graphVAE - INFO - BCE: 0.581, MSE: 0.667, KLD: 0.403
+2022-11-05 17:02:36,116 - graphVAE - INFO - epoch:   45, train_reg_acc: 0.4679, eval_reg_acc: 0.7325, train_cls_acc: 0.6740, eval_cls_acc: 0.5480, train_loss: 1.7023, eval_loss: 1.3734
+2022-11-05 17:02:36,116 - graphVAE - INFO - BCE: 0.589, MSE: 0.774, KLD: 0.359
+2022-11-05 17:02:36,523 - graphVAE - INFO - epoch:   46, train_reg_acc: 0.4715, eval_reg_acc: 0.7583, train_cls_acc: 0.6718, eval_cls_acc: 0.6513, train_loss: 1.7091, eval_loss: 1.3296
+2022-11-05 17:02:36,538 - graphVAE - INFO - BCE: 0.590, MSE: 0.790, KLD: 0.401
+2022-11-05 17:02:36,945 - graphVAE - INFO - epoch:   47, train_reg_acc: 0.4759, eval_reg_acc: 0.7670, train_cls_acc: 0.6623, eval_cls_acc: 0.5359, train_loss: 1.6988, eval_loss: 1.3112
+2022-11-05 17:02:36,960 - graphVAE - INFO - BCE: 0.610, MSE: 0.744, KLD: 0.390
+2022-11-05 17:02:37,366 - graphVAE - INFO - epoch:   48, train_reg_acc: 0.4784, eval_reg_acc: 0.7568, train_cls_acc: 0.6667, eval_cls_acc: 0.5474, train_loss: 1.6983, eval_loss: 1.3500
+2022-11-05 17:02:37,366 - graphVAE - INFO - BCE: 0.586, MSE: 0.727, KLD: 0.330
+2022-11-05 17:02:37,773 - graphVAE - INFO - epoch:   49, train_reg_acc: 0.4800, eval_reg_acc: 0.7775, train_cls_acc: 0.6673, eval_cls_acc: 0.5980, train_loss: 1.6886, eval_loss: 1.3030
+2022-11-05 17:02:37,773 - graphVAE - INFO - BCE: 0.614, MSE: 0.693, KLD: 0.388
+2022-11-05 17:02:38,195 - graphVAE - INFO - epoch:   50, train_reg_acc: 0.4778, eval_reg_acc: 0.7877, train_cls_acc: 0.6682, eval_cls_acc: 0.5474, train_loss: 1.6947, eval_loss: 1.3096
+2022-11-05 17:02:38,195 - graphVAE - INFO - BCE: 0.604, MSE: 0.658, KLD: 0.315
+2022-11-05 17:02:38,601 - graphVAE - INFO - epoch:   51, train_reg_acc: 0.4773, eval_reg_acc: 0.7780, train_cls_acc: 0.6745, eval_cls_acc: 0.6061, train_loss: 1.6919, eval_loss: 1.2998
+2022-11-05 17:02:38,601 - graphVAE - INFO - BCE: 0.609, MSE: 0.768, KLD: 0.426
+2022-11-05 17:02:39,007 - graphVAE - INFO - epoch:   52, train_reg_acc: 0.4797, eval_reg_acc: 0.7254, train_cls_acc: 0.6670, eval_cls_acc: 0.5988, train_loss: 1.6961, eval_loss: 1.3349
+2022-11-05 17:02:39,023 - graphVAE - INFO - BCE: 0.599, MSE: 0.748, KLD: 0.282
+2022-11-05 17:02:39,429 - graphVAE - INFO - epoch:   53, train_reg_acc: 0.4672, eval_reg_acc: 0.7495, train_cls_acc: 0.6703, eval_cls_acc: 0.6520, train_loss: 1.7015, eval_loss: 1.3159
+2022-11-05 17:02:39,429 - graphVAE - INFO - BCE: 0.629, MSE: 0.652, KLD: 0.343
+2022-11-05 17:02:39,835 - graphVAE - INFO - epoch:   54, train_reg_acc: 0.4621, eval_reg_acc: 0.7880, train_cls_acc: 0.6643, eval_cls_acc: 0.4877, train_loss: 1.7136, eval_loss: 1.3362
+2022-11-05 17:02:39,835 - graphVAE - INFO - BCE: 0.656, MSE: 0.816, KLD: 0.358
+2022-11-05 17:02:40,241 - graphVAE - INFO - epoch:   55, train_reg_acc: 0.4731, eval_reg_acc: 0.7550, train_cls_acc: 0.6636, eval_cls_acc: 0.5441, train_loss: 1.6987, eval_loss: 1.3518
+2022-11-05 17:02:40,257 - graphVAE - INFO - BCE: 0.627, MSE: 0.765, KLD: 0.353
+2022-11-05 17:02:40,663 - graphVAE - INFO - epoch:   56, train_reg_acc: 0.4781, eval_reg_acc: 0.7837, train_cls_acc: 0.6670, eval_cls_acc: 0.5618, train_loss: 1.6961, eval_loss: 1.2929
+2022-11-05 17:02:40,663 - graphVAE - INFO - BCE: 0.559, MSE: 0.651, KLD: 0.287
+2022-11-05 17:02:41,070 - graphVAE - INFO - epoch:   57, train_reg_acc: 0.4739, eval_reg_acc: 0.7908, train_cls_acc: 0.6621, eval_cls_acc: 0.5261, train_loss: 1.6936, eval_loss: 1.2949
+2022-11-05 17:02:41,070 - graphVAE - INFO - BCE: 0.588, MSE: 0.671, KLD: 0.369
+2022-11-05 17:02:41,491 - graphVAE - INFO - epoch:   58, train_reg_acc: 0.4776, eval_reg_acc: 0.7712, train_cls_acc: 0.6645, eval_cls_acc: 0.5821, train_loss: 1.7045, eval_loss: 1.3087
+2022-11-05 17:02:41,507 - graphVAE - INFO - BCE: 0.592, MSE: 0.850, KLD: 0.415
+2022-11-05 17:02:41,913 - graphVAE - INFO - epoch:   59, train_reg_acc: 0.4784, eval_reg_acc: 0.7843, train_cls_acc: 0.6637, eval_cls_acc: 0.5574, train_loss: 1.6884, eval_loss: 1.2920
+2022-11-05 17:02:41,913 - graphVAE - INFO - BCE: 0.616, MSE: 0.678, KLD: 0.377
+2022-11-05 17:02:42,320 - graphVAE - INFO - epoch:   60, train_reg_acc: 0.4769, eval_reg_acc: 0.7614, train_cls_acc: 0.6716, eval_cls_acc: 0.5384, train_loss: 1.6920, eval_loss: 1.3164
+2022-11-05 17:02:42,335 - graphVAE - INFO - BCE: 0.617, MSE: 0.696, KLD: 0.338
+2022-11-05 17:02:42,741 - graphVAE - INFO - epoch:   61, train_reg_acc: 0.4846, eval_reg_acc: 0.7851, train_cls_acc: 0.6628, eval_cls_acc: 0.5448, train_loss: 1.6814, eval_loss: 1.2873
+2022-11-05 17:02:42,757 - graphVAE - INFO - BCE: 0.598, MSE: 0.705, KLD: 0.282
+2022-11-05 17:02:43,163 - graphVAE - INFO - epoch:   62, train_reg_acc: 0.4720, eval_reg_acc: 0.7821, train_cls_acc: 0.6700, eval_cls_acc: 0.5603, train_loss: 1.6960, eval_loss: 1.2901
+2022-11-05 17:02:43,163 - graphVAE - INFO - BCE: 0.609, MSE: 0.660, KLD: 0.332
+2022-11-05 17:02:43,601 - graphVAE - INFO - epoch:   63, train_reg_acc: 0.4811, eval_reg_acc: 0.7745, train_cls_acc: 0.6654, eval_cls_acc: 0.5771, train_loss: 1.6834, eval_loss: 1.3165
+2022-11-05 17:02:43,601 - graphVAE - INFO - BCE: 0.587, MSE: 0.729, KLD: 0.315
+2022-11-05 17:02:44,007 - graphVAE - INFO - epoch:   64, train_reg_acc: 0.4726, eval_reg_acc: 0.7642, train_cls_acc: 0.6661, eval_cls_acc: 0.5942, train_loss: 1.7101, eval_loss: 1.3012
+2022-11-05 17:02:44,023 - graphVAE - INFO - BCE: 0.646, MSE: 0.766, KLD: 0.330
+2022-11-05 17:02:44,429 - graphVAE - INFO - epoch:   65, train_reg_acc: 0.4842, eval_reg_acc: 0.7635, train_cls_acc: 0.6767, eval_cls_acc: 0.6062, train_loss: 1.6717, eval_loss: 1.3101
+2022-11-05 17:02:44,429 - graphVAE - INFO - BCE: 0.627, MSE: 0.698, KLD: 0.284
+2022-11-05 17:02:44,851 - graphVAE - INFO - epoch:   66, train_reg_acc: 0.4753, eval_reg_acc: 0.7730, train_cls_acc: 0.6758, eval_cls_acc: 0.5709, train_loss: 1.6938, eval_loss: 1.2992
+2022-11-05 17:02:44,851 - graphVAE - INFO - BCE: 0.616, MSE: 0.706, KLD: 0.334
+2022-11-05 17:02:45,257 - graphVAE - INFO - epoch:   67, train_reg_acc: 0.4861, eval_reg_acc: 0.7862, train_cls_acc: 0.6668, eval_cls_acc: 0.5590, train_loss: 1.6802, eval_loss: 1.3064
+2022-11-05 17:02:45,273 - graphVAE - INFO - BCE: 0.629, MSE: 0.660, KLD: 0.353
+2022-11-05 17:02:45,679 - graphVAE - INFO - epoch:   68, train_reg_acc: 0.4892, eval_reg_acc: 0.7561, train_cls_acc: 0.6684, eval_cls_acc: 0.5503, train_loss: 1.6722, eval_loss: 1.3203
+2022-11-05 17:02:45,695 - graphVAE - INFO - BCE: 0.599, MSE: 0.694, KLD: 0.282
+2022-11-05 17:02:46,101 - graphVAE - INFO - epoch:   69, train_reg_acc: 0.4822, eval_reg_acc: 0.7831, train_cls_acc: 0.6683, eval_cls_acc: 0.4927, train_loss: 1.6899, eval_loss: 1.3223
+2022-11-05 17:02:46,101 - graphVAE - INFO - BCE: 0.592, MSE: 0.705, KLD: 0.304
+2022-11-05 17:02:46,523 - graphVAE - INFO - epoch:   70, train_reg_acc: 0.4778, eval_reg_acc: 0.7953, train_cls_acc: 0.6650, eval_cls_acc: 0.4927, train_loss: 1.7046, eval_loss: 1.3290
+2022-11-05 17:02:46,523 - graphVAE - INFO - BCE: 0.584, MSE: 0.676, KLD: 0.485
+2022-11-05 17:02:46,929 - graphVAE - INFO - epoch:   71, train_reg_acc: 0.4821, eval_reg_acc: 0.7831, train_cls_acc: 0.6658, eval_cls_acc: 0.5324, train_loss: 1.6947, eval_loss: 1.3142
+2022-11-05 17:02:46,929 - graphVAE - INFO - BCE: 0.614, MSE: 0.716, KLD: 0.362
+2022-11-05 17:02:47,351 - graphVAE - INFO - epoch:   72, train_reg_acc: 0.4813, eval_reg_acc: 0.7648, train_cls_acc: 0.6727, eval_cls_acc: 0.5577, train_loss: 1.6820, eval_loss: 1.3195
+2022-11-05 17:02:47,366 - graphVAE - INFO - BCE: 0.601, MSE: 0.813, KLD: 0.323
+2022-11-05 17:02:47,773 - graphVAE - INFO - epoch:   73, train_reg_acc: 0.4750, eval_reg_acc: 0.7956, train_cls_acc: 0.6682, eval_cls_acc: 0.5589, train_loss: 1.6988, eval_loss: 1.2824
+2022-11-05 17:02:47,773 - graphVAE - INFO - BCE: 0.591, MSE: 0.726, KLD: 0.316
+2022-11-05 17:02:48,179 - graphVAE - INFO - epoch:   74, train_reg_acc: 0.4835, eval_reg_acc: 0.7484, train_cls_acc: 0.6680, eval_cls_acc: 0.5546, train_loss: 1.6799, eval_loss: 1.3252
+2022-11-05 17:02:48,195 - graphVAE - INFO - BCE: 0.575, MSE: 0.773, KLD: 0.308
+2022-11-05 17:02:48,616 - graphVAE - INFO - epoch:   75, train_reg_acc: 0.4794, eval_reg_acc: 0.7751, train_cls_acc: 0.6658, eval_cls_acc: 0.5869, train_loss: 1.7029, eval_loss: 1.2952
+2022-11-05 17:02:48,632 - graphVAE - INFO - BCE: 0.605, MSE: 0.675, KLD: 0.329
+2022-11-05 17:02:49,038 - graphVAE - INFO - epoch:   76, train_reg_acc: 0.4767, eval_reg_acc: 0.8007, train_cls_acc: 0.6698, eval_cls_acc: 0.5146, train_loss: 1.6936, eval_loss: 1.2974
+2022-11-05 17:02:49,038 - graphVAE - INFO - BCE: 0.605, MSE: 0.609, KLD: 0.323
+2022-11-05 17:02:49,460 - graphVAE - INFO - epoch:   77, train_reg_acc: 0.4854, eval_reg_acc: 0.7945, train_cls_acc: 0.6762, eval_cls_acc: 0.5079, train_loss: 1.7023, eval_loss: 1.3135
+2022-11-05 17:02:49,476 - graphVAE - INFO - BCE: 0.588, MSE: 0.694, KLD: 0.294
+2022-11-05 17:02:49,898 - graphVAE - INFO - epoch:   78, train_reg_acc: 0.4830, eval_reg_acc: 0.7676, train_cls_acc: 0.6705, eval_cls_acc: 0.6388, train_loss: 1.6854, eval_loss: 1.2971
+2022-11-05 17:02:49,898 - graphVAE - INFO - BCE: 0.586, MSE: 0.737, KLD: 0.382
+2022-11-05 17:02:50,304 - graphVAE - INFO - epoch:   79, train_reg_acc: 0.4755, eval_reg_acc: 0.8113, train_cls_acc: 0.6681, eval_cls_acc: 0.5349, train_loss: 1.6989, eval_loss: 1.2771
+2022-11-05 17:02:50,320 - graphVAE - INFO - BCE: 0.624, MSE: 0.790, KLD: 0.437
+2022-11-05 17:02:50,726 - graphVAE - INFO - epoch:   80, train_reg_acc: 0.4813, eval_reg_acc: 0.8123, train_cls_acc: 0.6676, eval_cls_acc: 0.5798, train_loss: 1.6849, eval_loss: 1.2758
+2022-11-05 17:02:50,726 - graphVAE - INFO - BCE: 0.628, MSE: 0.673, KLD: 0.323
+2022-11-05 17:02:51,148 - graphVAE - INFO - epoch:   81, train_reg_acc: 0.4867, eval_reg_acc: 0.7680, train_cls_acc: 0.6708, eval_cls_acc: 0.5644, train_loss: 1.6818, eval_loss: 1.3089
+2022-11-05 17:02:51,148 - graphVAE - INFO - BCE: 0.635, MSE: 0.751, KLD: 0.319
+2022-11-05 17:02:51,554 - graphVAE - INFO - epoch:   82, train_reg_acc: 0.4820, eval_reg_acc: 0.8002, train_cls_acc: 0.6716, eval_cls_acc: 0.5739, train_loss: 1.6910, eval_loss: 1.2671
+2022-11-05 17:02:51,570 - graphVAE - INFO - BCE: 0.630, MSE: 0.753, KLD: 0.340
+2022-11-05 17:02:52,007 - graphVAE - INFO - epoch:   83, train_reg_acc: 0.4736, eval_reg_acc: 0.7967, train_cls_acc: 0.6609, eval_cls_acc: 0.5738, train_loss: 1.6968, eval_loss: 1.3135
+2022-11-05 17:02:52,007 - graphVAE - INFO - BCE: 0.560, MSE: 0.684, KLD: 0.406
+2022-11-05 17:02:52,413 - graphVAE - INFO - epoch:   84, train_reg_acc: 0.4781, eval_reg_acc: 0.7888, train_cls_acc: 0.6701, eval_cls_acc: 0.5149, train_loss: 1.7000, eval_loss: 1.3051
+2022-11-05 17:02:52,413 - graphVAE - INFO - BCE: 0.648, MSE: 0.795, KLD: 0.374
+2022-11-05 17:02:52,820 - graphVAE - INFO - epoch:   85, train_reg_acc: 0.4752, eval_reg_acc: 0.7824, train_cls_acc: 0.6708, eval_cls_acc: 0.5834, train_loss: 1.7037, eval_loss: 1.2835
+2022-11-05 17:02:52,835 - graphVAE - INFO - BCE: 0.623, MSE: 0.808, KLD: 0.280
+2022-11-05 17:02:53,241 - graphVAE - INFO - epoch:   86, train_reg_acc: 0.4782, eval_reg_acc: 0.7736, train_cls_acc: 0.6728, eval_cls_acc: 0.6020, train_loss: 1.6944, eval_loss: 1.2895
+2022-11-05 17:02:53,241 - graphVAE - INFO - BCE: 0.602, MSE: 0.812, KLD: 0.346
+2022-11-05 17:02:53,648 - graphVAE - INFO - epoch:   87, train_reg_acc: 0.4635, eval_reg_acc: 0.7908, train_cls_acc: 0.6765, eval_cls_acc: 0.5449, train_loss: 1.7171, eval_loss: 1.3244
+2022-11-05 17:02:53,663 - graphVAE - INFO - BCE: 0.625, MSE: 0.693, KLD: 0.400
+2022-11-05 17:02:54,070 - graphVAE - INFO - epoch:   88, train_reg_acc: 0.4839, eval_reg_acc: 0.7862, train_cls_acc: 0.6671, eval_cls_acc: 0.5111, train_loss: 1.6893, eval_loss: 1.3234
+2022-11-05 17:02:54,070 - graphVAE - INFO - BCE: 0.622, MSE: 0.562, KLD: 0.327
+2022-11-05 17:02:54,476 - graphVAE - INFO - epoch:   89, train_reg_acc: 0.4804, eval_reg_acc: 0.7839, train_cls_acc: 0.6658, eval_cls_acc: 0.5914, train_loss: 1.6934, eval_loss: 1.2887
+2022-11-05 17:02:54,476 - graphVAE - INFO - BCE: 0.583, MSE: 0.724, KLD: 0.413
+2022-11-05 17:02:54,898 - graphVAE - INFO - epoch:   90, train_reg_acc: 0.4805, eval_reg_acc: 0.7943, train_cls_acc: 0.6754, eval_cls_acc: 0.5357, train_loss: 1.6840, eval_loss: 1.2927
+2022-11-05 17:02:54,898 - graphVAE - INFO - BCE: 0.605, MSE: 0.762, KLD: 0.300
+2022-11-05 17:02:55,320 - graphVAE - INFO - epoch:   91, train_reg_acc: 0.4812, eval_reg_acc: 0.7699, train_cls_acc: 0.6657, eval_cls_acc: 0.5014, train_loss: 1.6925, eval_loss: 1.3280
+2022-11-05 17:02:55,335 - graphVAE - INFO - BCE: 0.590, MSE: 0.682, KLD: 0.319
+2022-11-05 17:02:55,741 - graphVAE - INFO - epoch:   92, train_reg_acc: 0.4859, eval_reg_acc: 0.7896, train_cls_acc: 0.6738, eval_cls_acc: 0.5564, train_loss: 1.6845, eval_loss: 1.2843
+2022-11-05 17:02:55,741 - graphVAE - INFO - BCE: 0.626, MSE: 0.682, KLD: 0.367
+2022-11-05 17:02:56,148 - graphVAE - INFO - epoch:   93, train_reg_acc: 0.4865, eval_reg_acc: 0.7653, train_cls_acc: 0.6712, eval_cls_acc: 0.6154, train_loss: 1.6792, eval_loss: 1.3127
+2022-11-05 17:02:56,148 - graphVAE - INFO - BCE: 0.598, MSE: 0.772, KLD: 0.341
+2022-11-05 17:02:56,570 - graphVAE - INFO - epoch:   94, train_reg_acc: 0.4810, eval_reg_acc: 0.7839, train_cls_acc: 0.6743, eval_cls_acc: 0.5713, train_loss: 1.6876, eval_loss: 1.3006
+2022-11-05 17:02:56,570 - graphVAE - INFO - BCE: 0.610, MSE: 0.758, KLD: 0.338
+2022-11-05 17:02:56,976 - graphVAE - INFO - epoch:   95, train_reg_acc: 0.4801, eval_reg_acc: 0.7836, train_cls_acc: 0.6732, eval_cls_acc: 0.5247, train_loss: 1.7015, eval_loss: 1.3288
+2022-11-05 17:02:56,991 - graphVAE - INFO - BCE: 0.611, MSE: 0.709, KLD: 0.364
+2022-11-05 17:02:57,398 - graphVAE - INFO - epoch:   96, train_reg_acc: 0.4798, eval_reg_acc: 0.7773, train_cls_acc: 0.6626, eval_cls_acc: 0.5548, train_loss: 1.6964, eval_loss: 1.3035
+2022-11-05 17:02:57,398 - graphVAE - INFO - BCE: 0.622, MSE: 0.754, KLD: 0.326
+2022-11-05 17:02:57,804 - graphVAE - INFO - epoch:   97, train_reg_acc: 0.4773, eval_reg_acc: 0.7812, train_cls_acc: 0.6734, eval_cls_acc: 0.5801, train_loss: 1.6887, eval_loss: 1.2847
+2022-11-05 17:02:57,820 - graphVAE - INFO - BCE: 0.612, MSE: 0.686, KLD: 0.365
+2022-11-05 17:02:58,227 - graphVAE - INFO - epoch:   98, train_reg_acc: 0.4821, eval_reg_acc: 0.7984, train_cls_acc: 0.6754, eval_cls_acc: 0.5480, train_loss: 1.6837, eval_loss: 1.3008
+2022-11-05 17:02:58,235 - graphVAE - INFO - BCE: 0.569, MSE: 0.740, KLD: 0.433
+2022-11-05 17:02:58,633 - graphVAE - INFO - epoch:   99, train_reg_acc: 0.4849, eval_reg_acc: 0.7748, train_cls_acc: 0.6701, eval_cls_acc: 0.5091, train_loss: 1.6888, eval_loss: 1.3277
+2022-11-05 17:02:58,648 - graphVAE - INFO - BCE: 0.639, MSE: 0.705, KLD: 0.434
+2022-11-05 17:02:59,055 - graphVAE - INFO - epoch:  100, train_reg_acc: 0.4763, eval_reg_acc: 0.7956, train_cls_acc: 0.6731, eval_cls_acc: 0.5291, train_loss: 1.6917, eval_loss: 1.2978
+2022-11-05 17:02:59,055 - graphVAE - INFO - BCE: 0.587, MSE: 0.741, KLD: 0.376
+2022-11-05 17:02:59,461 - graphVAE - INFO - epoch:  101, train_reg_acc: 0.4884, eval_reg_acc: 0.8036, train_cls_acc: 0.6709, eval_cls_acc: 0.4915, train_loss: 1.6859, eval_loss: 1.2914
+2022-11-05 17:02:59,477 - graphVAE - INFO - BCE: 0.611, MSE: 0.887, KLD: 0.443
+2022-11-05 17:02:59,867 - graphVAE - INFO - epoch:  102, train_reg_acc: 0.4738, eval_reg_acc: 0.7636, train_cls_acc: 0.6785, eval_cls_acc: 0.5960, train_loss: 1.6990, eval_loss: 1.3049
+2022-11-05 17:02:59,883 - graphVAE - INFO - BCE: 0.600, MSE: 0.797, KLD: 0.414
+2022-11-05 17:03:00,289 - graphVAE - INFO - epoch:  103, train_reg_acc: 0.4807, eval_reg_acc: 0.7692, train_cls_acc: 0.6677, eval_cls_acc: 0.6071, train_loss: 1.6998, eval_loss: 1.2940
+2022-11-05 17:03:00,289 - graphVAE - INFO - BCE: 0.618, MSE: 0.684, KLD: 0.377
+2022-11-05 17:03:00,695 - graphVAE - INFO - epoch:  104, train_reg_acc: 0.4886, eval_reg_acc: 0.7881, train_cls_acc: 0.6746, eval_cls_acc: 0.5304, train_loss: 1.6717, eval_loss: 1.2809
+2022-11-05 17:03:00,711 - graphVAE - INFO - BCE: 0.675, MSE: 0.760, KLD: 0.328
+2022-11-05 17:03:01,117 - graphVAE - INFO - epoch:  105, train_reg_acc: 0.4806, eval_reg_acc: 0.8047, train_cls_acc: 0.6673, eval_cls_acc: 0.5311, train_loss: 1.7001, eval_loss: 1.2806
+2022-11-05 17:03:01,117 - graphVAE - INFO - BCE: 0.589, MSE: 0.654, KLD: 0.307
+2022-11-05 17:03:01,523 - graphVAE - INFO - epoch:  106, train_reg_acc: 0.4809, eval_reg_acc: 0.8038, train_cls_acc: 0.6741, eval_cls_acc: 0.5657, train_loss: 1.6836, eval_loss: 1.2983
+2022-11-05 17:03:01,523 - graphVAE - INFO - BCE: 0.597, MSE: 0.674, KLD: 0.436
+2022-11-05 17:03:01,930 - graphVAE - INFO - epoch:  107, train_reg_acc: 0.4850, eval_reg_acc: 0.7782, train_cls_acc: 0.6674, eval_cls_acc: 0.5955, train_loss: 1.6893, eval_loss: 1.2895
+2022-11-05 17:03:01,930 - graphVAE - INFO - BCE: 0.576, MSE: 0.852, KLD: 0.326
+2022-11-05 17:03:02,336 - graphVAE - INFO - epoch:  108, train_reg_acc: 0.4855, eval_reg_acc: 0.7971, train_cls_acc: 0.6740, eval_cls_acc: 0.5597, train_loss: 1.6882, eval_loss: 1.2669
+2022-11-05 17:03:02,352 - graphVAE - INFO - BCE: 0.643, MSE: 0.753, KLD: 0.315
+2022-11-05 17:03:02,758 - graphVAE - INFO - epoch:  109, train_reg_acc: 0.4776, eval_reg_acc: 0.7946, train_cls_acc: 0.6707, eval_cls_acc: 0.5358, train_loss: 1.6903, eval_loss: 1.3061
+2022-11-05 17:03:02,758 - graphVAE - INFO - BCE: 0.616, MSE: 0.722, KLD: 0.428
+2022-11-05 17:03:03,164 - graphVAE - INFO - epoch:  110, train_reg_acc: 0.4880, eval_reg_acc: 0.8095, train_cls_acc: 0.6715, eval_cls_acc: 0.5945, train_loss: 1.6822, eval_loss: 1.2647
+2022-11-05 17:03:03,164 - graphVAE - INFO - BCE: 0.615, MSE: 0.788, KLD: 0.439
+2022-11-05 17:03:03,570 - graphVAE - INFO - epoch:  111, train_reg_acc: 0.4773, eval_reg_acc: 0.7981, train_cls_acc: 0.6744, eval_cls_acc: 0.5246, train_loss: 1.6891, eval_loss: 1.2912
+2022-11-05 17:03:03,586 - graphVAE - INFO - BCE: 0.574, MSE: 0.771, KLD: 0.374
+2022-11-05 17:03:03,977 - graphVAE - INFO - epoch:  112, train_reg_acc: 0.4886, eval_reg_acc: 0.8192, train_cls_acc: 0.6726, eval_cls_acc: 0.5581, train_loss: 1.6792, eval_loss: 1.2625
+2022-11-05 17:03:03,992 - graphVAE - INFO - BCE: 0.610, MSE: 0.760, KLD: 0.388
+2022-11-05 17:03:04,398 - graphVAE - INFO - epoch:  113, train_reg_acc: 0.4817, eval_reg_acc: 0.7922, train_cls_acc: 0.6667, eval_cls_acc: 0.6164, train_loss: 1.6873, eval_loss: 1.2825
+2022-11-05 17:03:04,398 - graphVAE - INFO - BCE: 0.607, MSE: 0.673, KLD: 0.365
+2022-11-05 17:03:04,805 - graphVAE - INFO - epoch:  114, train_reg_acc: 0.4848, eval_reg_acc: 0.7942, train_cls_acc: 0.6655, eval_cls_acc: 0.5483, train_loss: 1.6845, eval_loss: 1.2907
+2022-11-05 17:03:04,805 - graphVAE - INFO - BCE: 0.650, MSE: 0.687, KLD: 0.319
+2022-11-05 17:03:05,211 - graphVAE - INFO - epoch:  115, train_reg_acc: 0.4857, eval_reg_acc: 0.7979, train_cls_acc: 0.6706, eval_cls_acc: 0.5441, train_loss: 1.6790, eval_loss: 1.2941
+2022-11-05 17:03:05,211 - graphVAE - INFO - BCE: 0.648, MSE: 0.642, KLD: 0.267
+2022-11-05 17:03:05,633 - graphVAE - INFO - epoch:  116, train_reg_acc: 0.4813, eval_reg_acc: 0.7999, train_cls_acc: 0.6701, eval_cls_acc: 0.5734, train_loss: 1.6905, eval_loss: 1.2846
+2022-11-05 17:03:05,633 - graphVAE - INFO - BCE: 0.625, MSE: 0.705, KLD: 0.368
+2022-11-05 17:03:06,039 - graphVAE - INFO - epoch:  117, train_reg_acc: 0.4846, eval_reg_acc: 0.8178, train_cls_acc: 0.6701, eval_cls_acc: 0.5164, train_loss: 1.6880, eval_loss: 1.2820
+2022-11-05 17:03:06,039 - graphVAE - INFO - BCE: 0.602, MSE: 0.742, KLD: 0.368
+2022-11-05 17:03:06,445 - graphVAE - INFO - epoch:  118, train_reg_acc: 0.4909, eval_reg_acc: 0.7837, train_cls_acc: 0.6657, eval_cls_acc: 0.5847, train_loss: 1.6737, eval_loss: 1.2705
+2022-11-05 17:03:06,445 - graphVAE - INFO - BCE: 0.606, MSE: 0.677, KLD: 0.346
+2022-11-05 17:03:06,852 - graphVAE - INFO - epoch:  119, train_reg_acc: 0.4959, eval_reg_acc: 0.8071, train_cls_acc: 0.6693, eval_cls_acc: 0.5763, train_loss: 1.6641, eval_loss: 1.2679
+2022-11-05 17:03:06,867 - graphVAE - INFO - BCE: 0.626, MSE: 0.740, KLD: 0.388
+2022-11-05 17:03:07,258 - graphVAE - INFO - epoch:  120, train_reg_acc: 0.4834, eval_reg_acc: 0.7917, train_cls_acc: 0.6736, eval_cls_acc: 0.5712, train_loss: 1.6965, eval_loss: 1.2791
+2022-11-05 17:03:07,273 - graphVAE - INFO - BCE: 0.607, MSE: 0.687, KLD: 0.296
+2022-11-05 17:03:07,680 - graphVAE - INFO - epoch:  121, train_reg_acc: 0.4816, eval_reg_acc: 0.8065, train_cls_acc: 0.6606, eval_cls_acc: 0.5044, train_loss: 1.6939, eval_loss: 1.2821
+2022-11-05 17:03:07,680 - graphVAE - INFO - BCE: 0.619, MSE: 0.685, KLD: 0.295
+2022-11-05 17:03:08,086 - graphVAE - INFO - epoch:  122, train_reg_acc: 0.4826, eval_reg_acc: 0.8173, train_cls_acc: 0.6669, eval_cls_acc: 0.5730, train_loss: 1.6908, eval_loss: 1.2618
+2022-11-05 17:03:08,086 - graphVAE - INFO - Trained model saved, eval loss: 1.2618
+2022-11-05 17:03:08,086 - graphVAE - INFO - BCE: 0.593, MSE: 0.623, KLD: 0.303
+2022-11-05 17:03:08,492 - graphVAE - INFO - epoch:  123, train_reg_acc: 0.4825, eval_reg_acc: 0.8053, train_cls_acc: 0.6753, eval_cls_acc: 0.5679, train_loss: 1.6928, eval_loss: 1.2783
+2022-11-05 17:03:08,508 - graphVAE - INFO - BCE: 0.537, MSE: 0.743, KLD: 0.326
+2022-11-05 17:03:08,914 - graphVAE - INFO - epoch:  124, train_reg_acc: 0.4872, eval_reg_acc: 0.7845, train_cls_acc: 0.6724, eval_cls_acc: 0.5400, train_loss: 1.6833, eval_loss: 1.2707
+2022-11-05 17:03:08,914 - graphVAE - INFO - BCE: 0.578, MSE: 0.828, KLD: 0.253
+2022-11-05 17:03:09,320 - graphVAE - INFO - epoch:  125, train_reg_acc: 0.4795, eval_reg_acc: 0.8149, train_cls_acc: 0.6747, eval_cls_acc: 0.5384, train_loss: 1.6901, eval_loss: 1.2789
+2022-11-05 17:03:09,320 - graphVAE - INFO - BCE: 0.592, MSE: 0.661, KLD: 0.424
+2022-11-05 17:03:09,742 - graphVAE - INFO - epoch:  126, train_reg_acc: 0.4843, eval_reg_acc: 0.7963, train_cls_acc: 0.6698, eval_cls_acc: 0.6302, train_loss: 1.6830, eval_loss: 1.2786
+2022-11-05 17:03:09,742 - graphVAE - INFO - BCE: 0.609, MSE: 0.817, KLD: 0.327
+2022-11-05 17:03:10,148 - graphVAE - INFO - epoch:  127, train_reg_acc: 0.4821, eval_reg_acc: 0.7903, train_cls_acc: 0.6693, eval_cls_acc: 0.5225, train_loss: 1.6861, eval_loss: 1.2881
+2022-11-05 17:03:10,148 - graphVAE - INFO - BCE: 0.622, MSE: 0.790, KLD: 0.388
+2022-11-05 17:03:10,555 - graphVAE - INFO - epoch:  128, train_reg_acc: 0.4743, eval_reg_acc: 0.7953, train_cls_acc: 0.6703, eval_cls_acc: 0.5723, train_loss: 1.6960, eval_loss: 1.3054
+2022-11-05 17:03:10,555 - graphVAE - INFO - BCE: 0.596, MSE: 0.678, KLD: 0.323
+2022-11-05 17:03:10,961 - graphVAE - INFO - epoch:  129, train_reg_acc: 0.4897, eval_reg_acc: 0.8150, train_cls_acc: 0.6684, eval_cls_acc: 0.5737, train_loss: 1.6798, eval_loss: 1.2539
+2022-11-05 17:03:10,961 - graphVAE - INFO - Trained model saved, eval loss: 1.2539
+2022-11-05 17:03:10,977 - graphVAE - INFO - BCE: 0.649, MSE: 0.732, KLD: 0.391
+2022-11-05 17:03:11,383 - graphVAE - INFO - epoch:  130, train_reg_acc: 0.4778, eval_reg_acc: 0.8101, train_cls_acc: 0.6752, eval_cls_acc: 0.5790, train_loss: 1.6999, eval_loss: 1.2647
+2022-11-05 17:03:11,383 - graphVAE - INFO - BCE: 0.584, MSE: 0.773, KLD: 0.318
+2022-11-05 17:03:11,789 - graphVAE - INFO - epoch:  131, train_reg_acc: 0.4923, eval_reg_acc: 0.8177, train_cls_acc: 0.6745, eval_cls_acc: 0.6161, train_loss: 1.6669, eval_loss: 1.2456
+2022-11-05 17:03:11,789 - graphVAE - INFO - Trained model saved, eval loss: 1.2456
+2022-11-05 17:03:11,805 - graphVAE - INFO - BCE: 0.624, MSE: 0.741, KLD: 0.497
+2022-11-05 17:03:12,211 - graphVAE - INFO - epoch:  132, train_reg_acc: 0.4749, eval_reg_acc: 0.8262, train_cls_acc: 0.6691, eval_cls_acc: 0.6074, train_loss: 1.6941, eval_loss: 1.2547
+2022-11-05 17:03:12,211 - graphVAE - INFO - BCE: 0.571, MSE: 0.650, KLD: 0.369
+2022-11-05 17:03:12,633 - graphVAE - INFO - epoch:  133, train_reg_acc: 0.4827, eval_reg_acc: 0.8051, train_cls_acc: 0.6726, eval_cls_acc: 0.5376, train_loss: 1.6914, eval_loss: 1.2970
+2022-11-05 17:03:12,633 - graphVAE - INFO - BCE: 0.605, MSE: 0.683, KLD: 0.359
+2022-11-05 17:03:13,039 - graphVAE - INFO - epoch:  134, train_reg_acc: 0.4745, eval_reg_acc: 0.8067, train_cls_acc: 0.6722, eval_cls_acc: 0.5551, train_loss: 1.6926, eval_loss: 1.2719
+2022-11-05 17:03:13,039 - graphVAE - INFO - BCE: 0.603, MSE: 0.752, KLD: 0.339
+2022-11-05 17:03:13,461 - graphVAE - INFO - epoch:  135, train_reg_acc: 0.4838, eval_reg_acc: 0.8058, train_cls_acc: 0.6702, eval_cls_acc: 0.5557, train_loss: 1.6842, eval_loss: 1.2789
+2022-11-05 17:03:13,461 - graphVAE - INFO - BCE: 0.619, MSE: 0.732, KLD: 0.355
+2022-11-05 17:03:13,883 - graphVAE - INFO - epoch:  136, train_reg_acc: 0.4880, eval_reg_acc: 0.8139, train_cls_acc: 0.6733, eval_cls_acc: 0.5071, train_loss: 1.6760, eval_loss: 1.2856
+2022-11-05 17:03:13,883 - graphVAE - INFO - BCE: 0.588, MSE: 0.828, KLD: 0.370
+2022-11-05 17:03:14,289 - graphVAE - INFO - epoch:  137, train_reg_acc: 0.4928, eval_reg_acc: 0.8087, train_cls_acc: 0.6727, eval_cls_acc: 0.5502, train_loss: 1.6781, eval_loss: 1.2656
+2022-11-05 17:03:14,289 - graphVAE - INFO - BCE: 0.593, MSE: 0.522, KLD: 0.346
+2022-11-05 17:03:14,711 - graphVAE - INFO - epoch:  138, train_reg_acc: 0.4752, eval_reg_acc: 0.7948, train_cls_acc: 0.6696, eval_cls_acc: 0.5244, train_loss: 1.6961, eval_loss: 1.3107
+2022-11-05 17:03:14,711 - graphVAE - INFO - BCE: 0.643, MSE: 0.603, KLD: 0.307
+2022-11-05 17:03:15,117 - graphVAE - INFO - epoch:  139, train_reg_acc: 0.4909, eval_reg_acc: 0.7814, train_cls_acc: 0.6684, eval_cls_acc: 0.5421, train_loss: 1.6832, eval_loss: 1.2903
+2022-11-05 17:03:15,133 - graphVAE - INFO - BCE: 0.604, MSE: 0.713, KLD: 0.337
+2022-11-05 17:03:15,555 - graphVAE - INFO - epoch:  140, train_reg_acc: 0.4825, eval_reg_acc: 0.8065, train_cls_acc: 0.6706, eval_cls_acc: 0.5672, train_loss: 1.6909, eval_loss: 1.2729
+2022-11-05 17:03:15,570 - graphVAE - INFO - BCE: 0.593, MSE: 0.710, KLD: 0.383
+2022-11-05 17:03:15,977 - graphVAE - INFO - epoch:  141, train_reg_acc: 0.4837, eval_reg_acc: 0.8023, train_cls_acc: 0.6705, eval_cls_acc: 0.6185, train_loss: 1.6852, eval_loss: 1.2684
+2022-11-05 17:03:15,977 - graphVAE - INFO - BCE: 0.618, MSE: 0.630, KLD: 0.431
+2022-11-05 17:03:16,383 - graphVAE - INFO - epoch:  142, train_reg_acc: 0.4832, eval_reg_acc: 0.7982, train_cls_acc: 0.6738, eval_cls_acc: 0.6207, train_loss: 1.6834, eval_loss: 1.2686
+2022-11-05 17:03:16,398 - graphVAE - INFO - BCE: 0.607, MSE: 0.696, KLD: 0.406
+2022-11-05 17:03:16,805 - graphVAE - INFO - epoch:  143, train_reg_acc: 0.4894, eval_reg_acc: 0.7936, train_cls_acc: 0.6666, eval_cls_acc: 0.5519, train_loss: 1.6846, eval_loss: 1.2904
+2022-11-05 17:03:16,820 - graphVAE - INFO - BCE: 0.647, MSE: 0.731, KLD: 0.381
+2022-11-05 17:03:17,227 - graphVAE - INFO - epoch:  144, train_reg_acc: 0.4847, eval_reg_acc: 0.8032, train_cls_acc: 0.6714, eval_cls_acc: 0.5716, train_loss: 1.6863, eval_loss: 1.2781
+2022-11-05 17:03:17,227 - graphVAE - INFO - BCE: 0.646, MSE: 0.754, KLD: 0.369
+2022-11-05 17:03:17,633 - graphVAE - INFO - epoch:  145, train_reg_acc: 0.4930, eval_reg_acc: 0.8013, train_cls_acc: 0.6674, eval_cls_acc: 0.5515, train_loss: 1.6690, eval_loss: 1.2948
+2022-11-05 17:03:17,648 - graphVAE - INFO - BCE: 0.590, MSE: 0.680, KLD: 0.299
+2022-11-05 17:03:18,055 - graphVAE - INFO - epoch:  146, train_reg_acc: 0.4826, eval_reg_acc: 0.8108, train_cls_acc: 0.6757, eval_cls_acc: 0.5451, train_loss: 1.6847, eval_loss: 1.2854
+2022-11-05 17:03:18,055 - graphVAE - INFO - BCE: 0.569, MSE: 0.705, KLD: 0.375
+2022-11-05 17:03:18,461 - graphVAE - INFO - epoch:  147, train_reg_acc: 0.4843, eval_reg_acc: 0.7979, train_cls_acc: 0.6716, eval_cls_acc: 0.5242, train_loss: 1.6839, eval_loss: 1.2943
+2022-11-05 17:03:18,477 - graphVAE - INFO - BCE: 0.566, MSE: 0.602, KLD: 0.373
+2022-11-05 17:03:18,898 - graphVAE - INFO - epoch:  148, train_reg_acc: 0.4878, eval_reg_acc: 0.8138, train_cls_acc: 0.6699, eval_cls_acc: 0.4749, train_loss: 1.6735, eval_loss: 1.2978
+2022-11-05 17:03:18,898 - graphVAE - INFO - BCE: 0.610, MSE: 0.646, KLD: 0.361
+2022-11-05 17:03:19,305 - graphVAE - INFO - epoch:  149, train_reg_acc: 0.4883, eval_reg_acc: 0.8184, train_cls_acc: 0.6660, eval_cls_acc: 0.4714, train_loss: 1.6778, eval_loss: 1.3010
+2022-11-05 17:03:19,305 - graphVAE - INFO - BCE: 0.627, MSE: 0.720, KLD: 0.382
+2022-11-05 17:03:19,758 - graphVAE - INFO - epoch:  150, train_reg_acc: 0.4851, eval_reg_acc: 0.8037, train_cls_acc: 0.6720, eval_cls_acc: 0.5360, train_loss: 1.6820, eval_loss: 1.2841
+2022-11-05 17:03:19,758 - graphVAE - INFO - BCE: 0.584, MSE: 0.779, KLD: 0.335
+2022-11-05 17:03:20,180 - graphVAE - INFO - epoch:  151, train_reg_acc: 0.4856, eval_reg_acc: 0.8082, train_cls_acc: 0.6671, eval_cls_acc: 0.4622, train_loss: 1.6825, eval_loss: 1.3003
+2022-11-05 17:03:20,180 - graphVAE - INFO - BCE: 0.640, MSE: 0.842, KLD: 0.318
+2022-11-05 17:03:20,586 - graphVAE - INFO - epoch:  152, train_reg_acc: 0.4802, eval_reg_acc: 0.7867, train_cls_acc: 0.6734, eval_cls_acc: 0.5165, train_loss: 1.6931, eval_loss: 1.3307
+2022-11-05 17:03:20,602 - graphVAE - INFO - BCE: 0.582, MSE: 0.772, KLD: 0.330
+2022-11-05 17:03:21,028 - graphVAE - INFO - epoch:  153, train_reg_acc: 0.4841, eval_reg_acc: 0.8172, train_cls_acc: 0.6734, eval_cls_acc: 0.5462, train_loss: 1.6887, eval_loss: 1.2906
+2022-11-05 17:03:21,028 - graphVAE - INFO - BCE: 0.577, MSE: 0.729, KLD: 0.436
+2022-11-05 17:03:21,450 - graphVAE - INFO - epoch:  154, train_reg_acc: 0.4804, eval_reg_acc: 0.8006, train_cls_acc: 0.6690, eval_cls_acc: 0.5327, train_loss: 1.6888, eval_loss: 1.2921
+2022-11-05 17:03:21,450 - graphVAE - INFO - BCE: 0.580, MSE: 0.692, KLD: 0.360
+2022-11-05 17:03:21,872 - graphVAE - INFO - epoch:  155, train_reg_acc: 0.4886, eval_reg_acc: 0.7922, train_cls_acc: 0.6711, eval_cls_acc: 0.4896, train_loss: 1.6791, eval_loss: 1.3061
+2022-11-05 17:03:21,872 - graphVAE - INFO - BCE: 0.576, MSE: 0.743, KLD: 0.386
+2022-11-05 17:03:22,278 - graphVAE - INFO - epoch:  156, train_reg_acc: 0.4867, eval_reg_acc: 0.7846, train_cls_acc: 0.6743, eval_cls_acc: 0.5350, train_loss: 1.6797, eval_loss: 1.3025
+2022-11-05 17:03:22,278 - graphVAE - INFO - BCE: 0.568, MSE: 0.752, KLD: 0.379
+2022-11-05 17:03:22,700 - graphVAE - INFO - epoch:  157, train_reg_acc: 0.4841, eval_reg_acc: 0.8007, train_cls_acc: 0.6659, eval_cls_acc: 0.5158, train_loss: 1.6908, eval_loss: 1.2944
+2022-11-05 17:03:22,714 - graphVAE - INFO - BCE: 0.596, MSE: 0.710, KLD: 0.340
+2022-11-05 17:03:23,123 - graphVAE - INFO - epoch:  158, train_reg_acc: 0.4868, eval_reg_acc: 0.8010, train_cls_acc: 0.6729, eval_cls_acc: 0.5158, train_loss: 1.6818, eval_loss: 1.2888
+2022-11-05 17:03:23,123 - graphVAE - INFO - BCE: 0.595, MSE: 0.674, KLD: 0.329
+2022-11-05 17:03:23,529 - graphVAE - INFO - epoch:  159, train_reg_acc: 0.4844, eval_reg_acc: 0.8188, train_cls_acc: 0.6722, eval_cls_acc: 0.5212, train_loss: 1.6768, eval_loss: 1.2908
+2022-11-05 17:03:23,529 - graphVAE - INFO - BCE: 0.574, MSE: 0.725, KLD: 0.419
+2022-11-05 17:03:23,951 - graphVAE - INFO - epoch:  160, train_reg_acc: 0.4797, eval_reg_acc: 0.8089, train_cls_acc: 0.6756, eval_cls_acc: 0.4771, train_loss: 1.6889, eval_loss: 1.3055
+2022-11-05 17:03:23,951 - graphVAE - INFO - BCE: 0.609, MSE: 0.725, KLD: 0.362
+2022-11-05 17:03:24,357 - graphVAE - INFO - epoch:  161, train_reg_acc: 0.4911, eval_reg_acc: 0.8097, train_cls_acc: 0.6696, eval_cls_acc: 0.4765, train_loss: 1.6771, eval_loss: 1.2810
+2022-11-05 17:03:24,357 - graphVAE - INFO - BCE: 0.607, MSE: 0.665, KLD: 0.308
+2022-11-05 17:03:24,764 - graphVAE - INFO - epoch:  162, train_reg_acc: 0.4877, eval_reg_acc: 0.8016, train_cls_acc: 0.6751, eval_cls_acc: 0.5610, train_loss: 1.6757, eval_loss: 1.2770
+2022-11-05 17:03:24,779 - graphVAE - INFO - BCE: 0.574, MSE: 0.669, KLD: 0.367
+2022-11-05 17:03:25,185 - graphVAE - INFO - epoch:  163, train_reg_acc: 0.4897, eval_reg_acc: 0.7858, train_cls_acc: 0.6786, eval_cls_acc: 0.5884, train_loss: 1.6726, eval_loss: 1.2713
+2022-11-05 17:03:25,185 - graphVAE - INFO - BCE: 0.590, MSE: 0.728, KLD: 0.319
+2022-11-05 17:03:25,607 - graphVAE - INFO - epoch:  164, train_reg_acc: 0.4823, eval_reg_acc: 0.8047, train_cls_acc: 0.6727, eval_cls_acc: 0.5343, train_loss: 1.6872, eval_loss: 1.2796
+2022-11-05 17:03:25,607 - graphVAE - INFO - BCE: 0.577, MSE: 0.680, KLD: 0.343
+2022-11-05 17:03:26,029 - graphVAE - INFO - epoch:  165, train_reg_acc: 0.4866, eval_reg_acc: 0.8177, train_cls_acc: 0.6767, eval_cls_acc: 0.5423, train_loss: 1.6832, eval_loss: 1.2708
+2022-11-05 17:03:26,029 - graphVAE - INFO - BCE: 0.602, MSE: 0.697, KLD: 0.361
+2022-11-05 17:03:26,451 - graphVAE - INFO - epoch:  166, train_reg_acc: 0.4804, eval_reg_acc: 0.8104, train_cls_acc: 0.6732, eval_cls_acc: 0.5770, train_loss: 1.6888, eval_loss: 1.2767
+2022-11-05 17:03:26,451 - graphVAE - INFO - BCE: 0.610, MSE: 0.710, KLD: 0.394
+2022-11-05 17:03:26,873 - graphVAE - INFO - epoch:  167, train_reg_acc: 0.4886, eval_reg_acc: 0.8278, train_cls_acc: 0.6738, eval_cls_acc: 0.5877, train_loss: 1.6842, eval_loss: 1.2459
+2022-11-05 17:03:26,873 - graphVAE - INFO - BCE: 0.596, MSE: 0.689, KLD: 0.434
+2022-11-05 17:03:27,295 - graphVAE - INFO - epoch:  168, train_reg_acc: 0.4821, eval_reg_acc: 0.8108, train_cls_acc: 0.6769, eval_cls_acc: 0.5335, train_loss: 1.6868, eval_loss: 1.2619
+2022-11-05 17:03:27,295 - graphVAE - INFO - BCE: 0.590, MSE: 0.668, KLD: 0.327
+2022-11-05 17:03:27,717 - graphVAE - INFO - epoch:  169, train_reg_acc: 0.4818, eval_reg_acc: 0.8187, train_cls_acc: 0.6775, eval_cls_acc: 0.4910, train_loss: 1.6913, eval_loss: 1.2924
+2022-11-05 17:03:27,717 - graphVAE - INFO - BCE: 0.595, MSE: 0.761, KLD: 0.325
+2022-11-05 17:03:28,138 - graphVAE - INFO - epoch:  170, train_reg_acc: 0.4839, eval_reg_acc: 0.8158, train_cls_acc: 0.6660, eval_cls_acc: 0.4665, train_loss: 1.6877, eval_loss: 1.3103
+2022-11-05 17:03:28,144 - graphVAE - INFO - BCE: 0.660, MSE: 0.697, KLD: 0.367
+2022-11-05 17:03:28,571 - graphVAE - INFO - epoch:  171, train_reg_acc: 0.4829, eval_reg_acc: 0.8071, train_cls_acc: 0.6691, eval_cls_acc: 0.5618, train_loss: 1.7024, eval_loss: 1.2828
+2022-11-05 17:03:28,571 - graphVAE - INFO - BCE: 0.647, MSE: 0.711, KLD: 0.372
+2022-11-05 17:03:28,993 - graphVAE - INFO - epoch:  172, train_reg_acc: 0.4849, eval_reg_acc: 0.7967, train_cls_acc: 0.6786, eval_cls_acc: 0.5827, train_loss: 1.6953, eval_loss: 1.2856
+2022-11-05 17:03:29,009 - graphVAE - INFO - BCE: 0.625, MSE: 0.712, KLD: 0.393
+2022-11-05 17:03:29,415 - graphVAE - INFO - epoch:  173, train_reg_acc: 0.4833, eval_reg_acc: 0.8084, train_cls_acc: 0.6728, eval_cls_acc: 0.5282, train_loss: 1.6921, eval_loss: 1.2729
+2022-11-05 17:03:29,415 - graphVAE - INFO - BCE: 0.602, MSE: 0.823, KLD: 0.413
+2022-11-05 17:03:29,837 - graphVAE - INFO - epoch:  174, train_reg_acc: 0.4846, eval_reg_acc: 0.8079, train_cls_acc: 0.6771, eval_cls_acc: 0.5417, train_loss: 1.6884, eval_loss: 1.2791
+2022-11-05 17:03:29,837 - graphVAE - INFO - BCE: 0.623, MSE: 0.757, KLD: 0.408
+2022-11-05 17:03:30,243 - graphVAE - INFO - epoch:  175, train_reg_acc: 0.4862, eval_reg_acc: 0.7978, train_cls_acc: 0.6630, eval_cls_acc: 0.5035, train_loss: 1.6927, eval_loss: 1.2969
+2022-11-05 17:03:30,259 - graphVAE - INFO - BCE: 0.613, MSE: 0.667, KLD: 0.380
+2022-11-05 17:03:30,665 - graphVAE - INFO - epoch:  176, train_reg_acc: 0.4855, eval_reg_acc: 0.8072, train_cls_acc: 0.6698, eval_cls_acc: 0.5105, train_loss: 1.6824, eval_loss: 1.2941
+2022-11-05 17:03:30,665 - graphVAE - INFO - BCE: 0.618, MSE: 0.682, KLD: 0.401
+2022-11-05 17:03:31,071 - graphVAE - INFO - epoch:  177, train_reg_acc: 0.4870, eval_reg_acc: 0.8186, train_cls_acc: 0.6773, eval_cls_acc: 0.5415, train_loss: 1.6822, eval_loss: 1.2775
+2022-11-05 17:03:31,087 - graphVAE - INFO - BCE: 0.623, MSE: 0.631, KLD: 0.355
+2022-11-05 17:03:31,493 - graphVAE - INFO - epoch:  178, train_reg_acc: 0.4920, eval_reg_acc: 0.8176, train_cls_acc: 0.6757, eval_cls_acc: 0.5942, train_loss: 1.6775, eval_loss: 1.2507
+2022-11-05 17:03:31,493 - graphVAE - INFO - BCE: 0.529, MSE: 0.611, KLD: 0.335
+2022-11-05 17:03:31,899 - graphVAE - INFO - epoch:  179, train_reg_acc: 0.4885, eval_reg_acc: 0.8274, train_cls_acc: 0.6815, eval_cls_acc: 0.5079, train_loss: 1.6734, eval_loss: 1.2858
+2022-11-05 17:03:31,915 - graphVAE - INFO - BCE: 0.625, MSE: 0.802, KLD: 0.457
+2022-11-05 17:03:32,321 - graphVAE - INFO - epoch:  180, train_reg_acc: 0.4880, eval_reg_acc: 0.8146, train_cls_acc: 0.6739, eval_cls_acc: 0.5041, train_loss: 1.6814, eval_loss: 1.3153
+2022-11-05 17:03:32,321 - graphVAE - INFO - BCE: 0.604, MSE: 0.742, KLD: 0.354
+2022-11-05 17:03:32,759 - graphVAE - INFO - epoch:  181, train_reg_acc: 0.4846, eval_reg_acc: 0.8012, train_cls_acc: 0.6780, eval_cls_acc: 0.6035, train_loss: 1.6838, eval_loss: 1.2701
+2022-11-05 17:03:32,759 - graphVAE - INFO - BCE: 0.595, MSE: 0.770, KLD: 0.348
+2022-11-05 17:03:33,181 - graphVAE - INFO - epoch:  182, train_reg_acc: 0.4866, eval_reg_acc: 0.7907, train_cls_acc: 0.6676, eval_cls_acc: 0.5293, train_loss: 1.6862, eval_loss: 1.3051
+2022-11-05 17:03:33,181 - graphVAE - INFO - BCE: 0.612, MSE: 0.739, KLD: 0.379
+2022-11-05 17:03:33,602 - graphVAE - INFO - epoch:  183, train_reg_acc: 0.4927, eval_reg_acc: 0.8058, train_cls_acc: 0.6677, eval_cls_acc: 0.5739, train_loss: 1.6800, eval_loss: 1.2780
+2022-11-05 17:03:33,602 - graphVAE - INFO - BCE: 0.660, MSE: 0.719, KLD: 0.348
+2022-11-05 17:03:34,024 - graphVAE - INFO - epoch:  184, train_reg_acc: 0.4886, eval_reg_acc: 0.7845, train_cls_acc: 0.6761, eval_cls_acc: 0.5985, train_loss: 1.6832, eval_loss: 1.2835
+2022-11-05 17:03:34,024 - graphVAE - INFO - BCE: 0.573, MSE: 0.709, KLD: 0.393
+2022-11-05 17:03:34,431 - graphVAE - INFO - epoch:  185, train_reg_acc: 0.4851, eval_reg_acc: 0.8185, train_cls_acc: 0.6663, eval_cls_acc: 0.5428, train_loss: 1.6865, eval_loss: 1.2649
+2022-11-05 17:03:34,431 - graphVAE - INFO - BCE: 0.588, MSE: 0.927, KLD: 0.432
+2022-11-05 17:03:34,837 - graphVAE - INFO - epoch:  186, train_reg_acc: 0.4925, eval_reg_acc: 0.8186, train_cls_acc: 0.6723, eval_cls_acc: 0.5631, train_loss: 1.6840, eval_loss: 1.2670
+2022-11-05 17:03:34,852 - graphVAE - INFO - BCE: 0.621, MSE: 0.806, KLD: 0.421
+2022-11-05 17:03:35,259 - graphVAE - INFO - epoch:  187, train_reg_acc: 0.4900, eval_reg_acc: 0.8112, train_cls_acc: 0.6718, eval_cls_acc: 0.5200, train_loss: 1.6747, eval_loss: 1.2849
+2022-11-05 17:03:35,259 - graphVAE - INFO - BCE: 0.665, MSE: 0.761, KLD: 0.379
+2022-11-05 17:03:35,665 - graphVAE - INFO - epoch:  188, train_reg_acc: 0.4920, eval_reg_acc: 0.8100, train_cls_acc: 0.6754, eval_cls_acc: 0.5238, train_loss: 1.6717, eval_loss: 1.2766
+2022-11-05 17:03:35,665 - graphVAE - INFO - BCE: 0.594, MSE: 0.680, KLD: 0.389
+2022-11-05 17:03:36,087 - graphVAE - INFO - epoch:  189, train_reg_acc: 0.4882, eval_reg_acc: 0.7980, train_cls_acc: 0.6682, eval_cls_acc: 0.5213, train_loss: 1.6871, eval_loss: 1.2936
+2022-11-05 17:03:36,087 - graphVAE - INFO - BCE: 0.635, MSE: 0.783, KLD: 0.393
+2022-11-05 17:03:36,493 - graphVAE - INFO - epoch:  190, train_reg_acc: 0.4776, eval_reg_acc: 0.8165, train_cls_acc: 0.6730, eval_cls_acc: 0.5079, train_loss: 1.6958, eval_loss: 1.2972
+2022-11-05 17:03:36,493 - graphVAE - INFO - BCE: 0.635, MSE: 0.730, KLD: 0.432
+2022-11-05 17:03:36,901 - graphVAE - INFO - epoch:  191, train_reg_acc: 0.4913, eval_reg_acc: 0.8274, train_cls_acc: 0.6702, eval_cls_acc: 0.5072, train_loss: 1.6892, eval_loss: 1.2691
+2022-11-05 17:03:36,901 - graphVAE - INFO - BCE: 0.621, MSE: 0.832, KLD: 0.425
+2022-11-05 17:03:37,307 - graphVAE - INFO - epoch:  192, train_reg_acc: 0.4999, eval_reg_acc: 0.8134, train_cls_acc: 0.6672, eval_cls_acc: 0.5019, train_loss: 1.6693, eval_loss: 1.2884
+2022-11-05 17:03:37,307 - graphVAE - INFO - BCE: 0.606, MSE: 0.824, KLD: 0.371
+2022-11-05 17:03:37,713 - graphVAE - INFO - epoch:  193, train_reg_acc: 0.4874, eval_reg_acc: 0.8143, train_cls_acc: 0.6701, eval_cls_acc: 0.5216, train_loss: 1.6797, eval_loss: 1.2889
+2022-11-05 17:03:37,713 - graphVAE - INFO - BCE: 0.568, MSE: 0.644, KLD: 0.417
+2022-11-05 17:03:38,120 - graphVAE - INFO - epoch:  194, train_reg_acc: 0.4969, eval_reg_acc: 0.7999, train_cls_acc: 0.6770, eval_cls_acc: 0.4609, train_loss: 1.6674, eval_loss: 1.3234
+2022-11-05 17:03:38,135 - graphVAE - INFO - BCE: 0.618, MSE: 0.704, KLD: 0.383
+2022-11-05 17:03:38,538 - graphVAE - INFO - epoch:  195, train_reg_acc: 0.5012, eval_reg_acc: 0.8329, train_cls_acc: 0.6767, eval_cls_acc: 0.5250, train_loss: 1.6634, eval_loss: 1.2657
+2022-11-05 17:03:38,538 - graphVAE - INFO - BCE: 0.585, MSE: 0.719, KLD: 0.513
+2022-11-05 17:03:38,944 - graphVAE - INFO - epoch:  196, train_reg_acc: 0.5033, eval_reg_acc: 0.8201, train_cls_acc: 0.6748, eval_cls_acc: 0.5034, train_loss: 1.6608, eval_loss: 1.2676
+2022-11-05 17:03:38,944 - graphVAE - INFO - BCE: 0.623, MSE: 0.657, KLD: 0.363
+2022-11-05 17:03:39,351 - graphVAE - INFO - epoch:  197, train_reg_acc: 0.4946, eval_reg_acc: 0.8349, train_cls_acc: 0.6733, eval_cls_acc: 0.5627, train_loss: 1.6787, eval_loss: 1.2691
+2022-11-05 17:03:39,351 - graphVAE - INFO - BCE: 0.612, MSE: 0.638, KLD: 0.369
+2022-11-05 17:03:39,773 - graphVAE - INFO - epoch:  198, train_reg_acc: 0.5034, eval_reg_acc: 0.7926, train_cls_acc: 0.6736, eval_cls_acc: 0.5522, train_loss: 1.6653, eval_loss: 1.2944
+2022-11-05 17:03:39,773 - graphVAE - INFO - BCE: 0.592, MSE: 0.736, KLD: 0.371
+2022-11-05 17:03:40,179 - graphVAE - INFO - epoch:  199, train_reg_acc: 0.5067, eval_reg_acc: 0.8281, train_cls_acc: 0.6708, eval_cls_acc: 0.4961, train_loss: 1.6617, eval_loss: 1.2650
+2022-11-05 17:03:40,179 - graphVAE - INFO - BCE: 0.617, MSE: 0.762, KLD: 0.445
+2022-11-05 17:03:40,599 - graphVAE - INFO - epoch:  200, train_reg_acc: 0.5019, eval_reg_acc: 0.8090, train_cls_acc: 0.6779, eval_cls_acc: 0.4973, train_loss: 1.6664, eval_loss: 1.2991
+2022-11-05 17:03:40,599 - graphVAE - INFO - BCE: 0.577, MSE: 0.749, KLD: 0.409
+2022-11-05 17:03:41,021 - graphVAE - INFO - epoch:  201, train_reg_acc: 0.5045, eval_reg_acc: 0.8415, train_cls_acc: 0.6695, eval_cls_acc: 0.4960, train_loss: 1.6742, eval_loss: 1.2754
+2022-11-05 17:03:41,021 - graphVAE - INFO - BCE: 0.632, MSE: 0.672, KLD: 0.396
+2022-11-05 17:03:41,428 - graphVAE - INFO - epoch:  202, train_reg_acc: 0.5056, eval_reg_acc: 0.8121, train_cls_acc: 0.6740, eval_cls_acc: 0.5179, train_loss: 1.6624, eval_loss: 1.2829
+2022-11-05 17:03:41,428 - graphVAE - INFO - BCE: 0.628, MSE: 0.638, KLD: 0.406
+2022-11-05 17:03:41,849 - graphVAE - INFO - epoch:  203, train_reg_acc: 0.5081, eval_reg_acc: 0.8369, train_cls_acc: 0.6784, eval_cls_acc: 0.5335, train_loss: 1.6674, eval_loss: 1.2824
+2022-11-05 17:03:41,849 - graphVAE - INFO - BCE: 0.610, MSE: 0.680, KLD: 0.394
+2022-11-05 17:03:42,256 - graphVAE - INFO - epoch:  204, train_reg_acc: 0.5159, eval_reg_acc: 0.8162, train_cls_acc: 0.6840, eval_cls_acc: 0.5337, train_loss: 1.6453, eval_loss: 1.3045
+2022-11-05 17:03:42,256 - graphVAE - INFO - BCE: 0.608, MSE: 0.612, KLD: 0.371
+2022-11-05 17:03:42,662 - graphVAE - INFO - epoch:  205, train_reg_acc: 0.5218, eval_reg_acc: 0.8238, train_cls_acc: 0.6707, eval_cls_acc: 0.5264, train_loss: 1.6525, eval_loss: 1.2723
+2022-11-05 17:03:42,678 - graphVAE - INFO - BCE: 0.596, MSE: 0.834, KLD: 0.377
+2022-11-05 17:03:43,084 - graphVAE - INFO - epoch:  206, train_reg_acc: 0.5184, eval_reg_acc: 0.8264, train_cls_acc: 0.6722, eval_cls_acc: 0.4709, train_loss: 1.6531, eval_loss: 1.2822
+2022-11-05 17:03:43,084 - graphVAE - INFO - BCE: 0.628, MSE: 0.694, KLD: 0.470
+2022-11-05 17:03:43,537 - graphVAE - INFO - epoch:  207, train_reg_acc: 0.5228, eval_reg_acc: 0.8393, train_cls_acc: 0.6743, eval_cls_acc: 0.4613, train_loss: 1.6542, eval_loss: 1.3134
+2022-11-05 17:03:43,537 - graphVAE - INFO - BCE: 0.531, MSE: 0.677, KLD: 0.346
+2022-11-05 17:03:43,959 - graphVAE - INFO - epoch:  208, train_reg_acc: 0.5296, eval_reg_acc: 0.8373, train_cls_acc: 0.6712, eval_cls_acc: 0.4699, train_loss: 1.6445, eval_loss: 1.2717
+2022-11-05 17:03:43,959 - graphVAE - INFO - BCE: 0.599, MSE: 0.582, KLD: 0.323
+2022-11-05 17:03:44,365 - graphVAE - INFO - epoch:  209, train_reg_acc: 0.5207, eval_reg_acc: 0.8350, train_cls_acc: 0.6751, eval_cls_acc: 0.4929, train_loss: 1.6471, eval_loss: 1.2930
+2022-11-05 17:03:44,365 - graphVAE - INFO - BCE: 0.632, MSE: 0.706, KLD: 0.347
+2022-11-05 17:03:44,803 - graphVAE - INFO - epoch:  210, train_reg_acc: 0.5263, eval_reg_acc: 0.8267, train_cls_acc: 0.6749, eval_cls_acc: 0.5015, train_loss: 1.6460, eval_loss: 1.2963
+2022-11-05 17:03:44,818 - graphVAE - INFO - BCE: 0.570, MSE: 0.680, KLD: 0.471
+2022-11-05 17:03:45,224 - graphVAE - INFO - epoch:  211, train_reg_acc: 0.5280, eval_reg_acc: 0.8217, train_cls_acc: 0.6769, eval_cls_acc: 0.4950, train_loss: 1.6459, eval_loss: 1.2873
+2022-11-05 17:03:45,224 - graphVAE - INFO - BCE: 0.598, MSE: 0.578, KLD: 0.447
+2022-11-05 17:03:45,631 - graphVAE - INFO - epoch:  212, train_reg_acc: 0.5267, eval_reg_acc: 0.8307, train_cls_acc: 0.6692, eval_cls_acc: 0.4848, train_loss: 1.6400, eval_loss: 1.3022
+2022-11-05 17:03:45,646 - graphVAE - INFO - BCE: 0.609, MSE: 0.671, KLD: 0.471
+2022-11-05 17:03:46,068 - graphVAE - INFO - epoch:  213, train_reg_acc: 0.5267, eval_reg_acc: 0.8135, train_cls_acc: 0.6737, eval_cls_acc: 0.5036, train_loss: 1.6521, eval_loss: 1.2949
+2022-11-05 17:03:46,068 - graphVAE - INFO - BCE: 0.608, MSE: 0.636, KLD: 0.393
+2022-11-05 17:03:46,474 - graphVAE - INFO - epoch:  214, train_reg_acc: 0.5287, eval_reg_acc: 0.8150, train_cls_acc: 0.6747, eval_cls_acc: 0.4773, train_loss: 1.6420, eval_loss: 1.3251
+2022-11-05 17:03:46,474 - graphVAE - INFO - BCE: 0.632, MSE: 0.631, KLD: 0.308
+2022-11-05 17:03:46,912 - graphVAE - INFO - epoch:  215, train_reg_acc: 0.5269, eval_reg_acc: 0.8272, train_cls_acc: 0.6723, eval_cls_acc: 0.4724, train_loss: 1.6412, eval_loss: 1.3081
+2022-11-05 17:03:46,928 - graphVAE - INFO - BCE: 0.588, MSE: 0.621, KLD: 0.440
+2022-11-05 17:03:47,334 - graphVAE - INFO - epoch:  216, train_reg_acc: 0.5328, eval_reg_acc: 0.8059, train_cls_acc: 0.6760, eval_cls_acc: 0.4692, train_loss: 1.6258, eval_loss: 1.3306
+2022-11-05 17:03:47,334 - graphVAE - INFO - BCE: 0.581, MSE: 0.577, KLD: 0.405
+2022-11-05 17:03:47,740 - graphVAE - INFO - epoch:  217, train_reg_acc: 0.5285, eval_reg_acc: 0.8289, train_cls_acc: 0.6723, eval_cls_acc: 0.4912, train_loss: 1.6503, eval_loss: 1.3213
+2022-11-05 17:03:47,756 - graphVAE - INFO - BCE: 0.589, MSE: 0.624, KLD: 0.344
+2022-11-05 17:03:48,162 - graphVAE - INFO - epoch:  218, train_reg_acc: 0.5328, eval_reg_acc: 0.8348, train_cls_acc: 0.6771, eval_cls_acc: 0.4814, train_loss: 1.6410, eval_loss: 1.2995
+2022-11-05 17:03:48,162 - graphVAE - INFO - BCE: 0.590, MSE: 0.652, KLD: 0.376
+2022-11-05 17:03:48,568 - graphVAE - INFO - epoch:  219, train_reg_acc: 0.5281, eval_reg_acc: 0.8316, train_cls_acc: 0.6701, eval_cls_acc: 0.4396, train_loss: 1.6525, eval_loss: 1.3033
+2022-11-05 17:03:48,584 - graphVAE - INFO - BCE: 0.595, MSE: 0.647, KLD: 0.393
+2022-11-05 17:03:48,990 - graphVAE - INFO - epoch:  220, train_reg_acc: 0.5407, eval_reg_acc: 0.8349, train_cls_acc: 0.6687, eval_cls_acc: 0.4785, train_loss: 1.6355, eval_loss: 1.2860
+2022-11-05 17:03:48,990 - graphVAE - INFO - BCE: 0.566, MSE: 0.615, KLD: 0.352
+2022-11-05 17:03:49,396 - graphVAE - INFO - epoch:  221, train_reg_acc: 0.5274, eval_reg_acc: 0.8236, train_cls_acc: 0.6731, eval_cls_acc: 0.4815, train_loss: 1.6446, eval_loss: 1.3125
+2022-11-05 17:03:49,396 - graphVAE - INFO - BCE: 0.685, MSE: 0.691, KLD: 0.453
+2022-11-05 17:03:49,818 - graphVAE - INFO - epoch:  222, train_reg_acc: 0.5371, eval_reg_acc: 0.8212, train_cls_acc: 0.6693, eval_cls_acc: 0.4728, train_loss: 1.6373, eval_loss: 1.3105
+2022-11-05 17:03:49,818 - graphVAE - INFO - BCE: 0.645, MSE: 0.580, KLD: 0.393
+2022-11-05 17:03:50,224 - graphVAE - INFO - epoch:  223, train_reg_acc: 0.5393, eval_reg_acc: 0.8373, train_cls_acc: 0.6685, eval_cls_acc: 0.4366, train_loss: 1.6383, eval_loss: 1.3305
+2022-11-05 17:03:50,224 - graphVAE - INFO - BCE: 0.673, MSE: 0.540, KLD: 0.357
+2022-11-05 17:03:50,646 - graphVAE - INFO - epoch:  224, train_reg_acc: 0.5263, eval_reg_acc: 0.8288, train_cls_acc: 0.6734, eval_cls_acc: 0.4564, train_loss: 1.6583, eval_loss: 1.3166
+2022-11-05 17:03:50,646 - graphVAE - INFO - BCE: 0.633, MSE: 0.639, KLD: 0.374
+2022-11-05 17:03:51,068 - graphVAE - INFO - epoch:  225, train_reg_acc: 0.5327, eval_reg_acc: 0.8342, train_cls_acc: 0.6788, eval_cls_acc: 0.4499, train_loss: 1.6405, eval_loss: 1.3069
+2022-11-05 17:03:51,068 - graphVAE - INFO - BCE: 0.659, MSE: 0.706, KLD: 0.353
+2022-11-05 17:03:51,474 - graphVAE - INFO - epoch:  226, train_reg_acc: 0.5313, eval_reg_acc: 0.8234, train_cls_acc: 0.6715, eval_cls_acc: 0.4496, train_loss: 1.6406, eval_loss: 1.3306
+2022-11-05 17:03:51,474 - graphVAE - INFO - BCE: 0.587, MSE: 0.657, KLD: 0.387
+2022-11-05 17:03:51,896 - graphVAE - INFO - epoch:  227, train_reg_acc: 0.5318, eval_reg_acc: 0.8446, train_cls_acc: 0.6761, eval_cls_acc: 0.5019, train_loss: 1.6429, eval_loss: 1.2816
+2022-11-05 17:03:51,896 - graphVAE - INFO - BCE: 0.578, MSE: 0.645, KLD: 0.397
+2022-11-05 17:03:52,303 - graphVAE - INFO - epoch:  228, train_reg_acc: 0.5346, eval_reg_acc: 0.8313, train_cls_acc: 0.6768, eval_cls_acc: 0.4848, train_loss: 1.6312, eval_loss: 1.3003
+2022-11-05 17:03:52,318 - graphVAE - INFO - BCE: 0.624, MSE: 0.627, KLD: 0.301
+2022-11-05 17:03:52,725 - graphVAE - INFO - epoch:  229, train_reg_acc: 0.5389, eval_reg_acc: 0.8270, train_cls_acc: 0.6752, eval_cls_acc: 0.4687, train_loss: 1.6330, eval_loss: 1.2924
+2022-11-05 17:03:52,725 - graphVAE - INFO - BCE: 0.593, MSE: 0.722, KLD: 0.390
+2022-11-05 17:03:53,131 - graphVAE - INFO - epoch:  230, train_reg_acc: 0.5367, eval_reg_acc: 0.8388, train_cls_acc: 0.6743, eval_cls_acc: 0.4903, train_loss: 1.6351, eval_loss: 1.3072
+2022-11-05 17:03:53,131 - graphVAE - INFO - BCE: 0.600, MSE: 0.563, KLD: 0.388
+2022-11-05 17:03:53,537 - graphVAE - INFO - epoch:  231, train_reg_acc: 0.5310, eval_reg_acc: 0.8322, train_cls_acc: 0.6717, eval_cls_acc: 0.4882, train_loss: 1.6497, eval_loss: 1.2975
+2022-11-05 17:03:53,553 - graphVAE - INFO - BCE: 0.571, MSE: 0.538, KLD: 0.344
+2022-11-05 17:03:53,959 - graphVAE - INFO - epoch:  232, train_reg_acc: 0.5306, eval_reg_acc: 0.8240, train_cls_acc: 0.6780, eval_cls_acc: 0.4733, train_loss: 1.6512, eval_loss: 1.3265
+2022-11-05 17:03:53,959 - graphVAE - INFO - BCE: 0.585, MSE: 0.649, KLD: 0.368
+2022-11-05 17:03:54,365 - graphVAE - INFO - epoch:  233, train_reg_acc: 0.5402, eval_reg_acc: 0.8323, train_cls_acc: 0.6789, eval_cls_acc: 0.5014, train_loss: 1.6239, eval_loss: 1.2780
+2022-11-05 17:03:54,381 - graphVAE - INFO - BCE: 0.622, MSE: 0.661, KLD: 0.408
+2022-11-05 17:03:54,803 - graphVAE - INFO - epoch:  234, train_reg_acc: 0.5347, eval_reg_acc: 0.8402, train_cls_acc: 0.6719, eval_cls_acc: 0.4478, train_loss: 1.6373, eval_loss: 1.2880
+2022-11-05 17:03:54,803 - graphVAE - INFO - BCE: 0.575, MSE: 0.663, KLD: 0.422
+2022-11-05 17:03:55,209 - graphVAE - INFO - epoch:  235, train_reg_acc: 0.5309, eval_reg_acc: 0.8265, train_cls_acc: 0.6749, eval_cls_acc: 0.4865, train_loss: 1.6382, eval_loss: 1.2970
+2022-11-05 17:03:55,225 - graphVAE - INFO - BCE: 0.619, MSE: 0.635, KLD: 0.347
+2022-11-05 17:03:55,631 - graphVAE - INFO - epoch:  236, train_reg_acc: 0.5317, eval_reg_acc: 0.8295, train_cls_acc: 0.6680, eval_cls_acc: 0.4638, train_loss: 1.6440, eval_loss: 1.3098
+2022-11-05 17:03:55,631 - graphVAE - INFO - BCE: 0.655, MSE: 0.628, KLD: 0.359
+2022-11-05 17:03:56,053 - graphVAE - INFO - epoch:  237, train_reg_acc: 0.5346, eval_reg_acc: 0.8407, train_cls_acc: 0.6740, eval_cls_acc: 0.4669, train_loss: 1.6430, eval_loss: 1.2821
+2022-11-05 17:03:56,053 - graphVAE - INFO - BCE: 0.591, MSE: 0.562, KLD: 0.324
+2022-11-05 17:03:56,459 - graphVAE - INFO - epoch:  238, train_reg_acc: 0.5376, eval_reg_acc: 0.8434, train_cls_acc: 0.6717, eval_cls_acc: 0.4503, train_loss: 1.6402, eval_loss: 1.3012
+2022-11-05 17:03:56,475 - graphVAE - INFO - BCE: 0.647, MSE: 0.733, KLD: 0.330
+2022-11-05 17:03:56,928 - graphVAE - INFO - epoch:  239, train_reg_acc: 0.5397, eval_reg_acc: 0.8363, train_cls_acc: 0.6656, eval_cls_acc: 0.4443, train_loss: 1.6383, eval_loss: 1.2922
+2022-11-05 17:03:56,928 - graphVAE - INFO - BCE: 0.625, MSE: 0.632, KLD: 0.427
+2022-11-05 17:03:57,365 - graphVAE - INFO - epoch:  240, train_reg_acc: 0.5368, eval_reg_acc: 0.8316, train_cls_acc: 0.6685, eval_cls_acc: 0.4678, train_loss: 1.6328, eval_loss: 1.2991
+2022-11-05 17:03:57,381 - graphVAE - INFO - BCE: 0.568, MSE: 0.708, KLD: 0.345
+2022-11-05 17:03:57,787 - graphVAE - INFO - epoch:  241, train_reg_acc: 0.5389, eval_reg_acc: 0.8199, train_cls_acc: 0.6719, eval_cls_acc: 0.4677, train_loss: 1.6313, eval_loss: 1.2886
+2022-11-05 17:03:57,787 - graphVAE - INFO - BCE: 0.623, MSE: 0.669, KLD: 0.360
+2022-11-05 17:03:58,194 - graphVAE - INFO - epoch:  242, train_reg_acc: 0.5328, eval_reg_acc: 0.8184, train_cls_acc: 0.6733, eval_cls_acc: 0.4595, train_loss: 1.6349, eval_loss: 1.3277
+2022-11-05 17:03:58,209 - graphVAE - INFO - BCE: 0.614, MSE: 0.628, KLD: 0.430
+2022-11-05 17:03:58,615 - graphVAE - INFO - epoch:  243, train_reg_acc: 0.5328, eval_reg_acc: 0.8315, train_cls_acc: 0.6700, eval_cls_acc: 0.4656, train_loss: 1.6436, eval_loss: 1.2957
+2022-11-05 17:03:58,631 - graphVAE - INFO - BCE: 0.558, MSE: 0.646, KLD: 0.425
+2022-11-05 17:03:59,037 - graphVAE - INFO - epoch:  244, train_reg_acc: 0.5339, eval_reg_acc: 0.8337, train_cls_acc: 0.6809, eval_cls_acc: 0.4772, train_loss: 1.6375, eval_loss: 1.2847
+2022-11-05 17:03:59,037 - graphVAE - INFO - BCE: 0.568, MSE: 0.669, KLD: 0.437
+2022-11-05 17:03:59,459 - graphVAE - INFO - epoch:  245, train_reg_acc: 0.5329, eval_reg_acc: 0.8275, train_cls_acc: 0.6768, eval_cls_acc: 0.4266, train_loss: 1.6370, eval_loss: 1.3327
+2022-11-05 17:03:59,459 - graphVAE - INFO - BCE: 0.564, MSE: 0.663, KLD: 0.352
+2022-11-05 17:03:59,865 - graphVAE - INFO - epoch:  246, train_reg_acc: 0.5374, eval_reg_acc: 0.8403, train_cls_acc: 0.6702, eval_cls_acc: 0.4322, train_loss: 1.6418, eval_loss: 1.3129
+2022-11-05 17:03:59,881 - graphVAE - INFO - BCE: 0.587, MSE: 0.626, KLD: 0.346
+2022-11-05 17:04:00,287 - graphVAE - INFO - epoch:  247, train_reg_acc: 0.5426, eval_reg_acc: 0.8342, train_cls_acc: 0.6831, eval_cls_acc: 0.4564, train_loss: 1.6237, eval_loss: 1.3050
+2022-11-05 17:04:00,287 - graphVAE - INFO - BCE: 0.611, MSE: 0.654, KLD: 0.402
+2022-11-05 17:04:00,709 - graphVAE - INFO - epoch:  248, train_reg_acc: 0.5331, eval_reg_acc: 0.8381, train_cls_acc: 0.6747, eval_cls_acc: 0.4209, train_loss: 1.6438, eval_loss: 1.3193
+2022-11-05 17:04:00,709 - graphVAE - INFO - BCE: 0.639, MSE: 0.651, KLD: 0.360
+2022-11-05 17:04:01,115 - graphVAE - INFO - epoch:  249, train_reg_acc: 0.5336, eval_reg_acc: 0.8340, train_cls_acc: 0.6725, eval_cls_acc: 0.4904, train_loss: 1.6410, eval_loss: 1.2892
+2022-11-05 17:04:01,115 - graphVAE - INFO - BCE: 0.584, MSE: 0.650, KLD: 0.365
+2022-11-05 17:04:01,553 - graphVAE - INFO - epoch:  250, train_reg_acc: 0.5390, eval_reg_acc: 0.8395, train_cls_acc: 0.6772, eval_cls_acc: 0.4809, train_loss: 1.6296, eval_loss: 1.2798
+2022-11-05 17:04:01,569 - graphVAE - INFO - BCE: 0.607, MSE: 0.615, KLD: 0.401
+2022-11-05 17:04:01,990 - graphVAE - INFO - epoch:  251, train_reg_acc: 0.5402, eval_reg_acc: 0.8363, train_cls_acc: 0.6697, eval_cls_acc: 0.4847, train_loss: 1.6374, eval_loss: 1.2823
+2022-11-05 17:04:01,990 - graphVAE - INFO - BCE: 0.581, MSE: 0.639, KLD: 0.358
+2022-11-05 17:04:02,397 - graphVAE - INFO - epoch:  252, train_reg_acc: 0.5401, eval_reg_acc: 0.8240, train_cls_acc: 0.6746, eval_cls_acc: 0.4836, train_loss: 1.6349, eval_loss: 1.3002
+2022-11-05 17:04:02,412 - graphVAE - INFO - BCE: 0.586, MSE: 0.624, KLD: 0.401
+2022-11-05 17:04:02,819 - graphVAE - INFO - epoch:  253, train_reg_acc: 0.5317, eval_reg_acc: 0.8309, train_cls_acc: 0.6812, eval_cls_acc: 0.4941, train_loss: 1.6354, eval_loss: 1.2992
+2022-11-05 17:04:02,834 - graphVAE - INFO - BCE: 0.548, MSE: 0.553, KLD: 0.319
+2022-11-05 17:04:03,240 - graphVAE - INFO - epoch:  254, train_reg_acc: 0.5426, eval_reg_acc: 0.8329, train_cls_acc: 0.6818, eval_cls_acc: 0.4631, train_loss: 1.6304, eval_loss: 1.3350
+2022-11-05 17:04:03,240 - graphVAE - INFO - BCE: 0.667, MSE: 0.631, KLD: 0.442
+2022-11-05 17:04:03,647 - graphVAE - INFO - epoch:  255, train_reg_acc: 0.5350, eval_reg_acc: 0.8335, train_cls_acc: 0.6695, eval_cls_acc: 0.4458, train_loss: 1.6407, eval_loss: 1.3144
+2022-11-05 17:04:03,662 - graphVAE - INFO - BCE: 0.650, MSE: 0.659, KLD: 0.338
+2022-11-05 17:04:04,069 - graphVAE - INFO - epoch:  256, train_reg_acc: 0.5451, eval_reg_acc: 0.8315, train_cls_acc: 0.6785, eval_cls_acc: 0.5325, train_loss: 1.6185, eval_loss: 1.2688
+2022-11-05 17:04:04,069 - graphVAE - INFO - BCE: 0.608, MSE: 0.617, KLD: 0.446
+2022-11-05 17:04:04,475 - graphVAE - INFO - epoch:  257, train_reg_acc: 0.5405, eval_reg_acc: 0.8180, train_cls_acc: 0.6694, eval_cls_acc: 0.4723, train_loss: 1.6377, eval_loss: 1.3239
+2022-11-05 17:04:04,490 - graphVAE - INFO - BCE: 0.619, MSE: 0.669, KLD: 0.405
+2022-11-05 17:04:04,897 - graphVAE - INFO - epoch:  258, train_reg_acc: 0.5400, eval_reg_acc: 0.8302, train_cls_acc: 0.6650, eval_cls_acc: 0.4423, train_loss: 1.6416, eval_loss: 1.2980
+2022-11-05 17:04:04,897 - graphVAE - INFO - BCE: 0.611, MSE: 0.747, KLD: 0.455
+2022-11-05 17:04:05,303 - graphVAE - INFO - epoch:  259, train_reg_acc: 0.5327, eval_reg_acc: 0.8275, train_cls_acc: 0.6725, eval_cls_acc: 0.4834, train_loss: 1.6392, eval_loss: 1.2936
+2022-11-05 17:04:05,319 - graphVAE - INFO - BCE: 0.623, MSE: 0.616, KLD: 0.367
+2022-11-05 17:04:05,725 - graphVAE - INFO - epoch:  260, train_reg_acc: 0.5393, eval_reg_acc: 0.8385, train_cls_acc: 0.6686, eval_cls_acc: 0.4458, train_loss: 1.6393, eval_loss: 1.3109
+2022-11-05 17:04:05,725 - graphVAE - INFO - BCE: 0.648, MSE: 0.645, KLD: 0.420
+2022-11-05 17:04:06,131 - graphVAE - INFO - epoch:  261, train_reg_acc: 0.5448, eval_reg_acc: 0.8425, train_cls_acc: 0.6727, eval_cls_acc: 0.4716, train_loss: 1.6323, eval_loss: 1.2761
+2022-11-05 17:04:06,147 - graphVAE - INFO - BCE: 0.602, MSE: 0.569, KLD: 0.401
+2022-11-05 17:04:06,553 - graphVAE - INFO - epoch:  262, train_reg_acc: 0.5425, eval_reg_acc: 0.8302, train_cls_acc: 0.6735, eval_cls_acc: 0.4792, train_loss: 1.6201, eval_loss: 1.2889
+2022-11-05 17:04:06,553 - graphVAE - INFO - BCE: 0.615, MSE: 0.602, KLD: 0.473
+2022-11-05 17:04:06,959 - graphVAE - INFO - epoch:  263, train_reg_acc: 0.5441, eval_reg_acc: 0.8387, train_cls_acc: 0.6760, eval_cls_acc: 0.5060, train_loss: 1.6299, eval_loss: 1.2715
+2022-11-05 17:04:06,975 - graphVAE - INFO - BCE: 0.596, MSE: 0.594, KLD: 0.368
+2022-11-05 17:04:07,381 - graphVAE - INFO - epoch:  264, train_reg_acc: 0.5419, eval_reg_acc: 0.8384, train_cls_acc: 0.6693, eval_cls_acc: 0.5032, train_loss: 1.6357, eval_loss: 1.2780
+2022-11-05 17:04:07,381 - graphVAE - INFO - BCE: 0.622, MSE: 0.652, KLD: 0.361
+2022-11-05 17:04:07,787 - graphVAE - INFO - epoch:  265, train_reg_acc: 0.5322, eval_reg_acc: 0.8363, train_cls_acc: 0.6677, eval_cls_acc: 0.4469, train_loss: 1.6493, eval_loss: 1.2794
+2022-11-05 17:04:07,803 - graphVAE - INFO - BCE: 0.625, MSE: 0.681, KLD: 0.361
+2022-11-05 17:04:08,209 - graphVAE - INFO - epoch:  266, train_reg_acc: 0.5343, eval_reg_acc: 0.8305, train_cls_acc: 0.6694, eval_cls_acc: 0.4704, train_loss: 1.6441, eval_loss: 1.2967
+2022-11-05 17:04:08,209 - graphVAE - INFO - BCE: 0.631, MSE: 0.633, KLD: 0.456
+2022-11-05 17:04:08,615 - graphVAE - INFO - epoch:  267, train_reg_acc: 0.5334, eval_reg_acc: 0.8220, train_cls_acc: 0.6645, eval_cls_acc: 0.5252, train_loss: 1.6436, eval_loss: 1.2905
+2022-11-05 17:04:08,631 - graphVAE - INFO - BCE: 0.593, MSE: 0.676, KLD: 0.351
+2022-11-05 17:04:09,037 - graphVAE - INFO - epoch:  268, train_reg_acc: 0.5338, eval_reg_acc: 0.8337, train_cls_acc: 0.6782, eval_cls_acc: 0.5018, train_loss: 1.6423, eval_loss: 1.2870
+2022-11-05 17:04:09,037 - graphVAE - INFO - BCE: 0.586, MSE: 0.665, KLD: 0.381
+2022-11-05 17:04:09,444 - graphVAE - INFO - epoch:  269, train_reg_acc: 0.5336, eval_reg_acc: 0.8298, train_cls_acc: 0.6703, eval_cls_acc: 0.4797, train_loss: 1.6460, eval_loss: 1.3032
+2022-11-05 17:04:09,444 - graphVAE - INFO - BCE: 0.600, MSE: 0.604, KLD: 0.424
+2022-11-05 17:04:09,850 - graphVAE - INFO - epoch:  270, train_reg_acc: 0.5484, eval_reg_acc: 0.8296, train_cls_acc: 0.6807, eval_cls_acc: 0.5101, train_loss: 1.6227, eval_loss: 1.2803
+2022-11-05 17:04:09,865 - graphVAE - INFO - BCE: 0.590, MSE: 0.588, KLD: 0.401
+2022-11-05 17:04:10,272 - graphVAE - INFO - epoch:  271, train_reg_acc: 0.5361, eval_reg_acc: 0.8324, train_cls_acc: 0.6750, eval_cls_acc: 0.5163, train_loss: 1.6467, eval_loss: 1.2899
+2022-11-05 17:04:10,272 - graphVAE - INFO - BCE: 0.635, MSE: 0.682, KLD: 0.376
+2022-11-05 17:04:10,678 - graphVAE - INFO - epoch:  272, train_reg_acc: 0.5441, eval_reg_acc: 0.8353, train_cls_acc: 0.6754, eval_cls_acc: 0.4533, train_loss: 1.6215, eval_loss: 1.2856
+2022-11-05 17:04:10,694 - graphVAE - INFO - BCE: 0.597, MSE: 0.671, KLD: 0.330
+2022-11-05 17:04:11,100 - graphVAE - INFO - epoch:  273, train_reg_acc: 0.5384, eval_reg_acc: 0.8395, train_cls_acc: 0.6708, eval_cls_acc: 0.4775, train_loss: 1.6415, eval_loss: 1.2770
+2022-11-05 17:04:11,100 - graphVAE - INFO - BCE: 0.598, MSE: 0.627, KLD: 0.394
+2022-11-05 17:04:11,506 - graphVAE - INFO - epoch:  274, train_reg_acc: 0.5363, eval_reg_acc: 0.8252, train_cls_acc: 0.6684, eval_cls_acc: 0.4877, train_loss: 1.6412, eval_loss: 1.2855
+2022-11-05 17:04:11,522 - graphVAE - INFO - BCE: 0.644, MSE: 0.723, KLD: 0.365
+2022-11-05 17:04:11,912 - graphVAE - INFO - epoch:  275, train_reg_acc: 0.5359, eval_reg_acc: 0.8342, train_cls_acc: 0.6732, eval_cls_acc: 0.4884, train_loss: 1.6493, eval_loss: 1.2918
+2022-11-05 17:04:11,928 - graphVAE - INFO - BCE: 0.590, MSE: 0.667, KLD: 0.405
+2022-11-05 17:04:12,334 - graphVAE - INFO - epoch:  276, train_reg_acc: 0.5390, eval_reg_acc: 0.8256, train_cls_acc: 0.6741, eval_cls_acc: 0.5000, train_loss: 1.6320, eval_loss: 1.3034
+2022-11-05 17:04:12,334 - graphVAE - INFO - BCE: 0.566, MSE: 0.603, KLD: 0.343
+2022-11-05 17:04:12,740 - graphVAE - INFO - epoch:  277, train_reg_acc: 0.5360, eval_reg_acc: 0.8395, train_cls_acc: 0.6732, eval_cls_acc: 0.4142, train_loss: 1.6413, eval_loss: 1.3211
+2022-11-05 17:04:12,740 - graphVAE - INFO - BCE: 0.603, MSE: 0.640, KLD: 0.426
+2022-11-05 17:04:13,162 - graphVAE - INFO - epoch:  278, train_reg_acc: 0.5380, eval_reg_acc: 0.8324, train_cls_acc: 0.6706, eval_cls_acc: 0.4814, train_loss: 1.6396, eval_loss: 1.2883
+2022-11-05 17:04:13,162 - graphVAE - INFO - BCE: 0.567, MSE: 0.662, KLD: 0.433
+2022-11-05 17:04:13,569 - graphVAE - INFO - epoch:  279, train_reg_acc: 0.5418, eval_reg_acc: 0.8357, train_cls_acc: 0.6657, eval_cls_acc: 0.4361, train_loss: 1.6328, eval_loss: 1.3012
+2022-11-05 17:04:13,569 - graphVAE - INFO - BCE: 0.635, MSE: 0.599, KLD: 0.375
+2022-11-05 17:04:13,975 - graphVAE - INFO - epoch:  280, train_reg_acc: 0.5402, eval_reg_acc: 0.8413, train_cls_acc: 0.6734, eval_cls_acc: 0.4728, train_loss: 1.6242, eval_loss: 1.2850
+2022-11-05 17:04:13,975 - graphVAE - INFO - BCE: 0.628, MSE: 0.598, KLD: 0.411
+2022-11-05 17:04:14,381 - graphVAE - INFO - epoch:  281, train_reg_acc: 0.5417, eval_reg_acc: 0.8299, train_cls_acc: 0.6745, eval_cls_acc: 0.4717, train_loss: 1.6305, eval_loss: 1.2862
+2022-11-05 17:04:14,397 - graphVAE - INFO - BCE: 0.607, MSE: 0.605, KLD: 0.362
+2022-11-05 17:04:14,850 - graphVAE - INFO - epoch:  282, train_reg_acc: 0.5382, eval_reg_acc: 0.8360, train_cls_acc: 0.6659, eval_cls_acc: 0.4337, train_loss: 1.6457, eval_loss: 1.3157
+2022-11-05 17:04:14,850 - graphVAE - INFO - BCE: 0.597, MSE: 0.563, KLD: 0.449
+2022-11-05 17:04:15,250 - graphVAE - INFO - epoch:  283, train_reg_acc: 0.5521, eval_reg_acc: 0.8384, train_cls_acc: 0.6658, eval_cls_acc: 0.4560, train_loss: 1.6247, eval_loss: 1.2779
+2022-11-05 17:04:15,265 - graphVAE - INFO - BCE: 0.621, MSE: 0.618, KLD: 0.348
+2022-11-05 17:04:15,687 - graphVAE - INFO - epoch:  284, train_reg_acc: 0.5467, eval_reg_acc: 0.8377, train_cls_acc: 0.6699, eval_cls_acc: 0.4902, train_loss: 1.6196, eval_loss: 1.2908
+2022-11-05 17:04:15,703 - graphVAE - INFO - BCE: 0.619, MSE: 0.687, KLD: 0.399
+2022-11-05 17:04:16,109 - graphVAE - INFO - epoch:  285, train_reg_acc: 0.5439, eval_reg_acc: 0.8280, train_cls_acc: 0.6804, eval_cls_acc: 0.5107, train_loss: 1.6301, eval_loss: 1.3010
+2022-11-05 17:04:16,125 - graphVAE - INFO - BCE: 0.617, MSE: 0.581, KLD: 0.323
+2022-11-05 17:04:16,531 - graphVAE - INFO - epoch:  286, train_reg_acc: 0.5465, eval_reg_acc: 0.8339, train_cls_acc: 0.6696, eval_cls_acc: 0.4439, train_loss: 1.6295, eval_loss: 1.3116
+2022-11-05 17:04:16,531 - graphVAE - INFO - BCE: 0.605, MSE: 0.641, KLD: 0.408
+2022-11-05 17:04:16,937 - graphVAE - INFO - epoch:  287, train_reg_acc: 0.5450, eval_reg_acc: 0.8364, train_cls_acc: 0.6744, eval_cls_acc: 0.4546, train_loss: 1.6310, eval_loss: 1.3110
+2022-11-05 17:04:16,953 - graphVAE - INFO - BCE: 0.611, MSE: 0.634, KLD: 0.412
+2022-11-05 17:04:17,359 - graphVAE - INFO - epoch:  288, train_reg_acc: 0.5486, eval_reg_acc: 0.8449, train_cls_acc: 0.6703, eval_cls_acc: 0.4736, train_loss: 1.6250, eval_loss: 1.2892
+2022-11-05 17:04:17,359 - graphVAE - INFO - BCE: 0.630, MSE: 0.735, KLD: 0.365
+2022-11-05 17:04:17,797 - graphVAE - INFO - epoch:  289, train_reg_acc: 0.5473, eval_reg_acc: 0.8414, train_cls_acc: 0.6747, eval_cls_acc: 0.4757, train_loss: 1.6241, eval_loss: 1.2960
+2022-11-05 17:04:17,797 - graphVAE - INFO - BCE: 0.639, MSE: 0.690, KLD: 0.444
+2022-11-05 17:04:18,218 - graphVAE - INFO - epoch:  290, train_reg_acc: 0.5460, eval_reg_acc: 0.8424, train_cls_acc: 0.6709, eval_cls_acc: 0.4433, train_loss: 1.6303, eval_loss: 1.2977
+2022-11-05 17:04:18,218 - graphVAE - INFO - BCE: 0.613, MSE: 0.590, KLD: 0.352
+2022-11-05 17:04:18,616 - graphVAE - INFO - epoch:  291, train_reg_acc: 0.5432, eval_reg_acc: 0.8359, train_cls_acc: 0.6727, eval_cls_acc: 0.4615, train_loss: 1.6322, eval_loss: 1.3081
+2022-11-05 17:04:18,632 - graphVAE - INFO - BCE: 0.588, MSE: 0.600, KLD: 0.374
+2022-11-05 17:04:19,038 - graphVAE - INFO - epoch:  292, train_reg_acc: 0.5491, eval_reg_acc: 0.8338, train_cls_acc: 0.6726, eval_cls_acc: 0.4979, train_loss: 1.6214, eval_loss: 1.2877
+2022-11-05 17:04:19,054 - graphVAE - INFO - BCE: 0.596, MSE: 0.596, KLD: 0.339
+2022-11-05 17:04:19,460 - graphVAE - INFO - epoch:  293, train_reg_acc: 0.5500, eval_reg_acc: 0.8360, train_cls_acc: 0.6775, eval_cls_acc: 0.4618, train_loss: 1.6284, eval_loss: 1.2956
+2022-11-05 17:04:19,460 - graphVAE - INFO - BCE: 0.586, MSE: 0.581, KLD: 0.387
+2022-11-05 17:04:19,866 - graphVAE - INFO - epoch:  294, train_reg_acc: 0.5419, eval_reg_acc: 0.8452, train_cls_acc: 0.6820, eval_cls_acc: 0.4764, train_loss: 1.6288, eval_loss: 1.2855
+2022-11-05 17:04:19,866 - graphVAE - INFO - BCE: 0.604, MSE: 0.774, KLD: 0.382
+2022-11-05 17:04:20,288 - graphVAE - INFO - epoch:  295, train_reg_acc: 0.5509, eval_reg_acc: 0.8390, train_cls_acc: 0.6805, eval_cls_acc: 0.4870, train_loss: 1.6207, eval_loss: 1.2764
+2022-11-05 17:04:20,288 - graphVAE - INFO - BCE: 0.628, MSE: 0.600, KLD: 0.375
+2022-11-05 17:04:20,694 - graphVAE - INFO - epoch:  296, train_reg_acc: 0.5499, eval_reg_acc: 0.8510, train_cls_acc: 0.6717, eval_cls_acc: 0.4696, train_loss: 1.6308, eval_loss: 1.3038
+2022-11-05 17:04:20,694 - graphVAE - INFO - BCE: 0.604, MSE: 0.532, KLD: 0.367
+2022-11-05 17:04:21,116 - graphVAE - INFO - epoch:  297, train_reg_acc: 0.5574, eval_reg_acc: 0.8383, train_cls_acc: 0.6695, eval_cls_acc: 0.4488, train_loss: 1.6242, eval_loss: 1.3065
+2022-11-05 17:04:21,116 - graphVAE - INFO - BCE: 0.559, MSE: 0.553, KLD: 0.338
+2022-11-05 17:04:21,522 - graphVAE - INFO - epoch:  298, train_reg_acc: 0.5534, eval_reg_acc: 0.8495, train_cls_acc: 0.6708, eval_cls_acc: 0.4372, train_loss: 1.6277, eval_loss: 1.2900
+2022-11-05 17:04:21,522 - graphVAE - INFO - BCE: 0.603, MSE: 0.543, KLD: 0.350
+2022-11-05 17:04:21,944 - graphVAE - INFO - epoch:  299, train_reg_acc: 0.5581, eval_reg_acc: 0.8546, train_cls_acc: 0.6744, eval_cls_acc: 0.4542, train_loss: 1.6168, eval_loss: 1.2704
+2022-11-05 17:04:21,944 - graphVAE - INFO - BCE: 0.568, MSE: 0.659, KLD: 0.373
+2022-11-05 17:04:22,351 - graphVAE - INFO - epoch:  300, train_reg_acc: 0.5557, eval_reg_acc: 0.8475, train_cls_acc: 0.6752, eval_cls_acc: 0.4706, train_loss: 1.6298, eval_loss: 1.2923
+2022-11-05 17:04:22,366 - graphVAE - INFO - BCE: 0.621, MSE: 0.581, KLD: 0.455
+2022-11-05 17:04:22,772 - graphVAE - INFO - epoch:  301, train_reg_acc: 0.5612, eval_reg_acc: 0.8538, train_cls_acc: 0.6715, eval_cls_acc: 0.4727, train_loss: 1.6161, eval_loss: 1.2921
+2022-11-05 17:04:22,772 - graphVAE - INFO - BCE: 0.600, MSE: 0.607, KLD: 0.477
+2022-11-05 17:04:23,179 - graphVAE - INFO - epoch:  302, train_reg_acc: 0.5606, eval_reg_acc: 0.8481, train_cls_acc: 0.6736, eval_cls_acc: 0.4458, train_loss: 1.6211, eval_loss: 1.3045
+2022-11-05 17:04:23,194 - graphVAE - INFO - BCE: 0.572, MSE: 0.585, KLD: 0.419
+2022-11-05 17:04:23,601 - graphVAE - INFO - epoch:  303, train_reg_acc: 0.5649, eval_reg_acc: 0.8471, train_cls_acc: 0.6665, eval_cls_acc: 0.4559, train_loss: 1.6231, eval_loss: 1.2864
+2022-11-05 17:04:23,601 - graphVAE - INFO - BCE: 0.599, MSE: 0.572, KLD: 0.351
+2022-11-05 17:04:24,007 - graphVAE - INFO - epoch:  304, train_reg_acc: 0.5674, eval_reg_acc: 0.8563, train_cls_acc: 0.6677, eval_cls_acc: 0.4840, train_loss: 1.6186, eval_loss: 1.2854
+2022-11-05 17:04:24,007 - graphVAE - INFO - BCE: 0.594, MSE: 0.488, KLD: 0.429
+2022-11-05 17:04:24,413 - graphVAE - INFO - epoch:  305, train_reg_acc: 0.5667, eval_reg_acc: 0.8531, train_cls_acc: 0.6739, eval_cls_acc: 0.4541, train_loss: 1.6069, eval_loss: 1.2817
+2022-11-05 17:04:24,429 - graphVAE - INFO - BCE: 0.570, MSE: 0.614, KLD: 0.443
+2022-11-05 17:04:24,835 - graphVAE - INFO - epoch:  306, train_reg_acc: 0.5705, eval_reg_acc: 0.8535, train_cls_acc: 0.6695, eval_cls_acc: 0.4190, train_loss: 1.6106, eval_loss: 1.2940
+2022-11-05 17:04:24,835 - graphVAE - INFO - BCE: 0.592, MSE: 0.623, KLD: 0.401
+2022-11-05 17:04:25,241 - graphVAE - INFO - epoch:  307, train_reg_acc: 0.5759, eval_reg_acc: 0.8530, train_cls_acc: 0.6663, eval_cls_acc: 0.4322, train_loss: 1.5975, eval_loss: 1.3239
+2022-11-05 17:04:25,241 - graphVAE - INFO - BCE: 0.627, MSE: 0.597, KLD: 0.485
+2022-11-05 17:04:25,647 - graphVAE - INFO - epoch:  308, train_reg_acc: 0.5748, eval_reg_acc: 0.8512, train_cls_acc: 0.6734, eval_cls_acc: 0.4347, train_loss: 1.6130, eval_loss: 1.3135
+2022-11-05 17:04:25,663 - graphVAE - INFO - BCE: 0.601, MSE: 0.480, KLD: 0.451
+2022-11-05 17:04:26,069 - graphVAE - INFO - epoch:  309, train_reg_acc: 0.5805, eval_reg_acc: 0.8541, train_cls_acc: 0.6787, eval_cls_acc: 0.4975, train_loss: 1.5958, eval_loss: 1.2808
+2022-11-05 17:04:26,069 - graphVAE - INFO - BCE: 0.572, MSE: 0.657, KLD: 0.408
+2022-11-05 17:04:26,476 - graphVAE - INFO - epoch:  310, train_reg_acc: 0.5750, eval_reg_acc: 0.8539, train_cls_acc: 0.6763, eval_cls_acc: 0.4541, train_loss: 1.6090, eval_loss: 1.2908
+2022-11-05 17:04:26,476 - graphVAE - INFO - BCE: 0.575, MSE: 0.560, KLD: 0.416
+2022-11-05 17:04:26,882 - graphVAE - INFO - epoch:  311, train_reg_acc: 0.5770, eval_reg_acc: 0.8630, train_cls_acc: 0.6698, eval_cls_acc: 0.4521, train_loss: 1.6083, eval_loss: 1.2959
+2022-11-05 17:04:26,882 - graphVAE - INFO - BCE: 0.589, MSE: 0.462, KLD: 0.412
+2022-11-05 17:04:27,288 - graphVAE - INFO - epoch:  312, train_reg_acc: 0.5727, eval_reg_acc: 0.8494, train_cls_acc: 0.6786, eval_cls_acc: 0.4041, train_loss: 1.6111, eval_loss: 1.3592
+2022-11-05 17:04:27,304 - graphVAE - INFO - BCE: 0.627, MSE: 0.525, KLD: 0.359
+2022-11-05 17:04:27,694 - graphVAE - INFO - epoch:  313, train_reg_acc: 0.5827, eval_reg_acc: 0.8552, train_cls_acc: 0.6780, eval_cls_acc: 0.4389, train_loss: 1.6006, eval_loss: 1.3120
+2022-11-05 17:04:27,710 - graphVAE - INFO - BCE: 0.602, MSE: 0.538, KLD: 0.469
+2022-11-05 17:04:28,116 - graphVAE - INFO - epoch:  314, train_reg_acc: 0.5820, eval_reg_acc: 0.8633, train_cls_acc: 0.6777, eval_cls_acc: 0.4399, train_loss: 1.5987, eval_loss: 1.3011
+2022-11-05 17:04:28,116 - graphVAE - INFO - BCE: 0.580, MSE: 0.603, KLD: 0.393
+2022-11-05 17:04:28,522 - graphVAE - INFO - epoch:  315, train_reg_acc: 0.5838, eval_reg_acc: 0.8651, train_cls_acc: 0.6716, eval_cls_acc: 0.4587, train_loss: 1.6010, eval_loss: 1.2917
+2022-11-05 17:04:28,522 - graphVAE - INFO - BCE: 0.572, MSE: 0.580, KLD: 0.405
+2022-11-05 17:04:28,929 - graphVAE - INFO - epoch:  316, train_reg_acc: 0.5837, eval_reg_acc: 0.8595, train_cls_acc: 0.6763, eval_cls_acc: 0.4558, train_loss: 1.5980, eval_loss: 1.2920
+2022-11-05 17:04:28,944 - graphVAE - INFO - BCE: 0.609, MSE: 0.641, KLD: 0.435
+2022-11-05 17:04:29,335 - graphVAE - INFO - epoch:  317, train_reg_acc: 0.5742, eval_reg_acc: 0.8615, train_cls_acc: 0.6674, eval_cls_acc: 0.4386, train_loss: 1.6141, eval_loss: 1.3076
+2022-11-05 17:04:29,351 - graphVAE - INFO - BCE: 0.586, MSE: 0.538, KLD: 0.502
+2022-11-05 17:04:29,757 - graphVAE - INFO - epoch:  318, train_reg_acc: 0.5846, eval_reg_acc: 0.8559, train_cls_acc: 0.6779, eval_cls_acc: 0.4642, train_loss: 1.5865, eval_loss: 1.2772
+2022-11-05 17:04:29,757 - graphVAE - INFO - BCE: 0.640, MSE: 0.603, KLD: 0.396
+2022-11-05 17:04:30,179 - graphVAE - INFO - epoch:  319, train_reg_acc: 0.5791, eval_reg_acc: 0.8534, train_cls_acc: 0.6687, eval_cls_acc: 0.4255, train_loss: 1.6082, eval_loss: 1.3088
+2022-11-05 17:04:30,179 - graphVAE - INFO - BCE: 0.613, MSE: 0.537, KLD: 0.406
+2022-11-05 17:04:30,585 - graphVAE - INFO - epoch:  320, train_reg_acc: 0.5790, eval_reg_acc: 0.8616, train_cls_acc: 0.6766, eval_cls_acc: 0.4595, train_loss: 1.5997, eval_loss: 1.2823
+2022-11-05 17:04:30,585 - graphVAE - INFO - BCE: 0.585, MSE: 0.633, KLD: 0.515
+2022-11-05 17:04:31,007 - graphVAE - INFO - epoch:  321, train_reg_acc: 0.5837, eval_reg_acc: 0.8573, train_cls_acc: 0.6825, eval_cls_acc: 0.4768, train_loss: 1.5914, eval_loss: 1.2908
+2022-11-05 17:04:31,007 - graphVAE - INFO - BCE: 0.587, MSE: 0.637, KLD: 0.474
+2022-11-05 17:04:31,413 - graphVAE - INFO - epoch:  322, train_reg_acc: 0.5804, eval_reg_acc: 0.8565, train_cls_acc: 0.6744, eval_cls_acc: 0.4397, train_loss: 1.5998, eval_loss: 1.3112
+2022-11-05 17:04:31,413 - graphVAE - INFO - BCE: 0.598, MSE: 0.607, KLD: 0.359
+2022-11-05 17:04:31,819 - graphVAE - INFO - epoch:  323, train_reg_acc: 0.5869, eval_reg_acc: 0.8577, train_cls_acc: 0.6769, eval_cls_acc: 0.4501, train_loss: 1.5977, eval_loss: 1.2991
+2022-11-05 17:04:31,819 - graphVAE - INFO - BCE: 0.587, MSE: 0.546, KLD: 0.448
+2022-11-05 17:04:32,241 - graphVAE - INFO - epoch:  324, train_reg_acc: 0.5802, eval_reg_acc: 0.8634, train_cls_acc: 0.6782, eval_cls_acc: 0.4555, train_loss: 1.5968, eval_loss: 1.3033
+2022-11-05 17:04:32,241 - graphVAE - INFO - BCE: 0.572, MSE: 0.602, KLD: 0.403
+2022-11-05 17:04:32,647 - graphVAE - INFO - epoch:  325, train_reg_acc: 0.5805, eval_reg_acc: 0.8586, train_cls_acc: 0.6769, eval_cls_acc: 0.4227, train_loss: 1.6043, eval_loss: 1.3075
+2022-11-05 17:04:32,647 - graphVAE - INFO - BCE: 0.619, MSE: 0.531, KLD: 0.369
+2022-11-05 17:04:33,054 - graphVAE - INFO - epoch:  326, train_reg_acc: 0.5824, eval_reg_acc: 0.8600, train_cls_acc: 0.6824, eval_cls_acc: 0.4590, train_loss: 1.5985, eval_loss: 1.2970
+2022-11-05 17:04:33,069 - graphVAE - INFO - BCE: 0.602, MSE: 0.568, KLD: 0.396
+2022-11-05 17:04:33,460 - graphVAE - INFO - epoch:  327, train_reg_acc: 0.5803, eval_reg_acc: 0.8583, train_cls_acc: 0.6765, eval_cls_acc: 0.4616, train_loss: 1.6037, eval_loss: 1.3101
+2022-11-05 17:04:33,476 - graphVAE - INFO - BCE: 0.617, MSE: 0.623, KLD: 0.488
+2022-11-05 17:04:33,882 - graphVAE - INFO - epoch:  328, train_reg_acc: 0.5855, eval_reg_acc: 0.8595, train_cls_acc: 0.6776, eval_cls_acc: 0.4457, train_loss: 1.5948, eval_loss: 1.3089
+2022-11-05 17:04:33,882 - graphVAE - INFO - BCE: 0.614, MSE: 0.620, KLD: 0.476
+2022-11-05 17:04:34,288 - graphVAE - INFO - epoch:  329, train_reg_acc: 0.5825, eval_reg_acc: 0.8581, train_cls_acc: 0.6707, eval_cls_acc: 0.4434, train_loss: 1.6046, eval_loss: 1.2946
+2022-11-05 17:04:34,288 - graphVAE - INFO - BCE: 0.579, MSE: 0.648, KLD: 0.389
+2022-11-05 17:04:34,694 - graphVAE - INFO - epoch:  330, train_reg_acc: 0.5750, eval_reg_acc: 0.8520, train_cls_acc: 0.6723, eval_cls_acc: 0.4580, train_loss: 1.6015, eval_loss: 1.3030
+2022-11-05 17:04:34,694 - graphVAE - INFO - BCE: 0.597, MSE: 0.637, KLD: 0.438
+2022-11-05 17:04:35,101 - graphVAE - INFO - epoch:  331, train_reg_acc: 0.5863, eval_reg_acc: 0.8531, train_cls_acc: 0.6744, eval_cls_acc: 0.4281, train_loss: 1.5969, eval_loss: 1.3168
+2022-11-05 17:04:35,116 - graphVAE - INFO - BCE: 0.625, MSE: 0.532, KLD: 0.467
+2022-11-05 17:04:35,507 - graphVAE - INFO - epoch:  332, train_reg_acc: 0.5853, eval_reg_acc: 0.8562, train_cls_acc: 0.6701, eval_cls_acc: 0.4725, train_loss: 1.5911, eval_loss: 1.2937
+2022-11-05 17:04:35,522 - graphVAE - INFO - BCE: 0.583, MSE: 0.555, KLD: 0.406
+2022-11-05 17:04:35,929 - graphVAE - INFO - epoch:  333, train_reg_acc: 0.5793, eval_reg_acc: 0.8596, train_cls_acc: 0.6760, eval_cls_acc: 0.4393, train_loss: 1.5994, eval_loss: 1.3247
+2022-11-05 17:04:35,929 - graphVAE - INFO - BCE: 0.602, MSE: 0.550, KLD: 0.478
+2022-11-05 17:04:36,335 - graphVAE - INFO - epoch:  334, train_reg_acc: 0.5749, eval_reg_acc: 0.8576, train_cls_acc: 0.6759, eval_cls_acc: 0.4529, train_loss: 1.6035, eval_loss: 1.3141
+2022-11-05 17:04:36,335 - graphVAE - INFO - BCE: 0.596, MSE: 0.611, KLD: 0.378
+2022-11-05 17:04:36,741 - graphVAE - INFO - epoch:  335, train_reg_acc: 0.5767, eval_reg_acc: 0.8553, train_cls_acc: 0.6760, eval_cls_acc: 0.4455, train_loss: 1.6122, eval_loss: 1.3134
+2022-11-05 17:04:36,741 - graphVAE - INFO - BCE: 0.573, MSE: 0.591, KLD: 0.420
+2022-11-05 17:04:37,163 - graphVAE - INFO - epoch:  336, train_reg_acc: 0.5768, eval_reg_acc: 0.8512, train_cls_acc: 0.6828, eval_cls_acc: 0.4576, train_loss: 1.6052, eval_loss: 1.3055
+2022-11-05 17:04:37,163 - graphVAE - INFO - BCE: 0.611, MSE: 0.549, KLD: 0.342
+2022-11-05 17:04:37,569 - graphVAE - INFO - epoch:  337, train_reg_acc: 0.5830, eval_reg_acc: 0.8622, train_cls_acc: 0.6772, eval_cls_acc: 0.4533, train_loss: 1.5961, eval_loss: 1.2949
+2022-11-05 17:04:37,569 - graphVAE - INFO - BCE: 0.598, MSE: 0.514, KLD: 0.365
+2022-11-05 17:04:37,976 - graphVAE - INFO - epoch:  338, train_reg_acc: 0.5757, eval_reg_acc: 0.8630, train_cls_acc: 0.6740, eval_cls_acc: 0.4470, train_loss: 1.6017, eval_loss: 1.3055
+2022-11-05 17:04:37,976 - graphVAE - INFO - BCE: 0.570, MSE: 0.527, KLD: 0.369
+2022-11-05 17:04:38,382 - graphVAE - INFO - epoch:  339, train_reg_acc: 0.5817, eval_reg_acc: 0.8595, train_cls_acc: 0.6786, eval_cls_acc: 0.4649, train_loss: 1.6047, eval_loss: 1.2927
+2022-11-05 17:04:38,382 - graphVAE - INFO - BCE: 0.600, MSE: 0.628, KLD: 0.511
+2022-11-05 17:04:38,788 - graphVAE - INFO - epoch:  340, train_reg_acc: 0.5851, eval_reg_acc: 0.8652, train_cls_acc: 0.6790, eval_cls_acc: 0.4813, train_loss: 1.5910, eval_loss: 1.3020
+2022-11-05 17:04:38,804 - graphVAE - INFO - BCE: 0.602, MSE: 0.614, KLD: 0.383
+2022-11-05 17:04:39,194 - graphVAE - INFO - epoch:  341, train_reg_acc: 0.5773, eval_reg_acc: 0.8607, train_cls_acc: 0.6832, eval_cls_acc: 0.4678, train_loss: 1.6034, eval_loss: 1.2925
+2022-11-05 17:04:39,210 - graphVAE - INFO - BCE: 0.650, MSE: 0.484, KLD: 0.365
+2022-11-05 17:04:39,616 - graphVAE - INFO - epoch:  342, train_reg_acc: 0.5926, eval_reg_acc: 0.8529, train_cls_acc: 0.6751, eval_cls_acc: 0.4463, train_loss: 1.5894, eval_loss: 1.3049
+2022-11-05 17:04:39,616 - graphVAE - INFO - BCE: 0.617, MSE: 0.558, KLD: 0.413
+2022-11-05 17:04:40,054 - graphVAE - INFO - epoch:  343, train_reg_acc: 0.5865, eval_reg_acc: 0.8605, train_cls_acc: 0.6707, eval_cls_acc: 0.4297, train_loss: 1.5903, eval_loss: 1.3075
+2022-11-05 17:04:40,054 - graphVAE - INFO - BCE: 0.593, MSE: 0.558, KLD: 0.383
+2022-11-05 17:04:40,460 - graphVAE - INFO - epoch:  344, train_reg_acc: 0.5897, eval_reg_acc: 0.8575, train_cls_acc: 0.6731, eval_cls_acc: 0.4209, train_loss: 1.5856, eval_loss: 1.3088
+2022-11-05 17:04:40,460 - graphVAE - INFO - BCE: 0.595, MSE: 0.635, KLD: 0.413
+2022-11-05 17:04:40,929 - graphVAE - INFO - epoch:  345, train_reg_acc: 0.5872, eval_reg_acc: 0.8579, train_cls_acc: 0.6727, eval_cls_acc: 0.4293, train_loss: 1.5950, eval_loss: 1.3031
+2022-11-05 17:04:40,929 - graphVAE - INFO - BCE: 0.614, MSE: 0.576, KLD: 0.335
+2022-11-05 17:04:41,351 - graphVAE - INFO - epoch:  346, train_reg_acc: 0.5853, eval_reg_acc: 0.8588, train_cls_acc: 0.6788, eval_cls_acc: 0.4607, train_loss: 1.5871, eval_loss: 1.3037
+2022-11-05 17:04:41,351 - graphVAE - INFO - BCE: 0.601, MSE: 0.457, KLD: 0.373
+2022-11-05 17:04:41,757 - graphVAE - INFO - epoch:  347, train_reg_acc: 0.5894, eval_reg_acc: 0.8667, train_cls_acc: 0.6803, eval_cls_acc: 0.4381, train_loss: 1.5925, eval_loss: 1.3032
+2022-11-05 17:04:41,757 - graphVAE - INFO - BCE: 0.606, MSE: 0.628, KLD: 0.437
+2022-11-05 17:04:42,194 - graphVAE - INFO - epoch:  348, train_reg_acc: 0.5889, eval_reg_acc: 0.8607, train_cls_acc: 0.6743, eval_cls_acc: 0.4815, train_loss: 1.5941, eval_loss: 1.2710
+2022-11-05 17:04:42,210 - graphVAE - INFO - BCE: 0.589, MSE: 0.558, KLD: 0.376
+2022-11-05 17:04:42,601 - graphVAE - INFO - epoch:  349, train_reg_acc: 0.5813, eval_reg_acc: 0.8627, train_cls_acc: 0.6757, eval_cls_acc: 0.4237, train_loss: 1.6058, eval_loss: 1.3163
+2022-11-05 17:04:42,616 - graphVAE - INFO - BCE: 0.586, MSE: 0.560, KLD: 0.454
+2022-11-05 17:04:43,022 - graphVAE - INFO - epoch:  350, train_reg_acc: 0.5867, eval_reg_acc: 0.8592, train_cls_acc: 0.6723, eval_cls_acc: 0.4313, train_loss: 1.5956, eval_loss: 1.3075
+2022-11-05 17:04:43,022 - graphVAE - INFO - BCE: 0.609, MSE: 0.627, KLD: 0.461
+2022-11-05 17:04:43,429 - graphVAE - INFO - epoch:  351, train_reg_acc: 0.5873, eval_reg_acc: 0.8641, train_cls_acc: 0.6750, eval_cls_acc: 0.4795, train_loss: 1.5934, eval_loss: 1.2809
+2022-11-05 17:04:43,429 - graphVAE - INFO - BCE: 0.626, MSE: 0.535, KLD: 0.341
+2022-11-05 17:04:43,866 - graphVAE - INFO - epoch:  352, train_reg_acc: 0.5851, eval_reg_acc: 0.8655, train_cls_acc: 0.6790, eval_cls_acc: 0.4427, train_loss: 1.5942, eval_loss: 1.3032
+2022-11-05 17:04:43,866 - graphVAE - INFO - BCE: 0.567, MSE: 0.660, KLD: 0.382
+2022-11-05 17:04:44,272 - graphVAE - INFO - epoch:  353, train_reg_acc: 0.5858, eval_reg_acc: 0.8648, train_cls_acc: 0.6798, eval_cls_acc: 0.4612, train_loss: 1.5971, eval_loss: 1.2776
+2022-11-05 17:04:44,288 - graphVAE - INFO - BCE: 0.605, MSE: 0.511, KLD: 0.389
+2022-11-05 17:04:44,679 - graphVAE - INFO - epoch:  354, train_reg_acc: 0.5804, eval_reg_acc: 0.8626, train_cls_acc: 0.6806, eval_cls_acc: 0.4535, train_loss: 1.6059, eval_loss: 1.3070
+2022-11-05 17:04:44,694 - graphVAE - INFO - BCE: 0.566, MSE: 0.599, KLD: 0.488
+2022-11-05 17:04:45,101 - graphVAE - INFO - epoch:  355, train_reg_acc: 0.5853, eval_reg_acc: 0.8642, train_cls_acc: 0.6689, eval_cls_acc: 0.4686, train_loss: 1.5949, eval_loss: 1.3007
+2022-11-05 17:04:45,101 - graphVAE - INFO - BCE: 0.572, MSE: 0.514, KLD: 0.420
+2022-11-05 17:04:45,507 - graphVAE - INFO - epoch:  356, train_reg_acc: 0.5845, eval_reg_acc: 0.8581, train_cls_acc: 0.6796, eval_cls_acc: 0.4702, train_loss: 1.6029, eval_loss: 1.2938
+2022-11-05 17:04:45,507 - graphVAE - INFO - BCE: 0.550, MSE: 0.589, KLD: 0.450
+2022-11-05 17:04:45,960 - graphVAE - INFO - epoch:  357, train_reg_acc: 0.5868, eval_reg_acc: 0.8568, train_cls_acc: 0.6835, eval_cls_acc: 0.4508, train_loss: 1.5889, eval_loss: 1.3063
+2022-11-05 17:04:45,960 - graphVAE - INFO - BCE: 0.584, MSE: 0.700, KLD: 0.421
+2022-11-05 17:04:46,366 - graphVAE - INFO - epoch:  358, train_reg_acc: 0.5813, eval_reg_acc: 0.8623, train_cls_acc: 0.6789, eval_cls_acc: 0.4594, train_loss: 1.5978, eval_loss: 1.2908
+2022-11-05 17:04:46,382 - graphVAE - INFO - BCE: 0.580, MSE: 0.566, KLD: 0.425
+2022-11-05 17:04:46,804 - graphVAE - INFO - epoch:  359, train_reg_acc: 0.5827, eval_reg_acc: 0.8640, train_cls_acc: 0.6811, eval_cls_acc: 0.4368, train_loss: 1.6017, eval_loss: 1.3029
+2022-11-05 17:04:46,819 - graphVAE - INFO - BCE: 0.578, MSE: 0.548, KLD: 0.380
+2022-11-05 17:04:47,226 - graphVAE - INFO - epoch:  360, train_reg_acc: 0.5842, eval_reg_acc: 0.8603, train_cls_acc: 0.6759, eval_cls_acc: 0.4740, train_loss: 1.5963, eval_loss: 1.2809
+2022-11-05 17:04:47,226 - graphVAE - INFO - BCE: 0.585, MSE: 0.552, KLD: 0.398
+2022-11-05 17:04:47,632 - graphVAE - INFO - epoch:  361, train_reg_acc: 0.5917, eval_reg_acc: 0.8647, train_cls_acc: 0.6771, eval_cls_acc: 0.4283, train_loss: 1.5861, eval_loss: 1.3115
+2022-11-05 17:04:47,647 - graphVAE - INFO - BCE: 0.617, MSE: 0.685, KLD: 0.471
+2022-11-05 17:04:48,054 - graphVAE - INFO - epoch:  362, train_reg_acc: 0.5872, eval_reg_acc: 0.8603, train_cls_acc: 0.6751, eval_cls_acc: 0.4305, train_loss: 1.5936, eval_loss: 1.2967
+2022-11-05 17:04:48,069 - graphVAE - INFO - BCE: 0.608, MSE: 0.585, KLD: 0.492
+2022-11-05 17:04:48,476 - graphVAE - INFO - epoch:  363, train_reg_acc: 0.5832, eval_reg_acc: 0.8639, train_cls_acc: 0.6742, eval_cls_acc: 0.4514, train_loss: 1.6030, eval_loss: 1.3077
+2022-11-05 17:04:48,476 - graphVAE - INFO - BCE: 0.614, MSE: 0.620, KLD: 0.390
+2022-11-05 17:04:48,897 - graphVAE - INFO - epoch:  364, train_reg_acc: 0.5826, eval_reg_acc: 0.8595, train_cls_acc: 0.6725, eval_cls_acc: 0.4460, train_loss: 1.6122, eval_loss: 1.3077
+2022-11-05 17:04:48,913 - graphVAE - INFO - BCE: 0.564, MSE: 0.584, KLD: 0.384
+2022-11-05 17:04:49,335 - graphVAE - INFO - epoch:  365, train_reg_acc: 0.5810, eval_reg_acc: 0.8569, train_cls_acc: 0.6756, eval_cls_acc: 0.4364, train_loss: 1.6026, eval_loss: 1.3158
+2022-11-05 17:04:49,335 - graphVAE - INFO - BCE: 0.577, MSE: 0.602, KLD: 0.484
+2022-11-05 17:04:49,757 - graphVAE - INFO - epoch:  366, train_reg_acc: 0.5894, eval_reg_acc: 0.8636, train_cls_acc: 0.6771, eval_cls_acc: 0.4491, train_loss: 1.5943, eval_loss: 1.2873
+2022-11-05 17:04:49,772 - graphVAE - INFO - BCE: 0.623, MSE: 0.645, KLD: 0.419
+2022-11-05 17:04:50,194 - graphVAE - INFO - epoch:  367, train_reg_acc: 0.5887, eval_reg_acc: 0.8617, train_cls_acc: 0.6773, eval_cls_acc: 0.4339, train_loss: 1.5919, eval_loss: 1.3001
+2022-11-05 17:04:50,194 - graphVAE - INFO - BCE: 0.615, MSE: 0.561, KLD: 0.399
+2022-11-05 17:04:50,601 - graphVAE - INFO - epoch:  368, train_reg_acc: 0.5866, eval_reg_acc: 0.8565, train_cls_acc: 0.6745, eval_cls_acc: 0.4545, train_loss: 1.5900, eval_loss: 1.3007
+2022-11-05 17:04:50,616 - graphVAE - INFO - BCE: 0.596, MSE: 0.518, KLD: 0.389
+2022-11-05 17:04:51,022 - graphVAE - INFO - epoch:  369, train_reg_acc: 0.5889, eval_reg_acc: 0.8628, train_cls_acc: 0.6781, eval_cls_acc: 0.4623, train_loss: 1.5822, eval_loss: 1.2818
+2022-11-05 17:04:51,022 - graphVAE - INFO - BCE: 0.607, MSE: 0.554, KLD: 0.405
+2022-11-05 17:04:51,429 - graphVAE - INFO - epoch:  370, train_reg_acc: 0.5837, eval_reg_acc: 0.8663, train_cls_acc: 0.6745, eval_cls_acc: 0.4707, train_loss: 1.5963, eval_loss: 1.3076
+2022-11-05 17:04:51,444 - graphVAE - INFO - BCE: 0.582, MSE: 0.518, KLD: 0.443
+2022-11-05 17:04:51,851 - graphVAE - INFO - epoch:  371, train_reg_acc: 0.5890, eval_reg_acc: 0.8663, train_cls_acc: 0.6763, eval_cls_acc: 0.4511, train_loss: 1.6045, eval_loss: 1.2874
+2022-11-05 17:04:51,851 - graphVAE - INFO - BCE: 0.586, MSE: 0.559, KLD: 0.372
+2022-11-05 17:04:52,288 - graphVAE - INFO - epoch:  372, train_reg_acc: 0.5846, eval_reg_acc: 0.8625, train_cls_acc: 0.6716, eval_cls_acc: 0.4711, train_loss: 1.5999, eval_loss: 1.2883
+2022-11-05 17:04:52,288 - graphVAE - INFO - BCE: 0.628, MSE: 0.565, KLD: 0.371
+2022-11-05 17:04:52,741 - graphVAE - INFO - epoch:  373, train_reg_acc: 0.5906, eval_reg_acc: 0.8656, train_cls_acc: 0.6767, eval_cls_acc: 0.4674, train_loss: 1.5926, eval_loss: 1.2944
+2022-11-05 17:04:52,741 - graphVAE - INFO - BCE: 0.586, MSE: 0.561, KLD: 0.444
+2022-11-05 17:04:53,179 - graphVAE - INFO - epoch:  374, train_reg_acc: 0.5892, eval_reg_acc: 0.8583, train_cls_acc: 0.6794, eval_cls_acc: 0.4338, train_loss: 1.5916, eval_loss: 1.3024
+2022-11-05 17:04:53,179 - graphVAE - INFO - BCE: 0.556, MSE: 0.493, KLD: 0.422
+2022-11-05 17:04:53,601 - graphVAE - INFO - epoch:  375, train_reg_acc: 0.5838, eval_reg_acc: 0.8569, train_cls_acc: 0.6734, eval_cls_acc: 0.4167, train_loss: 1.5965, eval_loss: 1.3137
+2022-11-05 17:04:53,601 - graphVAE - INFO - BCE: 0.594, MSE: 0.596, KLD: 0.356
+2022-11-05 17:04:54,022 - graphVAE - INFO - epoch:  376, train_reg_acc: 0.5855, eval_reg_acc: 0.8600, train_cls_acc: 0.6748, eval_cls_acc: 0.4390, train_loss: 1.5954, eval_loss: 1.2970
+2022-11-05 17:04:54,022 - graphVAE - INFO - BCE: 0.576, MSE: 0.588, KLD: 0.431
+2022-11-05 17:04:54,444 - graphVAE - INFO - epoch:  377, train_reg_acc: 0.5863, eval_reg_acc: 0.8613, train_cls_acc: 0.6765, eval_cls_acc: 0.5087, train_loss: 1.5940, eval_loss: 1.2717
+2022-11-05 17:04:54,444 - graphVAE - INFO - BCE: 0.632, MSE: 0.532, KLD: 0.441
+2022-11-05 17:04:54,866 - graphVAE - INFO - epoch:  378, train_reg_acc: 0.5818, eval_reg_acc: 0.8578, train_cls_acc: 0.6716, eval_cls_acc: 0.4511, train_loss: 1.6071, eval_loss: 1.3173
+2022-11-05 17:04:54,866 - graphVAE - INFO - BCE: 0.598, MSE: 0.527, KLD: 0.451
+2022-11-05 17:04:55,288 - graphVAE - INFO - epoch:  379, train_reg_acc: 0.5874, eval_reg_acc: 0.8556, train_cls_acc: 0.6753, eval_cls_acc: 0.5090, train_loss: 1.5932, eval_loss: 1.2709
+2022-11-05 17:04:55,304 - graphVAE - INFO - BCE: 0.615, MSE: 0.557, KLD: 0.365
+2022-11-05 17:04:55,710 - graphVAE - INFO - epoch:  380, train_reg_acc: 0.5849, eval_reg_acc: 0.8521, train_cls_acc: 0.6792, eval_cls_acc: 0.4306, train_loss: 1.5901, eval_loss: 1.3140
+2022-11-05 17:04:55,710 - graphVAE - INFO - BCE: 0.603, MSE: 0.629, KLD: 0.324
+2022-11-05 17:04:56,132 - graphVAE - INFO - epoch:  381, train_reg_acc: 0.5801, eval_reg_acc: 0.8569, train_cls_acc: 0.6798, eval_cls_acc: 0.4415, train_loss: 1.5995, eval_loss: 1.3157
+2022-11-05 17:04:56,132 - graphVAE - INFO - BCE: 0.609, MSE: 0.564, KLD: 0.398
+2022-11-05 17:04:56,538 - graphVAE - INFO - epoch:  382, train_reg_acc: 0.5852, eval_reg_acc: 0.8565, train_cls_acc: 0.6777, eval_cls_acc: 0.4656, train_loss: 1.5966, eval_loss: 1.3033
+2022-11-05 17:04:56,538 - graphVAE - INFO - BCE: 0.563, MSE: 0.590, KLD: 0.345
+2022-11-05 17:04:56,960 - graphVAE - INFO - epoch:  383, train_reg_acc: 0.5883, eval_reg_acc: 0.8582, train_cls_acc: 0.6790, eval_cls_acc: 0.4373, train_loss: 1.5942, eval_loss: 1.3297
+2022-11-05 17:04:56,960 - graphVAE - INFO - BCE: 0.585, MSE: 0.548, KLD: 0.458
+2022-11-05 17:04:57,366 - graphVAE - INFO - epoch:  384, train_reg_acc: 0.5821, eval_reg_acc: 0.8617, train_cls_acc: 0.6752, eval_cls_acc: 0.4550, train_loss: 1.6049, eval_loss: 1.2965
+2022-11-05 17:04:57,382 - graphVAE - INFO - BCE: 0.562, MSE: 0.637, KLD: 0.405
+2022-11-05 17:04:57,788 - graphVAE - INFO - epoch:  385, train_reg_acc: 0.5912, eval_reg_acc: 0.8581, train_cls_acc: 0.6834, eval_cls_acc: 0.4663, train_loss: 1.5888, eval_loss: 1.2846
+2022-11-05 17:04:57,804 - graphVAE - INFO - BCE: 0.602, MSE: 0.568, KLD: 0.405
+2022-11-05 17:04:58,228 - graphVAE - INFO - epoch:  386, train_reg_acc: 0.5867, eval_reg_acc: 0.8540, train_cls_acc: 0.6775, eval_cls_acc: 0.4182, train_loss: 1.6018, eval_loss: 1.3503
+2022-11-05 17:04:58,236 - graphVAE - INFO - BCE: 0.645, MSE: 0.573, KLD: 0.519
+2022-11-05 17:04:58,648 - graphVAE - INFO - epoch:  387, train_reg_acc: 0.5923, eval_reg_acc: 0.8613, train_cls_acc: 0.6736, eval_cls_acc: 0.4552, train_loss: 1.5899, eval_loss: 1.2831
+2022-11-05 17:04:58,648 - graphVAE - INFO - BCE: 0.627, MSE: 0.643, KLD: 0.357
+2022-11-05 17:04:59,069 - graphVAE - INFO - epoch:  388, train_reg_acc: 0.5794, eval_reg_acc: 0.8626, train_cls_acc: 0.6760, eval_cls_acc: 0.4367, train_loss: 1.6022, eval_loss: 1.3104
+2022-11-05 17:04:59,069 - graphVAE - INFO - BCE: 0.620, MSE: 0.516, KLD: 0.427
+2022-11-05 17:04:59,491 - graphVAE - INFO - epoch:  389, train_reg_acc: 0.5916, eval_reg_acc: 0.8656, train_cls_acc: 0.6739, eval_cls_acc: 0.4655, train_loss: 1.5894, eval_loss: 1.2778
+2022-11-05 17:04:59,491 - graphVAE - INFO - BCE: 0.585, MSE: 0.579, KLD: 0.441
+2022-11-05 17:04:59,898 - graphVAE - INFO - epoch:  390, train_reg_acc: 0.5848, eval_reg_acc: 0.8617, train_cls_acc: 0.6769, eval_cls_acc: 0.4710, train_loss: 1.6007, eval_loss: 1.2978
+2022-11-05 17:04:59,913 - graphVAE - INFO - BCE: 0.646, MSE: 0.544, KLD: 0.403
+2022-11-05 17:05:00,335 - graphVAE - INFO - epoch:  391, train_reg_acc: 0.5816, eval_reg_acc: 0.8510, train_cls_acc: 0.6749, eval_cls_acc: 0.4666, train_loss: 1.5959, eval_loss: 1.2874
+2022-11-05 17:05:00,335 - graphVAE - INFO - BCE: 0.702, MSE: 0.565, KLD: 0.398
+2022-11-05 17:05:00,741 - graphVAE - INFO - epoch:  392, train_reg_acc: 0.5851, eval_reg_acc: 0.8618, train_cls_acc: 0.6740, eval_cls_acc: 0.4371, train_loss: 1.5930, eval_loss: 1.2943
+2022-11-05 17:05:00,757 - graphVAE - INFO - BCE: 0.622, MSE: 0.514, KLD: 0.400
+2022-11-05 17:05:01,179 - graphVAE - INFO - epoch:  393, train_reg_acc: 0.5865, eval_reg_acc: 0.8613, train_cls_acc: 0.6726, eval_cls_acc: 0.5161, train_loss: 1.5914, eval_loss: 1.2784
+2022-11-05 17:05:01,194 - graphVAE - INFO - BCE: 0.576, MSE: 0.538, KLD: 0.381
+2022-11-05 17:05:01,601 - graphVAE - INFO - epoch:  394, train_reg_acc: 0.5835, eval_reg_acc: 0.8559, train_cls_acc: 0.6742, eval_cls_acc: 0.4444, train_loss: 1.6015, eval_loss: 1.3109
+2022-11-05 17:05:01,601 - graphVAE - INFO - BCE: 0.587, MSE: 0.567, KLD: 0.358
+2022-11-05 17:05:02,023 - graphVAE - INFO - epoch:  395, train_reg_acc: 0.5823, eval_reg_acc: 0.8528, train_cls_acc: 0.6748, eval_cls_acc: 0.4767, train_loss: 1.6116, eval_loss: 1.3253
+2022-11-05 17:05:02,023 - graphVAE - INFO - BCE: 0.595, MSE: 0.515, KLD: 0.375
+2022-11-05 17:05:02,429 - graphVAE - INFO - epoch:  396, train_reg_acc: 0.5859, eval_reg_acc: 0.8639, train_cls_acc: 0.6720, eval_cls_acc: 0.4455, train_loss: 1.6068, eval_loss: 1.2810
+2022-11-05 17:05:02,444 - graphVAE - INFO - BCE: 0.618, MSE: 0.653, KLD: 0.469
+2022-11-05 17:05:02,851 - graphVAE - INFO - epoch:  397, train_reg_acc: 0.5855, eval_reg_acc: 0.8596, train_cls_acc: 0.6743, eval_cls_acc: 0.4381, train_loss: 1.5983, eval_loss: 1.3100
+2022-11-05 17:05:02,851 - graphVAE - INFO - BCE: 0.634, MSE: 0.630, KLD: 0.360
+2022-11-05 17:05:03,257 - graphVAE - INFO - epoch:  398, train_reg_acc: 0.5837, eval_reg_acc: 0.8590, train_cls_acc: 0.6765, eval_cls_acc: 0.4887, train_loss: 1.6039, eval_loss: 1.2866
+2022-11-05 17:05:03,273 - graphVAE - INFO - BCE: 0.630, MSE: 0.652, KLD: 0.462
+2022-11-05 17:05:03,679 - graphVAE - INFO - epoch:  399, train_reg_acc: 0.5816, eval_reg_acc: 0.8534, train_cls_acc: 0.6734, eval_cls_acc: 0.4564, train_loss: 1.6067, eval_loss: 1.2873
+2022-11-05 17:05:03,679 - graphVAE - INFO - BCE: 0.634, MSE: 0.594, KLD: 0.428
+2022-11-05 17:05:04,085 - graphVAE - INFO - epoch:  400, train_reg_acc: 0.5889, eval_reg_acc: 0.8612, train_cls_acc: 0.6759, eval_cls_acc: 0.4349, train_loss: 1.5904, eval_loss: 1.2936
+2022-11-05 17:05:04,101 - graphVAE - INFO - BCE: 0.616, MSE: 0.648, KLD: 0.374
+2022-11-05 17:05:04,507 - graphVAE - INFO - epoch:  401, train_reg_acc: 0.5850, eval_reg_acc: 0.8621, train_cls_acc: 0.6674, eval_cls_acc: 0.4238, train_loss: 1.5986, eval_loss: 1.3230
+2022-11-05 17:05:04,507 - graphVAE - INFO - BCE: 0.648, MSE: 0.543, KLD: 0.484
+2022-11-05 17:05:04,913 - graphVAE - INFO - epoch:  402, train_reg_acc: 0.5899, eval_reg_acc: 0.8593, train_cls_acc: 0.6711, eval_cls_acc: 0.4732, train_loss: 1.5945, eval_loss: 1.2876
+2022-11-05 17:05:04,913 - graphVAE - INFO - BCE: 0.611, MSE: 0.578, KLD: 0.456
+2022-11-05 17:05:05,335 - graphVAE - INFO - epoch:  403, train_reg_acc: 0.5842, eval_reg_acc: 0.8621, train_cls_acc: 0.6760, eval_cls_acc: 0.5146, train_loss: 1.5989, eval_loss: 1.2812
+2022-11-05 17:05:05,335 - graphVAE - INFO - BCE: 0.571, MSE: 0.590, KLD: 0.448
+2022-11-05 17:05:05,741 - graphVAE - INFO - epoch:  404, train_reg_acc: 0.5797, eval_reg_acc: 0.8559, train_cls_acc: 0.6813, eval_cls_acc: 0.4486, train_loss: 1.6041, eval_loss: 1.3271
+2022-11-05 17:05:05,741 - graphVAE - INFO - BCE: 0.620, MSE: 0.529, KLD: 0.527
+2022-11-05 17:05:06,163 - graphVAE - INFO - epoch:  405, train_reg_acc: 0.5831, eval_reg_acc: 0.8618, train_cls_acc: 0.6711, eval_cls_acc: 0.4527, train_loss: 1.5963, eval_loss: 1.2832
+2022-11-05 17:05:06,179 - graphVAE - INFO - BCE: 0.565, MSE: 0.509, KLD: 0.301
+2022-11-05 17:05:06,585 - graphVAE - INFO - epoch:  406, train_reg_acc: 0.5916, eval_reg_acc: 0.8635, train_cls_acc: 0.6769, eval_cls_acc: 0.4264, train_loss: 1.5873, eval_loss: 1.3220
+2022-11-05 17:05:06,585 - graphVAE - INFO - BCE: 0.629, MSE: 0.584, KLD: 0.498
+2022-11-05 17:05:07,007 - graphVAE - INFO - epoch:  407, train_reg_acc: 0.5866, eval_reg_acc: 0.8625, train_cls_acc: 0.6771, eval_cls_acc: 0.4609, train_loss: 1.6003, eval_loss: 1.2975
+2022-11-05 17:05:07,023 - graphVAE - INFO - BCE: 0.537, MSE: 0.530, KLD: 0.347
+2022-11-05 17:05:07,429 - graphVAE - INFO - epoch:  408, train_reg_acc: 0.5822, eval_reg_acc: 0.8617, train_cls_acc: 0.6741, eval_cls_acc: 0.4738, train_loss: 1.5912, eval_loss: 1.2789
+2022-11-05 17:05:07,429 - graphVAE - INFO - BCE: 0.645, MSE: 0.523, KLD: 0.411
+2022-11-05 17:05:07,851 - graphVAE - INFO - epoch:  409, train_reg_acc: 0.5894, eval_reg_acc: 0.8618, train_cls_acc: 0.6782, eval_cls_acc: 0.5213, train_loss: 1.5925, eval_loss: 1.2781
+2022-11-05 17:05:07,851 - graphVAE - INFO - BCE: 0.598, MSE: 0.620, KLD: 0.480
+2022-11-05 17:05:08,288 - graphVAE - INFO - epoch:  410, train_reg_acc: 0.5859, eval_reg_acc: 0.8626, train_cls_acc: 0.6758, eval_cls_acc: 0.4911, train_loss: 1.5922, eval_loss: 1.2920
+2022-11-05 17:05:08,288 - graphVAE - INFO - BCE: 0.596, MSE: 0.605, KLD: 0.415
+2022-11-05 17:05:08,694 - graphVAE - INFO - epoch:  411, train_reg_acc: 0.5835, eval_reg_acc: 0.8643, train_cls_acc: 0.6678, eval_cls_acc: 0.4825, train_loss: 1.5998, eval_loss: 1.2896
+2022-11-05 17:05:08,710 - graphVAE - INFO - BCE: 0.574, MSE: 0.634, KLD: 0.427
+2022-11-05 17:05:09,132 - graphVAE - INFO - epoch:  412, train_reg_acc: 0.5879, eval_reg_acc: 0.8658, train_cls_acc: 0.6865, eval_cls_acc: 0.4787, train_loss: 1.5948, eval_loss: 1.2794
+2022-11-05 17:05:09,132 - graphVAE - INFO - BCE: 0.599, MSE: 0.571, KLD: 0.375
+2022-11-05 17:05:09,554 - graphVAE - INFO - epoch:  413, train_reg_acc: 0.5866, eval_reg_acc: 0.8620, train_cls_acc: 0.6827, eval_cls_acc: 0.5248, train_loss: 1.5932, eval_loss: 1.2578
+2022-11-05 17:05:09,554 - graphVAE - INFO - BCE: 0.584, MSE: 0.576, KLD: 0.418
+2022-11-05 17:05:09,976 - graphVAE - INFO - epoch:  414, train_reg_acc: 0.5800, eval_reg_acc: 0.8646, train_cls_acc: 0.6783, eval_cls_acc: 0.4878, train_loss: 1.5968, eval_loss: 1.3152
+2022-11-05 17:05:09,976 - graphVAE - INFO - BCE: 0.611, MSE: 0.573, KLD: 0.488
+2022-11-05 17:05:10,398 - graphVAE - INFO - epoch:  415, train_reg_acc: 0.5952, eval_reg_acc: 0.8612, train_cls_acc: 0.6806, eval_cls_acc: 0.5039, train_loss: 1.5974, eval_loss: 1.2948
+2022-11-05 17:05:10,398 - graphVAE - INFO - BCE: 0.637, MSE: 0.526, KLD: 0.477
+2022-11-05 17:05:10,819 - graphVAE - INFO - epoch:  416, train_reg_acc: 0.5801, eval_reg_acc: 0.8583, train_cls_acc: 0.6756, eval_cls_acc: 0.5325, train_loss: 1.6036, eval_loss: 1.2709
+2022-11-05 17:05:10,819 - graphVAE - INFO - BCE: 0.603, MSE: 0.617, KLD: 0.401
+2022-11-05 17:05:11,241 - graphVAE - INFO - epoch:  417, train_reg_acc: 0.5872, eval_reg_acc: 0.8631, train_cls_acc: 0.6764, eval_cls_acc: 0.5307, train_loss: 1.5914, eval_loss: 1.2650
+2022-11-05 17:05:11,241 - graphVAE - INFO - BCE: 0.590, MSE: 0.550, KLD: 0.433
+2022-11-05 17:05:11,663 - graphVAE - INFO - epoch:  418, train_reg_acc: 0.5866, eval_reg_acc: 0.8599, train_cls_acc: 0.6805, eval_cls_acc: 0.4937, train_loss: 1.5971, eval_loss: 1.2881
+2022-11-05 17:05:11,663 - graphVAE - INFO - BCE: 0.645, MSE: 0.433, KLD: 0.365
+2022-11-05 17:05:12,069 - graphVAE - INFO - epoch:  419, train_reg_acc: 0.5894, eval_reg_acc: 0.8526, train_cls_acc: 0.6659, eval_cls_acc: 0.4601, train_loss: 1.6031, eval_loss: 1.3037
+2022-11-05 17:05:12,069 - graphVAE - INFO - BCE: 0.625, MSE: 0.676, KLD: 0.391
+2022-11-05 17:05:12,491 - graphVAE - INFO - epoch:  420, train_reg_acc: 0.5876, eval_reg_acc: 0.8591, train_cls_acc: 0.6700, eval_cls_acc: 0.4458, train_loss: 1.5968, eval_loss: 1.3082
+2022-11-05 17:05:12,491 - graphVAE - INFO - BCE: 0.614, MSE: 0.571, KLD: 0.366
+2022-11-05 17:05:12,898 - graphVAE - INFO - epoch:  421, train_reg_acc: 0.5831, eval_reg_acc: 0.8541, train_cls_acc: 0.6751, eval_cls_acc: 0.4353, train_loss: 1.6051, eval_loss: 1.3003
+2022-11-05 17:05:12,913 - graphVAE - INFO - BCE: 0.617, MSE: 0.565, KLD: 0.415
+2022-11-05 17:05:13,319 - graphVAE - INFO - epoch:  422, train_reg_acc: 0.5885, eval_reg_acc: 0.8568, train_cls_acc: 0.6727, eval_cls_acc: 0.4313, train_loss: 1.5932, eval_loss: 1.3047
+2022-11-05 17:05:13,335 - graphVAE - INFO - BCE: 0.591, MSE: 0.639, KLD: 0.467
+2022-11-05 17:05:13,741 - graphVAE - INFO - epoch:  423, train_reg_acc: 0.5896, eval_reg_acc: 0.8575, train_cls_acc: 0.6718, eval_cls_acc: 0.4191, train_loss: 1.5856, eval_loss: 1.3275
+2022-11-05 17:05:13,741 - graphVAE - INFO - BCE: 0.579, MSE: 0.592, KLD: 0.390
+2022-11-05 17:05:14,163 - graphVAE - INFO - epoch:  424, train_reg_acc: 0.5823, eval_reg_acc: 0.8636, train_cls_acc: 0.6771, eval_cls_acc: 0.4951, train_loss: 1.5976, eval_loss: 1.3030
+2022-11-05 17:05:14,179 - graphVAE - INFO - BCE: 0.610, MSE: 0.550, KLD: 0.530
+2022-11-05 17:05:14,585 - graphVAE - INFO - epoch:  425, train_reg_acc: 0.5902, eval_reg_acc: 0.8613, train_cls_acc: 0.6787, eval_cls_acc: 0.4508, train_loss: 1.5841, eval_loss: 1.3152
+2022-11-05 17:05:14,601 - graphVAE - INFO - BCE: 0.561, MSE: 0.638, KLD: 0.392
+2022-11-05 17:05:15,023 - graphVAE - INFO - epoch:  426, train_reg_acc: 0.5892, eval_reg_acc: 0.8554, train_cls_acc: 0.6738, eval_cls_acc: 0.4397, train_loss: 1.5937, eval_loss: 1.3052
+2022-11-05 17:05:15,023 - graphVAE - INFO - BCE: 0.619, MSE: 0.634, KLD: 0.353
+2022-11-05 17:05:15,444 - graphVAE - INFO - epoch:  427, train_reg_acc: 0.5880, eval_reg_acc: 0.8622, train_cls_acc: 0.6684, eval_cls_acc: 0.4665, train_loss: 1.5985, eval_loss: 1.3121
+2022-11-05 17:05:15,444 - graphVAE - INFO - BCE: 0.595, MSE: 0.560, KLD: 0.525
+2022-11-05 17:05:15,851 - graphVAE - INFO - epoch:  428, train_reg_acc: 0.5909, eval_reg_acc: 0.8575, train_cls_acc: 0.6807, eval_cls_acc: 0.4605, train_loss: 1.5882, eval_loss: 1.2898
+2022-11-05 17:05:15,866 - graphVAE - INFO - BCE: 0.599, MSE: 0.603, KLD: 0.352
+2022-11-05 17:05:16,273 - graphVAE - INFO - epoch:  429, train_reg_acc: 0.5836, eval_reg_acc: 0.8599, train_cls_acc: 0.6797, eval_cls_acc: 0.4481, train_loss: 1.5913, eval_loss: 1.3135
+2022-11-05 17:05:16,273 - graphVAE - INFO - BCE: 0.572, MSE: 0.600, KLD: 0.417
+2022-11-05 17:05:16,694 - graphVAE - INFO - epoch:  430, train_reg_acc: 0.5868, eval_reg_acc: 0.8667, train_cls_acc: 0.6753, eval_cls_acc: 0.5132, train_loss: 1.6029, eval_loss: 1.2718
+2022-11-05 17:05:16,710 - graphVAE - INFO - BCE: 0.587, MSE: 0.563, KLD: 0.504
+2022-11-05 17:05:17,116 - graphVAE - INFO - epoch:  431, train_reg_acc: 0.5869, eval_reg_acc: 0.8588, train_cls_acc: 0.6757, eval_cls_acc: 0.4547, train_loss: 1.6008, eval_loss: 1.2954
+2022-11-05 17:05:17,132 - graphVAE - INFO - BCE: 0.598, MSE: 0.547, KLD: 0.436
+2022-11-05 17:05:17,538 - graphVAE - INFO - epoch:  432, train_reg_acc: 0.5887, eval_reg_acc: 0.8594, train_cls_acc: 0.6766, eval_cls_acc: 0.4708, train_loss: 1.5987, eval_loss: 1.2762
+2022-11-05 17:05:17,538 - graphVAE - INFO - BCE: 0.582, MSE: 0.579, KLD: 0.440
+2022-11-05 17:05:17,963 - graphVAE - INFO - epoch:  433, train_reg_acc: 0.5853, eval_reg_acc: 0.8562, train_cls_acc: 0.6724, eval_cls_acc: 0.4391, train_loss: 1.6028, eval_loss: 1.3183
+2022-11-05 17:05:17,978 - graphVAE - INFO - BCE: 0.601, MSE: 0.539, KLD: 0.440
+2022-11-05 17:05:18,399 - graphVAE - INFO - epoch:  434, train_reg_acc: 0.5859, eval_reg_acc: 0.8631, train_cls_acc: 0.6725, eval_cls_acc: 0.4616, train_loss: 1.5913, eval_loss: 1.2865
+2022-11-05 17:05:18,399 - graphVAE - INFO - BCE: 0.618, MSE: 0.581, KLD: 0.366
+2022-11-05 17:05:18,805 - graphVAE - INFO - epoch:  435, train_reg_acc: 0.5882, eval_reg_acc: 0.8606, train_cls_acc: 0.6750, eval_cls_acc: 0.4887, train_loss: 1.5920, eval_loss: 1.2513
+2022-11-05 17:05:18,821 - graphVAE - INFO - BCE: 0.589, MSE: 0.578, KLD: 0.410
+2022-11-05 17:05:19,227 - graphVAE - INFO - epoch:  436, train_reg_acc: 0.5857, eval_reg_acc: 0.8600, train_cls_acc: 0.6682, eval_cls_acc: 0.4913, train_loss: 1.5871, eval_loss: 1.2820
+2022-11-05 17:05:19,227 - graphVAE - INFO - BCE: 0.592, MSE: 0.543, KLD: 0.446
+2022-11-05 17:05:19,633 - graphVAE - INFO - epoch:  437, train_reg_acc: 0.5874, eval_reg_acc: 0.8554, train_cls_acc: 0.6754, eval_cls_acc: 0.4569, train_loss: 1.6014, eval_loss: 1.2930
+2022-11-05 17:05:19,649 - graphVAE - INFO - BCE: 0.625, MSE: 0.583, KLD: 0.441
+2022-11-05 17:05:20,071 - graphVAE - INFO - epoch:  438, train_reg_acc: 0.5828, eval_reg_acc: 0.8571, train_cls_acc: 0.6742, eval_cls_acc: 0.4552, train_loss: 1.6006, eval_loss: 1.3226
+2022-11-05 17:05:20,071 - graphVAE - INFO - BCE: 0.594, MSE: 0.555, KLD: 0.510
+2022-11-05 17:05:20,492 - graphVAE - INFO - epoch:  439, train_reg_acc: 0.5930, eval_reg_acc: 0.8590, train_cls_acc: 0.6735, eval_cls_acc: 0.4950, train_loss: 1.5869, eval_loss: 1.2682
+2022-11-05 17:05:20,492 - graphVAE - INFO - BCE: 0.571, MSE: 0.641, KLD: 0.478
+2022-11-05 17:05:20,899 - graphVAE - INFO - epoch:  440, train_reg_acc: 0.5905, eval_reg_acc: 0.8539, train_cls_acc: 0.6694, eval_cls_acc: 0.4586, train_loss: 1.5900, eval_loss: 1.2973
+2022-11-05 17:05:20,914 - graphVAE - INFO - BCE: 0.627, MSE: 0.537, KLD: 0.538
+2022-11-05 17:05:21,321 - graphVAE - INFO - epoch:  441, train_reg_acc: 0.5829, eval_reg_acc: 0.8606, train_cls_acc: 0.6785, eval_cls_acc: 0.4456, train_loss: 1.5896, eval_loss: 1.2943
+2022-11-05 17:05:21,321 - graphVAE - INFO - BCE: 0.622, MSE: 0.608, KLD: 0.429
+2022-11-05 17:05:21,727 - graphVAE - INFO - epoch:  442, train_reg_acc: 0.5890, eval_reg_acc: 0.8665, train_cls_acc: 0.6744, eval_cls_acc: 0.4781, train_loss: 1.6048, eval_loss: 1.2782
+2022-11-05 17:05:21,727 - graphVAE - INFO - BCE: 0.580, MSE: 0.563, KLD: 0.407
+2022-11-05 17:05:22,162 - graphVAE - INFO - epoch:  443, train_reg_acc: 0.5859, eval_reg_acc: 0.8538, train_cls_acc: 0.6802, eval_cls_acc: 0.4854, train_loss: 1.5936, eval_loss: 1.2905
+2022-11-05 17:05:22,162 - graphVAE - INFO - BCE: 0.632, MSE: 0.522, KLD: 0.415
+2022-11-05 17:05:22,568 - graphVAE - INFO - epoch:  444, train_reg_acc: 0.5850, eval_reg_acc: 0.8656, train_cls_acc: 0.6769, eval_cls_acc: 0.4370, train_loss: 1.6040, eval_loss: 1.2871
+2022-11-05 17:05:22,568 - graphVAE - INFO - BCE: 0.604, MSE: 0.647, KLD: 0.466
+2022-11-05 17:05:23,006 - graphVAE - INFO - epoch:  445, train_reg_acc: 0.5845, eval_reg_acc: 0.8584, train_cls_acc: 0.6661, eval_cls_acc: 0.4298, train_loss: 1.6014, eval_loss: 1.3106
+2022-11-05 17:05:23,006 - graphVAE - INFO - BCE: 0.623, MSE: 0.468, KLD: 0.430
+2022-11-05 17:05:23,412 - graphVAE - INFO - epoch:  446, train_reg_acc: 0.5872, eval_reg_acc: 0.8662, train_cls_acc: 0.6675, eval_cls_acc: 0.4338, train_loss: 1.6078, eval_loss: 1.3073
+2022-11-05 17:05:23,428 - graphVAE - INFO - BCE: 0.588, MSE: 0.533, KLD: 0.425
+2022-11-05 17:05:23,849 - graphVAE - INFO - epoch:  447, train_reg_acc: 0.5894, eval_reg_acc: 0.8663, train_cls_acc: 0.6770, eval_cls_acc: 0.4287, train_loss: 1.5900, eval_loss: 1.2861
+2022-11-05 17:05:23,865 - graphVAE - INFO - BCE: 0.573, MSE: 0.530, KLD: 0.332
+2022-11-05 17:05:24,303 - graphVAE - INFO - epoch:  448, train_reg_acc: 0.5854, eval_reg_acc: 0.8670, train_cls_acc: 0.6692, eval_cls_acc: 0.4373, train_loss: 1.5922, eval_loss: 1.3058
+2022-11-05 17:05:24,318 - graphVAE - INFO - BCE: 0.610, MSE: 0.579, KLD: 0.443
+2022-11-05 17:05:24,724 - graphVAE - INFO - epoch:  449, train_reg_acc: 0.5922, eval_reg_acc: 0.8632, train_cls_acc: 0.6717, eval_cls_acc: 0.4589, train_loss: 1.5950, eval_loss: 1.3010
+2022-11-05 17:05:24,724 - graphVAE - INFO - BCE: 0.651, MSE: 0.521, KLD: 0.410
+2022-11-05 17:05:25,162 - graphVAE - INFO - epoch:  450, train_reg_acc: 0.5893, eval_reg_acc: 0.8611, train_cls_acc: 0.6711, eval_cls_acc: 0.4835, train_loss: 1.6000, eval_loss: 1.2988
+2022-11-05 17:05:25,162 - graphVAE - INFO - BCE: 0.607, MSE: 0.614, KLD: 0.463
+2022-11-05 17:05:25,584 - graphVAE - INFO - epoch:  451, train_reg_acc: 0.5861, eval_reg_acc: 0.8621, train_cls_acc: 0.6738, eval_cls_acc: 0.4919, train_loss: 1.6039, eval_loss: 1.2878
+2022-11-05 17:05:25,584 - graphVAE - INFO - BCE: 0.575, MSE: 0.591, KLD: 0.391
+2022-11-05 17:05:26,037 - graphVAE - INFO - epoch:  452, train_reg_acc: 0.5838, eval_reg_acc: 0.8618, train_cls_acc: 0.6771, eval_cls_acc: 0.4850, train_loss: 1.6021, eval_loss: 1.2884
+2022-11-05 17:05:26,037 - graphVAE - INFO - BCE: 0.630, MSE: 0.565, KLD: 0.370
+2022-11-05 17:05:26,443 - graphVAE - INFO - epoch:  453, train_reg_acc: 0.5866, eval_reg_acc: 0.8635, train_cls_acc: 0.6783, eval_cls_acc: 0.4444, train_loss: 1.5972, eval_loss: 1.2983
+2022-11-05 17:05:26,459 - graphVAE - INFO - BCE: 0.549, MSE: 0.636, KLD: 0.441
+2022-11-05 17:05:26,865 - graphVAE - INFO - epoch:  454, train_reg_acc: 0.5929, eval_reg_acc: 0.8602, train_cls_acc: 0.6785, eval_cls_acc: 0.4428, train_loss: 1.5862, eval_loss: 1.2986
+2022-11-05 17:05:26,865 - graphVAE - INFO - BCE: 0.604, MSE: 0.500, KLD: 0.445
+2022-11-05 17:05:27,303 - graphVAE - INFO - epoch:  455, train_reg_acc: 0.5834, eval_reg_acc: 0.8625, train_cls_acc: 0.6762, eval_cls_acc: 0.4476, train_loss: 1.5985, eval_loss: 1.3004
+2022-11-05 17:05:27,303 - graphVAE - INFO - BCE: 0.568, MSE: 0.550, KLD: 0.470
+2022-11-05 17:05:27,709 - graphVAE - INFO - epoch:  456, train_reg_acc: 0.5897, eval_reg_acc: 0.8590, train_cls_acc: 0.6740, eval_cls_acc: 0.4309, train_loss: 1.5962, eval_loss: 1.3004
+2022-11-05 17:05:27,724 - graphVAE - INFO - BCE: 0.556, MSE: 0.593, KLD: 0.380
+2022-11-05 17:05:28,131 - graphVAE - INFO - epoch:  457, train_reg_acc: 0.5817, eval_reg_acc: 0.8581, train_cls_acc: 0.6735, eval_cls_acc: 0.4576, train_loss: 1.6040, eval_loss: 1.2938
+2022-11-05 17:05:28,131 - graphVAE - INFO - BCE: 0.584, MSE: 0.560, KLD: 0.345
+2022-11-05 17:05:28,537 - graphVAE - INFO - epoch:  458, train_reg_acc: 0.5878, eval_reg_acc: 0.8652, train_cls_acc: 0.6786, eval_cls_acc: 0.4445, train_loss: 1.5905, eval_loss: 1.3164
+2022-11-05 17:05:28,537 - graphVAE - INFO - BCE: 0.604, MSE: 0.700, KLD: 0.457
+2022-11-05 17:05:28,959 - graphVAE - INFO - epoch:  459, train_reg_acc: 0.5911, eval_reg_acc: 0.8577, train_cls_acc: 0.6802, eval_cls_acc: 0.4814, train_loss: 1.5929, eval_loss: 1.3027
+2022-11-05 17:05:28,959 - graphVAE - INFO - BCE: 0.596, MSE: 0.509, KLD: 0.399
+2022-11-05 17:05:29,365 - graphVAE - INFO - epoch:  460, train_reg_acc: 0.5920, eval_reg_acc: 0.8603, train_cls_acc: 0.6803, eval_cls_acc: 0.4604, train_loss: 1.5851, eval_loss: 1.2817
+2022-11-05 17:05:29,381 - graphVAE - INFO - BCE: 0.602, MSE: 0.622, KLD: 0.349
+2022-11-05 17:05:29,803 - graphVAE - INFO - epoch:  461, train_reg_acc: 0.5850, eval_reg_acc: 0.8612, train_cls_acc: 0.6755, eval_cls_acc: 0.4395, train_loss: 1.6007, eval_loss: 1.3116
+2022-11-05 17:05:29,803 - graphVAE - INFO - BCE: 0.638, MSE: 0.621, KLD: 0.481
+2022-11-05 17:05:30,240 - graphVAE - INFO - epoch:  462, train_reg_acc: 0.5909, eval_reg_acc: 0.8660, train_cls_acc: 0.6728, eval_cls_acc: 0.4464, train_loss: 1.5912, eval_loss: 1.3023
+2022-11-05 17:05:30,240 - graphVAE - INFO - BCE: 0.594, MSE: 0.519, KLD: 0.393
+2022-11-05 17:05:30,646 - graphVAE - INFO - epoch:  463, train_reg_acc: 0.5889, eval_reg_acc: 0.8567, train_cls_acc: 0.6850, eval_cls_acc: 0.4481, train_loss: 1.5822, eval_loss: 1.3123
+2022-11-05 17:05:30,646 - graphVAE - INFO - BCE: 0.637, MSE: 0.559, KLD: 0.430
+2022-11-05 17:05:31,068 - graphVAE - INFO - epoch:  464, train_reg_acc: 0.5912, eval_reg_acc: 0.8574, train_cls_acc: 0.6739, eval_cls_acc: 0.4521, train_loss: 1.5899, eval_loss: 1.3051
+2022-11-05 17:05:31,084 - graphVAE - INFO - BCE: 0.559, MSE: 0.577, KLD: 0.426
+2022-11-05 17:05:31,490 - graphVAE - INFO - epoch:  465, train_reg_acc: 0.5844, eval_reg_acc: 0.8576, train_cls_acc: 0.6731, eval_cls_acc: 0.4629, train_loss: 1.6050, eval_loss: 1.3160
+2022-11-05 17:05:31,490 - graphVAE - INFO - BCE: 0.595, MSE: 0.474, KLD: 0.527
+2022-11-05 17:05:31,912 - graphVAE - INFO - epoch:  466, train_reg_acc: 0.5919, eval_reg_acc: 0.8573, train_cls_acc: 0.6753, eval_cls_acc: 0.4427, train_loss: 1.5820, eval_loss: 1.3113
+2022-11-05 17:05:31,912 - graphVAE - INFO - BCE: 0.640, MSE: 0.623, KLD: 0.483
+2022-11-05 17:05:32,318 - graphVAE - INFO - epoch:  467, train_reg_acc: 0.5852, eval_reg_acc: 0.8649, train_cls_acc: 0.6787, eval_cls_acc: 0.4393, train_loss: 1.6022, eval_loss: 1.3266
+2022-11-05 17:05:32,334 - graphVAE - INFO - BCE: 0.629, MSE: 0.595, KLD: 0.461
+2022-11-05 17:05:32,740 - graphVAE - INFO - epoch:  468, train_reg_acc: 0.5858, eval_reg_acc: 0.8593, train_cls_acc: 0.6783, eval_cls_acc: 0.4188, train_loss: 1.5983, eval_loss: 1.3190
+2022-11-05 17:05:32,740 - graphVAE - INFO - BCE: 0.603, MSE: 0.588, KLD: 0.417
+2022-11-05 17:05:33,162 - graphVAE - INFO - epoch:  469, train_reg_acc: 0.5873, eval_reg_acc: 0.8630, train_cls_acc: 0.6790, eval_cls_acc: 0.4416, train_loss: 1.5890, eval_loss: 1.3177
+2022-11-05 17:05:33,162 - graphVAE - INFO - BCE: 0.609, MSE: 0.553, KLD: 0.450
+2022-11-05 17:05:33,568 - graphVAE - INFO - epoch:  470, train_reg_acc: 0.5906, eval_reg_acc: 0.8624, train_cls_acc: 0.6765, eval_cls_acc: 0.4598, train_loss: 1.5977, eval_loss: 1.3051
+2022-11-05 17:05:33,568 - graphVAE - INFO - BCE: 0.602, MSE: 0.528, KLD: 0.400
+2022-11-05 17:05:33,974 - graphVAE - INFO - epoch:  471, train_reg_acc: 0.5860, eval_reg_acc: 0.8614, train_cls_acc: 0.6760, eval_cls_acc: 0.4667, train_loss: 1.5991, eval_loss: 1.3114
+2022-11-05 17:05:33,974 - graphVAE - INFO - BCE: 0.587, MSE: 0.540, KLD: 0.365
+2022-11-05 17:05:34,381 - graphVAE - INFO - epoch:  472, train_reg_acc: 0.5868, eval_reg_acc: 0.8544, train_cls_acc: 0.6777, eval_cls_acc: 0.4855, train_loss: 1.5952, eval_loss: 1.2989
+2022-11-05 17:05:34,396 - graphVAE - INFO - BCE: 0.626, MSE: 0.585, KLD: 0.326
+2022-11-05 17:05:34,803 - graphVAE - INFO - epoch:  473, train_reg_acc: 0.5886, eval_reg_acc: 0.8605, train_cls_acc: 0.6809, eval_cls_acc: 0.4317, train_loss: 1.5991, eval_loss: 1.3168
+2022-11-05 17:05:34,803 - graphVAE - INFO - BCE: 0.642, MSE: 0.539, KLD: 0.366
+2022-11-05 17:05:35,209 - graphVAE - INFO - epoch:  474, train_reg_acc: 0.5899, eval_reg_acc: 0.8609, train_cls_acc: 0.6764, eval_cls_acc: 0.4529, train_loss: 1.5949, eval_loss: 1.2975
+2022-11-05 17:05:35,209 - graphVAE - INFO - BCE: 0.607, MSE: 0.611, KLD: 0.495
+2022-11-05 17:05:35,631 - graphVAE - INFO - epoch:  475, train_reg_acc: 0.5876, eval_reg_acc: 0.8505, train_cls_acc: 0.6778, eval_cls_acc: 0.4342, train_loss: 1.5896, eval_loss: 1.3068
+2022-11-05 17:05:35,631 - graphVAE - INFO - BCE: 0.609, MSE: 0.565, KLD: 0.321
+2022-11-05 17:05:36,037 - graphVAE - INFO - epoch:  476, train_reg_acc: 0.5854, eval_reg_acc: 0.8587, train_cls_acc: 0.6747, eval_cls_acc: 0.4562, train_loss: 1.5885, eval_loss: 1.2888
+2022-11-05 17:05:36,037 - graphVAE - INFO - BCE: 0.573, MSE: 0.493, KLD: 0.418
+2022-11-05 17:05:36,443 - graphVAE - INFO - epoch:  477, train_reg_acc: 0.5891, eval_reg_acc: 0.8546, train_cls_acc: 0.6832, eval_cls_acc: 0.4573, train_loss: 1.5874, eval_loss: 1.3104
+2022-11-05 17:05:36,443 - graphVAE - INFO - BCE: 0.575, MSE: 0.543, KLD: 0.388
+2022-11-05 17:05:36,849 - graphVAE - INFO - epoch:  478, train_reg_acc: 0.5892, eval_reg_acc: 0.8626, train_cls_acc: 0.6702, eval_cls_acc: 0.4669, train_loss: 1.5933, eval_loss: 1.2968
+2022-11-05 17:05:36,865 - graphVAE - INFO - BCE: 0.558, MSE: 0.515, KLD: 0.403
+2022-11-05 17:05:37,271 - graphVAE - INFO - epoch:  479, train_reg_acc: 0.5902, eval_reg_acc: 0.8640, train_cls_acc: 0.6753, eval_cls_acc: 0.4468, train_loss: 1.5957, eval_loss: 1.2798
+2022-11-05 17:05:37,271 - graphVAE - INFO - BCE: 0.558, MSE: 0.583, KLD: 0.372
+2022-11-05 17:05:37,678 - graphVAE - INFO - epoch:  480, train_reg_acc: 0.5941, eval_reg_acc: 0.8600, train_cls_acc: 0.6812, eval_cls_acc: 0.4621, train_loss: 1.5753, eval_loss: 1.2960
+2022-11-05 17:05:37,678 - graphVAE - INFO - BCE: 0.607, MSE: 0.549, KLD: 0.448
+2022-11-05 17:05:38,099 - graphVAE - INFO - epoch:  481, train_reg_acc: 0.5871, eval_reg_acc: 0.8575, train_cls_acc: 0.6821, eval_cls_acc: 0.4805, train_loss: 1.5868, eval_loss: 1.3095
+2022-11-05 17:05:38,115 - graphVAE - INFO - BCE: 0.609, MSE: 0.534, KLD: 0.442
+2022-11-05 17:05:38,521 - graphVAE - INFO - epoch:  482, train_reg_acc: 0.5836, eval_reg_acc: 0.8504, train_cls_acc: 0.6740, eval_cls_acc: 0.4624, train_loss: 1.6053, eval_loss: 1.3152
+2022-11-05 17:05:38,521 - graphVAE - INFO - BCE: 0.559, MSE: 0.586, KLD: 0.381
+2022-11-05 17:05:38,928 - graphVAE - INFO - epoch:  483, train_reg_acc: 0.5832, eval_reg_acc: 0.8644, train_cls_acc: 0.6762, eval_cls_acc: 0.4600, train_loss: 1.6026, eval_loss: 1.2952
+2022-11-05 17:05:38,943 - graphVAE - INFO - BCE: 0.635, MSE: 0.595, KLD: 0.532
+2022-11-05 17:05:39,349 - graphVAE - INFO - epoch:  484, train_reg_acc: 0.5847, eval_reg_acc: 0.8532, train_cls_acc: 0.6729, eval_cls_acc: 0.4437, train_loss: 1.5978, eval_loss: 1.3231
+2022-11-05 17:05:39,349 - graphVAE - INFO - BCE: 0.599, MSE: 0.579, KLD: 0.368
+2022-11-05 17:05:39,756 - graphVAE - INFO - epoch:  485, train_reg_acc: 0.5885, eval_reg_acc: 0.8535, train_cls_acc: 0.6807, eval_cls_acc: 0.4420, train_loss: 1.5893, eval_loss: 1.3294
+2022-11-05 17:05:39,771 - graphVAE - INFO - BCE: 0.586, MSE: 0.577, KLD: 0.375
+2022-11-05 17:05:40,162 - graphVAE - INFO - epoch:  486, train_reg_acc: 0.5845, eval_reg_acc: 0.8588, train_cls_acc: 0.6798, eval_cls_acc: 0.4739, train_loss: 1.6026, eval_loss: 1.2884
+2022-11-05 17:05:40,178 - graphVAE - INFO - BCE: 0.607, MSE: 0.674, KLD: 0.429
+2022-11-05 17:05:40,584 - graphVAE - INFO - epoch:  487, train_reg_acc: 0.5914, eval_reg_acc: 0.8652, train_cls_acc: 0.6759, eval_cls_acc: 0.4159, train_loss: 1.5927, eval_loss: 1.3382
+2022-11-05 17:05:40,584 - graphVAE - INFO - BCE: 0.623, MSE: 0.568, KLD: 0.402
+2022-11-05 17:05:40,990 - graphVAE - INFO - epoch:  488, train_reg_acc: 0.5875, eval_reg_acc: 0.8531, train_cls_acc: 0.6716, eval_cls_acc: 0.4895, train_loss: 1.5931, eval_loss: 1.3080
+2022-11-05 17:05:41,006 - graphVAE - INFO - BCE: 0.587, MSE: 0.595, KLD: 0.445
+2022-11-05 17:05:41,396 - graphVAE - INFO - epoch:  489, train_reg_acc: 0.5909, eval_reg_acc: 0.8596, train_cls_acc: 0.6817, eval_cls_acc: 0.4392, train_loss: 1.5868, eval_loss: 1.3096
+2022-11-05 17:05:41,412 - graphVAE - INFO - BCE: 0.618, MSE: 0.592, KLD: 0.380
+2022-11-05 17:05:41,818 - graphVAE - INFO - epoch:  490, train_reg_acc: 0.5903, eval_reg_acc: 0.8601, train_cls_acc: 0.6718, eval_cls_acc: 0.4330, train_loss: 1.5953, eval_loss: 1.3264
+2022-11-05 17:05:41,818 - graphVAE - INFO - BCE: 0.552, MSE: 0.658, KLD: 0.433
+2022-11-05 17:05:42,224 - graphVAE - INFO - epoch:  491, train_reg_acc: 0.5932, eval_reg_acc: 0.8570, train_cls_acc: 0.6782, eval_cls_acc: 0.4709, train_loss: 1.5967, eval_loss: 1.3050
+2022-11-05 17:05:42,224 - graphVAE - INFO - BCE: 0.601, MSE: 0.669, KLD: 0.436
+2022-11-05 17:05:42,631 - graphVAE - INFO - epoch:  492, train_reg_acc: 0.5870, eval_reg_acc: 0.8620, train_cls_acc: 0.6782, eval_cls_acc: 0.4611, train_loss: 1.6023, eval_loss: 1.3093
+2022-11-05 17:05:42,631 - graphVAE - INFO - BCE: 0.609, MSE: 0.522, KLD: 0.492
+2022-11-05 17:05:43,037 - graphVAE - INFO - epoch:  493, train_reg_acc: 0.5903, eval_reg_acc: 0.8538, train_cls_acc: 0.6720, eval_cls_acc: 0.4592, train_loss: 1.5851, eval_loss: 1.3125
+2022-11-05 17:05:43,037 - graphVAE - INFO - BCE: 0.618, MSE: 0.516, KLD: 0.362
+2022-11-05 17:05:43,443 - graphVAE - INFO - epoch:  494, train_reg_acc: 0.5892, eval_reg_acc: 0.8603, train_cls_acc: 0.6704, eval_cls_acc: 0.4481, train_loss: 1.6011, eval_loss: 1.2980
+2022-11-05 17:05:43,459 - graphVAE - INFO - BCE: 0.623, MSE: 0.579, KLD: 0.490
+2022-11-05 17:05:43,849 - graphVAE - INFO - epoch:  495, train_reg_acc: 0.5917, eval_reg_acc: 0.8537, train_cls_acc: 0.6709, eval_cls_acc: 0.4774, train_loss: 1.5940, eval_loss: 1.3152
+2022-11-05 17:05:43,865 - graphVAE - INFO - BCE: 0.566, MSE: 0.639, KLD: 0.507
+2022-11-05 17:05:44,271 - graphVAE - INFO - epoch:  496, train_reg_acc: 0.5924, eval_reg_acc: 0.8594, train_cls_acc: 0.6763, eval_cls_acc: 0.4405, train_loss: 1.5886, eval_loss: 1.3104
+2022-11-05 17:05:44,271 - graphVAE - INFO - BCE: 0.639, MSE: 0.539, KLD: 0.410
+2022-11-05 17:05:44,678 - graphVAE - INFO - epoch:  497, train_reg_acc: 0.5878, eval_reg_acc: 0.8589, train_cls_acc: 0.6728, eval_cls_acc: 0.4524, train_loss: 1.5951, eval_loss: 1.3007
+2022-11-05 17:05:44,678 - graphVAE - INFO - BCE: 0.575, MSE: 0.617, KLD: 0.421
+2022-11-05 17:05:45,084 - graphVAE - INFO - epoch:  498, train_reg_acc: 0.5901, eval_reg_acc: 0.8610, train_cls_acc: 0.6748, eval_cls_acc: 0.4615, train_loss: 1.5907, eval_loss: 1.3032
+2022-11-05 17:05:45,099 - graphVAE - INFO - BCE: 0.572, MSE: 0.488, KLD: 0.352
+2022-11-05 17:05:45,506 - graphVAE - INFO - epoch:  499, train_reg_acc: 0.5928, eval_reg_acc: 0.8591, train_cls_acc: 0.6742, eval_cls_acc: 0.4307, train_loss: 1.5908, eval_loss: 1.3377
+2022-11-05 17:05:45,506 - graphVAE - INFO - BCE: 0.606, MSE: 0.640, KLD: 0.514
+2022-11-05 17:05:45,912 - graphVAE - INFO - epoch:  500, train_reg_acc: 0.5890, eval_reg_acc: 0.8621, train_cls_acc: 0.6819, eval_cls_acc: 0.4677, train_loss: 1.5875, eval_loss: 1.2918

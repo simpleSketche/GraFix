@@ -30,6 +30,8 @@ class VariationalGraphDecoder(nn.Module):
         z = self.linear_1(z).relu()
         z = self.conv1(z, edge_index).relu()
         z = self.linear_2(z)
+        # first output is classification
+        z[:, 0] = torch.sigmoid(z[:, 0])
         return z
 
 

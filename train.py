@@ -46,7 +46,7 @@ def main(args):
 	test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False)
 
 	encoder_args = {"input_dim": 10, "hidden_dim": args.hidden_dim}
-	decoder_args = {"hidden_dim": args.hidden_dim, "output_dim": 2}
+	decoder_args = {"hidden_dim": args.hidden_dim, "output_dim": 3}
 	encoder = globals()[args.encoder_name](**encoder_args).to(args.device)
 	decoder = globals()[args.decoder_name](**decoder_args).to(args.device)
 	model = globals()[args.model_name](encoder, decoder).to(args.device)
@@ -54,11 +54,12 @@ def main(args):
 
 	# VAE loss function (reconstruction loss + KL_Divergence loss)
 	def loss_fn(recon_x, x, mu, log_var, i):
-		MSE = torch.nn.functional.mse_loss(recon_x, x)
+		BCE = torch.nn.functional.binary_cross_entropy(recon_x[:, 0], x[:, 2])
+		MSE = torch.nn.functional.mse_loss(recon_x[:, 1:3], x[:, 3:5])
 		KLD = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp()) * args.kl_loss_ratio
 		if i == 0:
-			print(f"MSE: {MSE:5.3f}, KLD: {KLD:5.3f}")
-		return MSE + KLD
+			logger.info(f"BCE: {BCE:5.3f}, MSE: {MSE:5.3f}, KLD: {KLD:5.3f}")
+		return BCE + MSE + KLD
 
 	# init optimizer
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
@@ -67,13 +68,13 @@ def main(args):
 	for epoch in range(1, args.num_epoch+1):
 		# Training loop - iterate over train dataloader and update model weights
 		model.train()
-		loss_train, acc_train, iter_train = 0, 0, 0
+		loss_train, acc_reg_train, acc_cls_train, iter_train = 0, 0, 0, 0
 		for i, batch in enumerate(train_loader):
 			batch = batch.to(args.device)
 			recon_x, mu, log_var, z = model(batch.x, batch.edge_index)
 
 			# calculate loss and update parameters
-			loss = loss_fn(recon_x, batch.x[:, 3:5], mu, log_var, i)
+			loss = loss_fn(recon_x, batch.x, mu, log_var, i)
 			optimizer.zero_grad()
 			loss.backward()
 			optimizer.step()
@@ -81,29 +82,33 @@ def main(args):
 			# accumulate loss, accuracy
 			iter_train += 1
 			loss_train += loss.item()
-			acc_train += R2_score(recon_x, batch.x[:, 3:5])
+			acc_reg_train += R2_score(recon_x[:, 1:3], batch.x[:, 3:5])
+			acc_cls_train += binary_classification_accracy(recon_x[:, 0], batch.x[:, 2])
 		
 		loss_train /= iter_train
-		acc_train /= iter_train
+		acc_reg_train /= iter_train
+		acc_cls_train /= iter_train
 
 		# Evaluation loop - calculate accuracy and save model weights
 		model.eval()
 		with torch.no_grad():
-			loss_eval, acc_eval, iter_eval = 0, 0, 0
+			loss_eval, acc_reg_eval, acc_cls_eval, iter_eval = 0, 0, 0, 0
 			for batch in valid_loader:
 				batch = batch.to(args.device)
 				recon_x, mu, log_var, z = model(batch.x, batch.edge_index)
-				loss = loss_fn(recon_x, batch.x[:, 3:5], mu, log_var, 999)
+				loss = loss_fn(recon_x, batch.x, mu, log_var, None)
 
 				# accumulate loss, accuracy
 				iter_eval += 1
 				loss_eval += loss.item()
-				acc_eval += R2_score(recon_x, batch.x[:, 3:5])
+				acc_reg_eval += R2_score(recon_x[:, 1:3], batch.x[:, 3:5])
+				acc_cls_eval += binary_classification_accracy(recon_x[:, 0], batch.x[:, 2])
 				
 			loss_eval /= iter_eval
-			acc_eval /= iter_eval
+			acc_reg_eval /= iter_eval
+			acc_cls_eval /= iter_eval
 
-		logger.info(f"epoch: {epoch:4d}, train_acc: {acc_train:.4f}, eval_acc: {acc_eval:.4f}, train_loss: {loss_train:.4f}, eval_loss: {loss_eval:.4f}")
+		logger.info(f"epoch: {epoch:4d}, train_reg_acc: {acc_reg_train:.4f}, eval_reg_acc: {acc_reg_eval:.4f}, train_cls_acc: {acc_cls_train:.4f}, eval_cls_acc: {acc_cls_eval:.4f}, train_loss: {loss_train:.4f}, eval_loss: {loss_eval:.4f}")
 
 		# save model
 		if loss_eval < best_eval_loss:
