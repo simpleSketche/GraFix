@@ -23,7 +23,7 @@ class Node_json():
 
     def parse_path(self):
         root_path = self.get_cur_path()
-        root_path.append('data\\nodes')
+        root_path.append('data\\legacy\\nodes')
         new_path = '\\'.join(root_path)
         is_path_exist = os.path.exists(new_path)
         if(is_path_exist==False):
@@ -32,7 +32,7 @@ class Node_json():
     
     def parse_json_path(self):
         json_path = self.get_cur_path()
-        json_path.append('data\\nodes\\{}.json'.format(int(self.option)))
+        json_path.append('data\\legacy\\nodes\\{}.json'.format(int(self.option)))
         new_json_path = '\\'.join(json_path)
         return new_json_path
 
