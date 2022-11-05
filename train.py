@@ -29,7 +29,7 @@ def main(args):
 	d = dataset.BoxDataset(root=args.data_path, data_num=args.data_num)
 	logger.info(f"Dataset length: {len(d)}")
 	data_num = len(d)
-	train_ratio, valid_ratio, test_ratio = 0.7, 0.2, 0.1
+	train_ratio, valid_ratio, test_ratio = 0.8, 0.2, 0.0
 	train_num, valid_num = int(data_num*train_ratio), int(data_num*valid_ratio)
 	test_num = data_num - train_num - valid_num
 	train_dataset, valid_dataset, test_dataset = random_split(d, [train_num, valid_num, test_num])
@@ -41,13 +41,15 @@ def main(args):
 	valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size, shuffle=False)
 	test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False)
 
-	model_args = {"input_dim": 5, "hidden_dim": args.hidden_dim, "output_dim": 1, "num_layers": args.num_layers}
-	model = globals()[args.model_name](**model_args).to(args.device)
+	encoder_args = {"input_dim": 10, "hidden_dim": args.hidden_dim}
+	decoder_args = {"hidden_dim": args.hidden_dim, "output_dim": 2}
+	encoder = globals()[args.encoder_name](**encoder_args).to(args.device)
+	decoder = globals()[args.decoder_name](**decoder_args).to(args.device)
+	model = globals()[args.model_name](encoder, decoder).to(args.device)
 	logger.info(model)
 
 	# init optimizer
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-	criterion = torch.nn.BCELoss()
 	best_eval_loss = np.inf
 
 	for epoch in range(1, args.num_epoch+1):
@@ -56,10 +58,11 @@ def main(args):
 		loss_train, acc_train, iter_train = 0, 0, 0
 		for batch in train_loader:
 			batch = batch.to(args.device)
-			node_pred = model(batch.x, batch.edge_index)
+			z = model.encode(batch.x, batch.edge_index)
+			loss = model.recon_loss(z, batch.edge_index, batch.x)
+			loss += model.kl_loss()
 
 			# calculate loss and update parameters
-			loss = criterion(node_pred, batch.node_y)
 			optimizer.zero_grad()
 			loss.backward()
 			optimizer.step()
@@ -67,7 +70,8 @@ def main(args):
 			# accumulate loss, accuracy
 			iter_train += 1
 			loss_train += loss.item()
-			acc_train += binary_classification_accracy(node_pred, batch.node_y)
+			acc = model.test(z, batch.edge_index, batch.x)
+			acc_train += acc
 		
 		loss_train /= iter_train
 		acc_train /= iter_train
@@ -78,15 +82,15 @@ def main(args):
 			loss_eval, acc_eval, iter_eval = 0, 0, 0
 			for batch in valid_loader:
 				batch = batch.to(args.device)
-				node_pred = model(batch.x, batch.edge_index)
-
-				# calculate loss and update parameters
-				loss = criterion(node_pred, batch.node_y)
+				z = model.encode(batch.x, batch.edge_index)
+				loss = model.recon_loss(z, batch.edge_index, batch.x)
+				loss += model.kl_loss()
 
 				# accumulate loss, accuracy
 				iter_eval += 1
 				loss_eval += loss.item()
-				acc_eval += binary_classification_accracy(node_pred, batch.node_y)
+				acc = model.test(z, batch.edge_index, batch.x)
+				acc_eval += acc
 				
 			loss_eval /= iter_eval
 			acc_eval /= iter_eval
@@ -108,7 +112,7 @@ def parse_args() -> Namespace:
 		"--data_path",
 		type=Path,
 		help="Directory to the dataset.",
-		default="./Data/",
+		default="./data/",
 	)
 
 	parser.add_argument(
@@ -119,31 +123,32 @@ def parse_args() -> Namespace:
 	)
 
 	# dataset
-	parser.add_argument("--data_num", type=int, default=1000)
+	parser.add_argument("--data_num", type=int, default=5000)
 
 	# model
-	parser.add_argument("--model_name", type=str, default="GCN")
-	parser.add_argument("--hidden_dim", type=int, default=32)
-	parser.add_argument("--num_layers", type=int, default=1)
+	parser.add_argument("--encoder_name", type=str, default="VariationalGraphEncoder")
+	parser.add_argument("--decoder_name", type=str, default="VariationalGraphDecoder")
+	parser.add_argument("--model_name", type=str, default="VGAE")
+	parser.add_argument("--hidden_dim", type=int, default=256)
 
 	# optimizer
-	parser.add_argument("--lr", type=float, default=1e-3)
+	parser.add_argument("--lr", type=float, default=5e-4)
 
 	# data loader
-	parser.add_argument("--batch_size", type=int, default=64)
+	parser.add_argument("--batch_size", type=int, default=32)
 
 	# training
 	parser.add_argument(
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
-	parser.add_argument("--num_epoch", type=int, default=100)
+	parser.add_argument("--num_epoch", type=int, default=500)
 
 	args = parser.parse_args()
 	return args
 
 
 def get_loggings(ckpt_dir):
-	logger = logging.getLogger(name='gnn-house-box')
+	logger = logging.getLogger(name='graphVAE')
 	logger.setLevel(level=logging.INFO)
 	# set formatter
 	formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
