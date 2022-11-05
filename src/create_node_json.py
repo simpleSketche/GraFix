@@ -37,23 +37,12 @@ class Node_json():
         return new_json_path
 
     def create_json_data(self):
-        output_nodes_data = {"node_type":["S"], "width":[round(self.site_width,5)], "length":[round(self.site_length,5)], "location":[[round(self.siteLoc.X,5), round(self.siteLoc.Y,5)]], "rotation":[0], "intersection":[False], "node_id":[-1]}
+        output_nodes_data = {"corners":[], "node_id":[]}
         # assign the rest of nodes
         for node in self.boxes:
-            center_location = rg.AreaMassProperties.Compute(node.footprint.ToNurbsCurve()).Centroid
-            rotation_degree = round(node.rotation * 57.2958) # convert to degrees
-            output_nodes_data["node_type"].append(node.type)
-            output_nodes_data["width"].append(round(node.width,5))
-            output_nodes_data["length"].append(round(node.depth,5))
-            output_nodes_data["location"].append([round(center_location.X,5), round(center_location.Y,5)])
-            output_nodes_data["intersection"].append(node.intersection)
+            corners = self.convert_footprint_to_pts(node.footprint)
+            output_nodes_data["corners"].append(corners)
             output_nodes_data["node_id"].append(node.id)
-            rotation = output_nodes_data["rotation"]
-            
-            if(rotation_degree == 0 or rotation_degree == 180):
-                rotation.append(0) # if the box is not rotated
-            else:
-                rotation.append(1) # if the box is rotated
         return output_nodes_data
     
     def save_json_data(self):
@@ -61,3 +50,11 @@ class Node_json():
         node_data = self.create_json_data()
         with open(cur_path, 'w') as f:
             f.write(json.dumps(node_data))
+
+    def convert_footprint_to_pts(self, polyline):
+        pts = []
+        for pt in polyline:
+            x = pt.X
+            y = pt.Y
+            pts.append([x, y])
+        return pts

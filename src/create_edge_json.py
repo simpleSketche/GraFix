@@ -46,9 +46,6 @@ class Edge_json():
     def create_json_data(self):
         output_edges_data = {"adjacency": []}
         for box in self.boxes:
-            # by default, the site is a virtual node that is the parent of all nodes
-            # and the hard-fixed id for site is always -1
-            output_edges_data["adjacency"].append([-1, box.id])
             for otherbox in self.boxes:
                 if(box.id != otherbox.id):
                     isCreateEdge = self.is_edge(box, otherbox)
