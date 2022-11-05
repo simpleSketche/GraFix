@@ -3,18 +3,21 @@ from pathlib import Path
 from typing import Dict
 from datetime import datetime
 import os
+import logging
 
-import os
 import numpy as np
 import torch
 import torch.optim as optim
 from torch.utils.data import random_split
 from torch_geometric.loader import DataLoader
-import logging
+import matplotlib.pyplot as plt
+
 import dataset
 from model import *
 from utils import binary_classification_accracy
-import matplotlib.pyplot as plt
+from utils import R2_score
+
+
 
 
 
@@ -24,6 +27,7 @@ def main(args):
 	args.ckpt_dir = os.path.join(args.ckpt_dir, datetime.now().strftime("%Y_%m_%d__%H_%M_%S"))
 	os.mkdir(args.ckpt_dir)
 	logger = get_loggings(args.ckpt_dir)
+	logger.info(args)
 
 	# dataset, split
 	d = dataset.BoxDataset(root=args.data_path, data_num=args.data_num)
@@ -48,6 +52,14 @@ def main(args):
 	model = globals()[args.model_name](encoder, decoder).to(args.device)
 	logger.info(model)
 
+	# VAE loss function (reconstruction loss + KL_Divergence loss)
+	def loss_fn(recon_x, x, mu, log_var, i):
+		MSE = torch.nn.functional.mse_loss(recon_x, x)
+		KLD = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp()) * args.kl_loss_ratio
+		if i == 0:
+			print(f"MSE: {MSE:5.3f}, KLD: {KLD:5.3f}")
+		return MSE + KLD
+
 	# init optimizer
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 	best_eval_loss = np.inf
@@ -56,13 +68,12 @@ def main(args):
 		# Training loop - iterate over train dataloader and update model weights
 		model.train()
 		loss_train, acc_train, iter_train = 0, 0, 0
-		for batch in train_loader:
+		for i, batch in enumerate(train_loader):
 			batch = batch.to(args.device)
-			z = model.encode(batch.x, batch.edge_index)
-			loss = model.recon_loss(z, batch.edge_index, batch.x)
-			loss += model.kl_loss()
+			recon_x, mu, log_var, z = model(batch.x, batch.edge_index)
 
 			# calculate loss and update parameters
+			loss = loss_fn(recon_x, batch.x[:, 3:5], mu, log_var, i)
 			optimizer.zero_grad()
 			loss.backward()
 			optimizer.step()
@@ -70,8 +81,7 @@ def main(args):
 			# accumulate loss, accuracy
 			iter_train += 1
 			loss_train += loss.item()
-			acc = model.test(z, batch.edge_index, batch.x)
-			acc_train += acc
+			acc_train += R2_score(recon_x, batch.x[:, 3:5])
 		
 		loss_train /= iter_train
 		acc_train /= iter_train
@@ -82,15 +92,13 @@ def main(args):
 			loss_eval, acc_eval, iter_eval = 0, 0, 0
 			for batch in valid_loader:
 				batch = batch.to(args.device)
-				z = model.encode(batch.x, batch.edge_index)
-				loss = model.recon_loss(z, batch.edge_index, batch.x)
-				loss += model.kl_loss()
+				recon_x, mu, log_var, z = model(batch.x, batch.edge_index)
+				loss = loss_fn(recon_x, batch.x[:, 3:5], mu, log_var, 999)
 
 				# accumulate loss, accuracy
 				iter_eval += 1
 				loss_eval += loss.item()
-				acc = model.test(z, batch.edge_index, batch.x)
-				acc_eval += acc
+				acc_eval += R2_score(recon_x, batch.x[:, 3:5])
 				
 			loss_eval /= iter_eval
 			acc_eval /= iter_eval
@@ -132,7 +140,8 @@ def parse_args() -> Namespace:
 	parser.add_argument("--hidden_dim", type=int, default=256)
 
 	# optimizer
-	parser.add_argument("--lr", type=float, default=5e-4)
+	parser.add_argument("--kl_loss_ratio", type=float, default=2e-3)
+	parser.add_argument("--lr", type=float, default=1e-3)
 
 	# data loader
 	parser.add_argument("--batch_size", type=int, default=32)

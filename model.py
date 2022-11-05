@@ -3,31 +3,25 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch_geometric.nn as tgnn
 from torch_geometric.nn import GCNConv    
-from utils import R2_score
-
-EPS = 1e-15
-MAX_LOGSTD = 10
 
 
 class VariationalGraphEncoder(nn.Module):
     def __init__(self, input_dim, hidden_dim):
         super().__init__()
+        self.hidden_dim = hidden_dim
         self.conv1 = GCNConv(input_dim, hidden_dim)
-        # maybe change mu, logstd to linear layer
-        # self.conv_mu = GCNConv(hidden_dim, hidden_dim)
-        # self.conv_logstd = GCNConv(hidden_dim, hidden_dim)
         self.linear_mu = nn.Linear(hidden_dim, hidden_dim)
-        self.linear_logstd = nn.Linear(hidden_dim, hidden_dim)
+        self.linear_logvar = nn.Linear(hidden_dim, hidden_dim)
 
     def forward(self, x, edge_index):
         x = self.conv1(x, edge_index).relu()
-        # return self.conv_mu(x, edge_index), self.conv_logstd(x, edge_index)
-        return self.linear_mu(x), self.linear_logstd(x)
+        return self.linear_mu(x), self.linear_logvar(x)
 
 
 class VariationalGraphDecoder(nn.Module):
     def __init__(self, hidden_dim, output_dim):
         super().__init__()
+        self.hidden_dim = hidden_dim
         self.linear_1 = nn.Linear(hidden_dim, hidden_dim)
         self.conv1 = GCNConv(hidden_dim, hidden_dim)
         self.linear_2 = nn.Linear(hidden_dim, output_dim)
@@ -41,42 +35,29 @@ class VariationalGraphDecoder(nn.Module):
 
 
 class VGAE(nn.Module):
-    def __init__(self, encoder, decoder=None):
+    def __init__(self, encoder, decoder):
         super().__init__()
         self.encoder = encoder
         self.decoder = decoder
+        assert encoder.hidden_dim == decoder.hidden_dim
+        self.hidden_dim = encoder.hidden_dim
     
-    def reparametrize(self, mu, logstd):
+    def reparametrize(self, mu, log_var):
         if self.training:
-            return mu + torch.randn_like(logstd) + torch.exp(logstd)
+            std = torch.exp(0.5 * log_var)
+            eps = torch.randn_like(std)
+            return mu + eps * std
         else:
             return mu
     
-    def encode(self, *args, **kwargs):
-        self.__mu__, self.__logstd__ = self.encoder(*args, **kwargs)
-        self.__logstd__ = self.__logstd__.clamp(max=MAX_LOGSTD)
-        z = self.reparametrize(self.__mu__, self.__logstd__)
-        return z
-    
-    def recon_loss(self, z, edge_index, x):
-        # print("start reconstructing loss")
-        # target: reconstruct location (x, y) for boxes
-        true_location = x[:, 3:5]
-        pred_location = self.decoder(z, edge_index)
-        loss = F.mse_loss(pred_location, true_location)
-        # print("loss:", loss)
-        # print()
-        return loss
+    def forward(self, x, edge_index):
+        mu, log_var = self.encoder(x, edge_index)
+        z = self.reparametrize(mu, log_var)
+        recon_x = self.decoder(z, edge_index)
+        return recon_x, mu, log_var, z
 
-    def kl_loss(self, mu=None, logstd=None):
-        mu = self.__mu__ if mu is None else mu
-        logstd = self.__logstd__ if logstd is None else logstd.clamp(max=MAX_LOGSTD)
-        return -0.5 * torch.mean(torch.sum(1 + 2 * logstd - mu**2 - logstd.exp()**2, dim=1))
+    def generate(self, node_num, edge_index):
+        z = torch.randn((n, self.hidden_dim)).to(edge_index.device)
+        recon_x = self.decoder(z, edge_index)
+        return recon_x
 
-    @torch.no_grad()
-    def test(self, z, edge_index, x):
-        # calculate R2 score
-        true_location = x[:, 3:5]
-        pred_location = self.decoder(z, edge_index)
-        acc = R2_score(pred_location, true_location)
-        return acc
