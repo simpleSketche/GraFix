@@ -11,7 +11,6 @@ import torch.nn.functional as F
 import torch_geometric.nn as tgnn
 from torch_geometric.nn import GCNConv    
 
-
 class VariationalGraphEncoder(nn.Module):
     def __init__(self, input_dim, hidden_dim):
         super().__init__()
@@ -23,7 +22,6 @@ class VariationalGraphEncoder(nn.Module):
     def forward(self, x, edge_index):
         x = self.conv1(x, edge_index).relu()
         return self.linear_mu(x), self.linear_logvar(x)
-
 
 class VariationalGraphDecoder(nn.Module):
     def __init__(self, hidden_dim, output_dim):
@@ -40,8 +38,6 @@ class VariationalGraphDecoder(nn.Module):
         # first output is classification
         z[:, 0] = torch.sigmoid(z[:, 0])
         return z
-
-
 
 class VGAE(nn.Module):
     def __init__(self, encoder, decoder):
