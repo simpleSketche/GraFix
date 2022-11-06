@@ -11,6 +11,7 @@ from copy import deepcopy
 
 NORM_DICT = {
     "coord": 20,
+    "center_distance": 17,
     "movement": 0.5,
 }
 
@@ -33,6 +34,7 @@ class RoomAsNodeDataset(Dataset):
             graph = self._construct_graph(data_name)
             graph = self._normalize(graph)
             self.graphs.append(graph)
+
     
     def _construct_graph(self, data_name: str):
         nodes_in_data = json.loads((self.nodes_in_folder / data_name).read_text())
@@ -56,6 +58,31 @@ class RoomAsNodeDataset(Dataset):
             edge_list.append([index_1, index_2])
             edge_list.append([index_2, index_1])
         edge_index = torch.tensor(edge_list).T
+
+        # edge_attr
+        # box center's distance
+        # box connection type, one hot for (left, right, top, left)
+        edge_attr = torch.zeros((edge_index.shape[1], 5))
+        for i, (index_1, index_2) in enumerate(edge_list):
+            center_x_1 = torch.mean(x[index_1, [0, 2, 4, 6]])
+            center_y_1 = torch.mean(x[index_1, [1, 3, 5, 7]])
+            center_x_2 = torch.mean(x[index_2, [0, 2, 4, 6]])
+            center_y_2 = torch.mean(x[index_2, [1, 3, 5, 7]])
+            width_1 = torch.abs(x[index_1, 0] - x[index_1, 2])
+            height_1 = torch.abs(x[index_1, 1] - x[index_1, 3])
+            distance = ((center_x_1 - center_x_2)**2 + (center_y_1 - center_y_2)**2) ** 0.5
+            edge_attr[i, 0] = distance
+            if center_x_2 < (center_x_1 - width_1/2):
+                edge_attr[i, 1] = 1
+            elif center_x_2 > (center_x_1 + width_1/2):
+                edge_attr[i, 2] = 1
+            elif center_y_2 > (center_y_1 + height_1/2):
+                edge_attr[i, 3] = 1
+            elif center_y_2 < (center_y_1 - height_1/2):
+                edge_attr[i, 4] = 1
+            else:
+                raise ValueError("Connection does not exist!")
+
 
         # node y (nodes_out_data)
         y = torch.full((room_number, node_vertices_feature_dim), FILL_VALUE_Y_NO_ROOM).to(torch.float)
@@ -89,7 +116,7 @@ class RoomAsNodeDataset(Dataset):
         x[:, node_vertices_feature_dim+4] = torch.tensor(clustering_coefficient)
 
         # graph
-        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
+        graph = Data(x=x, edge_index=edge_index, edge_attr=edge_attr, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
         return graph
 
     def _normalize(self, graph):
@@ -97,6 +124,7 @@ class RoomAsNodeDataset(Dataset):
         graph.original_y = deepcopy(graph.y)
         graph.x[:, 0:8] /= NORM_DICT["coord"]
         graph.y /= NORM_DICT["movement"]
+        graph.edge_attr[:, 0] /= NORM_DICT["center_distance"]
         return graph
     
     def __len__(self):
@@ -312,6 +340,6 @@ def output_graph_VerticesAsNode(save_path, norm_graph, prediction):
 
 
 if __name__ == "__main__":
-    dset = VerticesAsNodeDataset(data_num=1000)
+    dset = RoomAsNodeDataset(data_num=1000)
     print(dset)
 

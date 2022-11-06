@@ -34,8 +34,7 @@ class GNN(nn.Module):
             nn.Linear(hidden_dim, output_dim),
         )
 
-
-    def forward(self, x, edge_index):
+    def forward(self, x, edge_index, edge_attr=None):
         x = self.dnn1(x)
         for i in range(self.num_layers):
             x = self.conv_layers[i](x, edge_index)

@@ -61,7 +61,7 @@ def main(args):
 		loss_train, acc_train, iter_train = 0, 0, 0
 		for i, batch in enumerate(train_loader):
 			batch = batch.to(args.device)
-			pred = model(batch.x, batch.edge_index)
+			pred = model(batch.x, batch.edge_index, batch.edge_attr)
 
 			# calculate loss and update parameters
 			loss = criterion(pred, batch.y)
@@ -83,7 +83,7 @@ def main(args):
 			loss_eval, acc_eval, iter_eval = 0, 0, 0
 			for batch in valid_loader:
 				batch = batch.to(args.device)
-				pred = model(batch.x, batch.edge_index)
+				pred = model(batch.x, batch.edge_index, batch.edge_attr)
 				loss = criterion(pred, batch.y)
 
 				# accumulate loss, accuracy
@@ -112,7 +112,7 @@ def main(args):
 		save_path = save_pred_train_path / f"pred_{i}.pt"
 		logger.info(f"saving prediction: {save_path}")
 		graph = train_dataset[i].to(args.device)
-		pred = model(graph.x, graph.edge_index)
+		pred = model(graph.x, graph.edge_index, graph.edge_attr)
 		output_graph(save_path, graph, pred)
 
 	save_pred_valid_path = args.ckpt_dir / "Prediction_valid"
@@ -121,7 +121,7 @@ def main(args):
 		save_path = save_pred_valid_path / f"pred_{i}.pt"
 		logger.info(f"saving prediction: {save_path}")
 		graph = valid_dataset[i].to(args.device)
-		pred = model(graph.x, graph.edge_index)
+		pred = model(graph.x, graph.edge_index, graph.edge_attr)
 		output_graph(save_path, graph, pred)
 
 
@@ -152,7 +152,7 @@ def parse_args() -> Namespace:
 	parser.add_argument("--model_name", type=str, default="GNN")
 	parser.add_argument("--message_passing", type=str, default="GAT")
 	parser.add_argument("--hidden_dim", type=int, default=512)
-	parser.add_argument("--num_layers", type=int, default=3)
+	parser.add_argument("--num_layers", type=int, default=1)
 
 	# optimizer
 	parser.add_argument("--lr", type=float, default=1e-3)
@@ -164,8 +164,8 @@ def parse_args() -> Namespace:
 	parser.add_argument(
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
-	parser.add_argument("--num_epoch", type=int, default=1500)
-	parser.add_argument("--save_num", type=int, default=50)
+	parser.add_argument("--num_epoch", type=int, default=500)
+	parser.add_argument("--save_num", type=int, default=0)
 
 	args = parser.parse_args()
 	return args
