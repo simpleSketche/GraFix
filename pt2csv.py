@@ -24,36 +24,33 @@ def np2list(arr):
         list_arr.append(list(arr[i]))
     return list_arr
 
-def to_json(arr,key, dir_name):
-    df = pd.DataFrame(arr, columns = [key])
-    df.to_json(dir_name, orient = 'split', compression = 'infer', index = 'true')
-    # with open(dir_name, "w") as outfile:
-    #     json.dump(dict_i, outfile)    
+def to_csv(arr, dir_name):
+    np.savetxt(dir_name, arr, delimiter=",")
     
 
 count = 0
 
-save_dir = 'pred_pkl'
+save_dir = 'pred_csv'
 make_di_path(save_dir)
-# make_di_path(save_dir+'/nodes_in')
-# make_di_path(save_dir+'/nodes_out')
-# make_di_path(save_dir+'/edges')
+make_di_path(save_dir+'/nodes_in')
+make_di_path(save_dir+'/nodes_out')
+make_di_path(save_dir+'/edges')
 
 with torch.no_grad():
     for fname_i in graph_fname_list:
         graph_i = torch.load(fname_i)
-        dir_name_x = save_dir+'/'+str(count)+'.json'
-        
-        dict_i={}
+        dir_name_x = save_dir+'/nodes_in'+'/'+str(count)+'.csv'
         arr_x=graph_i['x'].detach().cpu().numpy()
-        to_json(arr_x,'corners_in', dir_name_x)
-        
-        dict_i['corners_in'] = np2list(arr_x)
+        to_csv(arr_x, dir_name_x)
 
+        dir_name_edge = save_dir+'/edges'+'/'+str(count)+'.csv'
         arr_edge = graph_i['edge_index'].detach().cpu().numpy()
-        dict_i['edge_index']=np2list(arr_edge)
-        dict_i['corners_out']=graph_i['y'].detach().cpu().numpy()
-        dict_i['vertices_movement_prediction']=graph_i['vertices_movement_prediction'].detach().cpu().numpy()
+        to_csv(arr_edge, dir_name_edge)
+        
+        arr_y=graph_i['y'].detach().cpu().numpy()
+        dir_name_y = save_dir+'/nodes_out'+'/'+str(count)+'.csv'
+        to_csv(arr_y, dir_name_y)
+        
         # save_pickle(dict_i, 'corners_in', dir_name_x)
         count+=1
         
