@@ -34,6 +34,7 @@ save_dir = 'pred_csv'
 make_di_path(save_dir)
 make_di_path(save_dir+'/nodes_in')
 make_di_path(save_dir+'/nodes_out')
+make_di_path(save_dir+'/move_pred')
 make_di_path(save_dir+'/nodes_out_gt')
 make_di_path(save_dir+'/edges')
 
@@ -56,6 +57,10 @@ with torch.no_grad():
         
         arr_mov = arr_x + graph_i['vertices_movement_prediction'].detach().cpu().numpy()
         to_csv(arr_mov, dir_name_y)
+        
+        dir_name_pred = save_dir+'/move_pred'+'/'+str(count)+'.csv'
+        arr_del = graph_i['vertices_movement_prediction'].detach().cpu().numpy()
+        to_csv(arr_del, dir_name_pred)
         # save_pickle(dict_i, 'corners_in', dir_name_x)
         count+=1
         
