@@ -9,6 +9,7 @@ import rule
 import Rhino.Geometry as rg
 import option
 import random
+import time
 
 
 
@@ -16,7 +17,7 @@ import random
 def generate(num_option):
     # loop 5000 data points
     for i in range(0, num_option):
-
+        time.sleep(0.1)
         # create rules
         num_sels = 10
         option = i
@@ -81,11 +82,7 @@ def generate(num_option):
 
 def generate_error_data(bricks):
     for brick in bricks:
-        footprint = brick.footprint.ToNurbsCurve()
-        cnt = rg.AreaMassProperties.Compute(footprint).Centroid
-        cur_brick_loc = cnt
-        trans = create_random_loc(cur_brick_loc)
-        brick.move(trans)
+        brick.move_random_corners()
 
 def create_random_loc(originPt):
     randomX = round(random.random(), 5)

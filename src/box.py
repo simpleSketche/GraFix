@@ -5,6 +5,7 @@ rhinoinside.load()
 import System
 import Rhino
 import Rhino.Geometry as rg
+import random
 
 
 # This class is where all your fundamental bricks are originated from.
@@ -71,6 +72,13 @@ class Brick(object):
         for port in self.ports:
             self.ports[port]["plane"].Transform(t)
     
+    def move_random_corners(self):
+        num_pts_move = random.randint(1,len(self.footprint)-2)
+        for i in range(1, num_pts_move):
+            randomX = round(random.uniform(-1,1), 5)
+            randomY = round(random.uniform(-1,1), 5)
+            self.footprint[i] = rg.Point3d(self.footprint[i].X + randomX, self.footprint[i].Y + randomY, 0)
+
     def display(self):
         # this function get the footprint 2d display
         pt1 = self.origin.Origin
