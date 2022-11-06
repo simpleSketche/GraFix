@@ -14,9 +14,10 @@ from torch_geometric.nn import GCNConv
 
 
 class GNN(nn.Module):
-    def __init__(self, input_dim, hidden_dim, output_dim, num_layers, message_passing):
+    def __init__(self, input_dim, hidden_dim, output_dim, num_layers, message_passing, sigmoid=False):
         super().__init__()
         self.num_layers = num_layers
+        self.sigmoid = sigmoid
 
         self.dnn1 = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
@@ -36,14 +37,14 @@ class GNN(nn.Module):
             nn.Linear(hidden_dim, output_dim),
         )
 
-    def forward(self, x, edge_index, edge_attr=None):
+    def forward(self, x, edge_index):
         x = self.dnn1(x)
         x = self.batch_norm1(x)
         for i in range(self.num_layers):
             x = self.conv_layers[i](x, edge_index)
         x = self.batch_norm2(x)
         x = self.dnn2(x)
-        return x
+        return torch.sigmoid(x) if self.sigmoid else x
 
 
 

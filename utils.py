@@ -41,8 +41,24 @@ def plot_learningCurve(accuracy_record, save_dir):
     plt.close()
 
 
+def plot_learningCurve_classification(accuracy_record, save_dir):
+    train_acc, valid_acc = accuracy_record["train"], accuracy_record["valid"]    
+    epochs = list(range(1, len(train_acc)+1))
+    plt.figure(figsize=(8, 6))
+    plt.plot(epochs, train_acc, label=f'best train: {np.max(train_acc):.4f}')
+    plt.plot(epochs, valid_acc, label=f'best valid: {np.max(valid_acc):.4f}')
+    plt.legend()
+    plt.grid(alpha=.7)
+    plt.xlabel("Epochs")
+    plt.ylabel("Accuracy")
+    plt.ylim([-0.1, 1.05])
+    plt.title("Classification accuracy for vertices repairment")
+    plt.savefig(save_dir / "LearningCurve.png")
+    plt.close()
 
-def plot_lossCurve(loss_record, save_dir, title=None):
+
+
+def plot_lossCurve(loss_record, save_dir):
     train_loss, valid_loss = loss_record["train"], loss_record["valid"] 
     epochs = list(range(1, len(train_loss)+1))
     plt.figure(figsize=(8, 6))
@@ -52,7 +68,7 @@ def plot_lossCurve(loss_record, save_dir, title=None):
     plt.grid()
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
-    plt.title(title)
+    plt.title("Loss curve")
     plt.savefig(save_dir / "lossCurve.png")
     plt.close()
 

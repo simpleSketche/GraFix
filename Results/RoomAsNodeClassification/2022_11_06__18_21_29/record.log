@@ -1,0 +1,277 @@
+2022-11-06 18:21:29,472 - RoomAsNodeGNN - INFO - Namespace(batch_size=64, ckpt_dir=WindowsPath('Results/RoomAsNodeClassification/2022_11_06__18_21_29'), data_num=5000, data_path=WindowsPath('data/room_base_graph'), device=device(type='cuda'), hidden_dim=256, lr=0.001, message_passing='GAT', model_name='GNN', num_epoch=50, num_layers=1, save_num=100)
+2022-11-06 18:21:38,800 - RoomAsNodeGNN - INFO - Dataset length: 2586
+2022-11-06 18:21:38,800 - RoomAsNodeGNN - INFO - train, valid, test dataset len: 2068, 517, 1
+2022-11-06 18:21:38,925 - RoomAsNodeGNN - INFO - GNN(
+  (dnn1): Sequential(
+    (0): Linear(in_features=13, out_features=256, bias=True)
+    (1): ReLU()
+  )
+  (batch_norm1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv_layers): ModuleList(
+    (0): GATConv(256, 256, heads=8)
+  )
+  (batch_norm2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (dnn2): Sequential(
+    (0): Linear(in_features=256, out_features=4, bias=True)
+  )
+)
+2022-11-06 18:21:40,597 - RoomAsNodeGNN - INFO - epoch:    1, train_acc: 0.6372, eval_acc: 0.7706, train_loss: 0.6835, eval_loss: 0.6285
+2022-11-06 18:21:40,597 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.6285
+2022-11-06 18:21:40,878 - RoomAsNodeGNN - INFO - epoch:    2, train_acc: 0.7967, eval_acc: 0.8293, train_loss: 0.5829, eval_loss: 0.5233
+2022-11-06 18:21:40,878 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.5233
+2022-11-06 18:21:41,159 - RoomAsNodeGNN - INFO - epoch:    3, train_acc: 0.8313, eval_acc: 0.8314, train_loss: 0.4616, eval_loss: 0.4065
+2022-11-06 18:21:41,159 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.4065
+2022-11-06 18:21:41,441 - RoomAsNodeGNN - INFO - epoch:    4, train_acc: 0.8336, eval_acc: 0.8329, train_loss: 0.3739, eval_loss: 0.3530
+2022-11-06 18:21:41,441 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3530
+2022-11-06 18:21:41,737 - RoomAsNodeGNN - INFO - epoch:    5, train_acc: 0.8340, eval_acc: 0.8329, train_loss: 0.3430, eval_loss: 0.3396
+2022-11-06 18:21:41,737 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3396
+2022-11-06 18:21:42,022 - RoomAsNodeGNN - INFO - epoch:    6, train_acc: 0.8334, eval_acc: 0.8330, train_loss: 0.3318, eval_loss: 0.3323
+2022-11-06 18:21:42,022 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3323
+2022-11-06 18:21:42,302 - RoomAsNodeGNN - INFO - epoch:    7, train_acc: 0.8345, eval_acc: 0.8333, train_loss: 0.3256, eval_loss: 0.3282
+2022-11-06 18:21:42,302 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3282
+2022-11-06 18:21:42,581 - RoomAsNodeGNN - INFO - epoch:    8, train_acc: 0.8342, eval_acc: 0.8313, train_loss: 0.3225, eval_loss: 0.3280
+2022-11-06 18:21:42,581 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3280
+2022-11-06 18:21:42,878 - RoomAsNodeGNN - INFO - epoch:    9, train_acc: 0.8333, eval_acc: 0.8332, train_loss: 0.3218, eval_loss: 0.3262
+2022-11-06 18:21:42,878 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3262
+2022-11-06 18:21:43,144 - RoomAsNodeGNN - INFO - epoch:   10, train_acc: 0.8339, eval_acc: 0.8319, train_loss: 0.3200, eval_loss: 0.3266
+2022-11-06 18:21:43,425 - RoomAsNodeGNN - INFO - epoch:   11, train_acc: 0.8338, eval_acc: 0.8323, train_loss: 0.3183, eval_loss: 0.3264
+2022-11-06 18:21:43,706 - RoomAsNodeGNN - INFO - epoch:   12, train_acc: 0.8342, eval_acc: 0.8307, train_loss: 0.3169, eval_loss: 0.3252
+2022-11-06 18:21:43,706 - RoomAsNodeGNN - INFO - Trained model saved, eval loss: 0.3252
+2022-11-06 18:21:43,987 - RoomAsNodeGNN - INFO - epoch:   13, train_acc: 0.8341, eval_acc: 0.8319, train_loss: 0.3179, eval_loss: 0.3263
+2022-11-06 18:21:44,300 - RoomAsNodeGNN - INFO - epoch:   14, train_acc: 0.8342, eval_acc: 0.8300, train_loss: 0.3169, eval_loss: 0.3276
+2022-11-06 18:21:44,581 - RoomAsNodeGNN - INFO - epoch:   15, train_acc: 0.8344, eval_acc: 0.8303, train_loss: 0.3164, eval_loss: 0.3263
+2022-11-06 18:21:44,862 - RoomAsNodeGNN - INFO - epoch:   16, train_acc: 0.8343, eval_acc: 0.8296, train_loss: 0.3156, eval_loss: 0.3270
+2022-11-06 18:21:45,128 - RoomAsNodeGNN - INFO - epoch:   17, train_acc: 0.8342, eval_acc: 0.8291, train_loss: 0.3148, eval_loss: 0.3263
+2022-11-06 18:21:45,410 - RoomAsNodeGNN - INFO - epoch:   18, train_acc: 0.8345, eval_acc: 0.8307, train_loss: 0.3142, eval_loss: 0.3259
+2022-11-06 18:21:45,691 - RoomAsNodeGNN - INFO - epoch:   19, train_acc: 0.8349, eval_acc: 0.8281, train_loss: 0.3131, eval_loss: 0.3311
+2022-11-06 18:21:45,956 - RoomAsNodeGNN - INFO - epoch:   20, train_acc: 0.8343, eval_acc: 0.8293, train_loss: 0.3144, eval_loss: 0.3284
+2022-11-06 18:21:46,238 - RoomAsNodeGNN - INFO - epoch:   21, train_acc: 0.8342, eval_acc: 0.8291, train_loss: 0.3124, eval_loss: 0.3299
+2022-11-06 18:21:46,503 - RoomAsNodeGNN - INFO - epoch:   22, train_acc: 0.8347, eval_acc: 0.8257, train_loss: 0.3131, eval_loss: 0.3308
+2022-11-06 18:21:46,784 - RoomAsNodeGNN - INFO - epoch:   23, train_acc: 0.8355, eval_acc: 0.8270, train_loss: 0.3120, eval_loss: 0.3299
+2022-11-06 18:21:47,050 - RoomAsNodeGNN - INFO - epoch:   24, train_acc: 0.8349, eval_acc: 0.8278, train_loss: 0.3111, eval_loss: 0.3285
+2022-11-06 18:21:47,320 - RoomAsNodeGNN - INFO - epoch:   25, train_acc: 0.8356, eval_acc: 0.8231, train_loss: 0.3108, eval_loss: 0.3324
+2022-11-06 18:21:47,597 - RoomAsNodeGNN - INFO - epoch:   26, train_acc: 0.8361, eval_acc: 0.8263, train_loss: 0.3096, eval_loss: 0.3319
+2022-11-06 18:21:47,878 - RoomAsNodeGNN - INFO - epoch:   27, train_acc: 0.8361, eval_acc: 0.8288, train_loss: 0.3098, eval_loss: 0.3295
+2022-11-06 18:21:48,144 - RoomAsNodeGNN - INFO - epoch:   28, train_acc: 0.8360, eval_acc: 0.8248, train_loss: 0.3096, eval_loss: 0.3355
+2022-11-06 18:21:48,425 - RoomAsNodeGNN - INFO - epoch:   29, train_acc: 0.8359, eval_acc: 0.8245, train_loss: 0.3087, eval_loss: 0.3318
+2022-11-06 18:21:48,706 - RoomAsNodeGNN - INFO - epoch:   30, train_acc: 0.8364, eval_acc: 0.8238, train_loss: 0.3096, eval_loss: 0.3334
+2022-11-06 18:21:48,972 - RoomAsNodeGNN - INFO - epoch:   31, train_acc: 0.8362, eval_acc: 0.8225, train_loss: 0.3088, eval_loss: 0.3381
+2022-11-06 18:21:49,253 - RoomAsNodeGNN - INFO - epoch:   32, train_acc: 0.8357, eval_acc: 0.8245, train_loss: 0.3084, eval_loss: 0.3337
+2022-11-06 18:21:49,519 - RoomAsNodeGNN - INFO - epoch:   33, train_acc: 0.8376, eval_acc: 0.8233, train_loss: 0.3063, eval_loss: 0.3337
+2022-11-06 18:21:49,800 - RoomAsNodeGNN - INFO - epoch:   34, train_acc: 0.8369, eval_acc: 0.8263, train_loss: 0.3067, eval_loss: 0.3335
+2022-11-06 18:21:50,066 - RoomAsNodeGNN - INFO - epoch:   35, train_acc: 0.8389, eval_acc: 0.8196, train_loss: 0.3050, eval_loss: 0.3375
+2022-11-06 18:21:50,331 - RoomAsNodeGNN - INFO - epoch:   36, train_acc: 0.8386, eval_acc: 0.8209, train_loss: 0.3044, eval_loss: 0.3385
+2022-11-06 18:21:50,612 - RoomAsNodeGNN - INFO - epoch:   37, train_acc: 0.8390, eval_acc: 0.8234, train_loss: 0.3036, eval_loss: 0.3364
+2022-11-06 18:21:50,894 - RoomAsNodeGNN - INFO - epoch:   38, train_acc: 0.8385, eval_acc: 0.8211, train_loss: 0.3039, eval_loss: 0.3410
+2022-11-06 18:21:51,159 - RoomAsNodeGNN - INFO - epoch:   39, train_acc: 0.8388, eval_acc: 0.8212, train_loss: 0.3029, eval_loss: 0.3377
+2022-11-06 18:21:51,441 - RoomAsNodeGNN - INFO - epoch:   40, train_acc: 0.8400, eval_acc: 0.8209, train_loss: 0.3030, eval_loss: 0.3389
+2022-11-06 18:21:51,706 - RoomAsNodeGNN - INFO - epoch:   41, train_acc: 0.8399, eval_acc: 0.8223, train_loss: 0.3026, eval_loss: 0.3356
+2022-11-06 18:21:51,987 - RoomAsNodeGNN - INFO - epoch:   42, train_acc: 0.8401, eval_acc: 0.8183, train_loss: 0.3010, eval_loss: 0.3414
+2022-11-06 18:21:52,257 - RoomAsNodeGNN - INFO - epoch:   43, train_acc: 0.8401, eval_acc: 0.8152, train_loss: 0.3020, eval_loss: 0.3407
+2022-11-06 18:21:52,534 - RoomAsNodeGNN - INFO - epoch:   44, train_acc: 0.8388, eval_acc: 0.8207, train_loss: 0.3019, eval_loss: 0.3404
+2022-11-06 18:21:52,800 - RoomAsNodeGNN - INFO - epoch:   45, train_acc: 0.8419, eval_acc: 0.8196, train_loss: 0.3000, eval_loss: 0.3407
+2022-11-06 18:21:53,081 - RoomAsNodeGNN - INFO - epoch:   46, train_acc: 0.8406, eval_acc: 0.8154, train_loss: 0.2990, eval_loss: 0.3432
+2022-11-06 18:21:53,347 - RoomAsNodeGNN - INFO - epoch:   47, train_acc: 0.8425, eval_acc: 0.8172, train_loss: 0.2971, eval_loss: 0.3414
+2022-11-06 18:21:53,612 - RoomAsNodeGNN - INFO - epoch:   48, train_acc: 0.8425, eval_acc: 0.8146, train_loss: 0.2972, eval_loss: 0.3468
+2022-11-06 18:21:53,894 - RoomAsNodeGNN - INFO - epoch:   49, train_acc: 0.8433, eval_acc: 0.8155, train_loss: 0.2963, eval_loss: 0.3458
+2022-11-06 18:21:54,159 - RoomAsNodeGNN - INFO - epoch:   50, train_acc: 0.8435, eval_acc: 0.8142, train_loss: 0.2962, eval_loss: 0.3471
+2022-11-06 18:21:54,457 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_0.pt
+2022-11-06 18:21:54,472 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_1.pt
+2022-11-06 18:21:54,472 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_2.pt
+2022-11-06 18:21:54,472 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_3.pt
+2022-11-06 18:21:54,472 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_4.pt
+2022-11-06 18:21:54,472 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_5.pt
+2022-11-06 18:21:54,488 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_6.pt
+2022-11-06 18:21:54,488 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_7.pt
+2022-11-06 18:21:54,488 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_8.pt
+2022-11-06 18:21:54,488 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_9.pt
+2022-11-06 18:21:54,488 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_10.pt
+2022-11-06 18:21:54,503 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_11.pt
+2022-11-06 18:21:54,503 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_12.pt
+2022-11-06 18:21:54,503 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_13.pt
+2022-11-06 18:21:54,503 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_14.pt
+2022-11-06 18:21:54,503 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_15.pt
+2022-11-06 18:21:54,519 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_16.pt
+2022-11-06 18:21:54,519 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_17.pt
+2022-11-06 18:21:54,519 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_18.pt
+2022-11-06 18:21:54,519 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_19.pt
+2022-11-06 18:21:54,519 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_20.pt
+2022-11-06 18:21:54,534 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_21.pt
+2022-11-06 18:21:54,534 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_22.pt
+2022-11-06 18:21:54,534 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_23.pt
+2022-11-06 18:21:54,534 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_24.pt
+2022-11-06 18:21:54,534 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_25.pt
+2022-11-06 18:21:54,550 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_26.pt
+2022-11-06 18:21:54,550 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_27.pt
+2022-11-06 18:21:54,550 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_28.pt
+2022-11-06 18:21:54,550 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_29.pt
+2022-11-06 18:21:54,550 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_30.pt
+2022-11-06 18:21:54,566 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_31.pt
+2022-11-06 18:21:54,566 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_32.pt
+2022-11-06 18:21:54,566 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_33.pt
+2022-11-06 18:21:54,566 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_34.pt
+2022-11-06 18:21:54,566 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_35.pt
+2022-11-06 18:21:54,581 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_36.pt
+2022-11-06 18:21:54,581 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_37.pt
+2022-11-06 18:21:54,581 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_38.pt
+2022-11-06 18:21:54,581 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_39.pt
+2022-11-06 18:21:54,581 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_40.pt
+2022-11-06 18:21:54,597 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_41.pt
+2022-11-06 18:21:54,597 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_42.pt
+2022-11-06 18:21:54,597 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_43.pt
+2022-11-06 18:21:54,597 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_44.pt
+2022-11-06 18:21:54,597 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_45.pt
+2022-11-06 18:21:54,597 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_46.pt
+2022-11-06 18:21:54,612 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_47.pt
+2022-11-06 18:21:54,612 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_48.pt
+2022-11-06 18:21:54,612 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_49.pt
+2022-11-06 18:21:54,612 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_50.pt
+2022-11-06 18:21:54,612 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_51.pt
+2022-11-06 18:21:54,628 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_52.pt
+2022-11-06 18:21:54,628 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_53.pt
+2022-11-06 18:21:54,628 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_54.pt
+2022-11-06 18:21:54,628 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_55.pt
+2022-11-06 18:21:54,628 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_56.pt
+2022-11-06 18:21:54,628 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_57.pt
+2022-11-06 18:21:54,644 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_58.pt
+2022-11-06 18:21:54,644 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_59.pt
+2022-11-06 18:21:54,644 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_60.pt
+2022-11-06 18:21:54,644 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_61.pt
+2022-11-06 18:21:54,644 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_62.pt
+2022-11-06 18:21:54,659 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_63.pt
+2022-11-06 18:21:54,659 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_64.pt
+2022-11-06 18:21:54,659 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_65.pt
+2022-11-06 18:21:54,659 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_66.pt
+2022-11-06 18:21:54,659 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_67.pt
+2022-11-06 18:21:54,659 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_68.pt
+2022-11-06 18:21:54,675 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_69.pt
+2022-11-06 18:21:54,675 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_70.pt
+2022-11-06 18:21:54,675 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_71.pt
+2022-11-06 18:21:54,675 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_72.pt
+2022-11-06 18:21:54,675 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_73.pt
+2022-11-06 18:21:54,691 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_74.pt
+2022-11-06 18:21:54,691 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_75.pt
+2022-11-06 18:21:54,691 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_76.pt
+2022-11-06 18:21:54,691 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_77.pt
+2022-11-06 18:21:54,691 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_78.pt
+2022-11-06 18:21:54,706 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_79.pt
+2022-11-06 18:21:54,706 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_80.pt
+2022-11-06 18:21:54,706 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_81.pt
+2022-11-06 18:21:54,706 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_82.pt
+2022-11-06 18:21:54,706 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_83.pt
+2022-11-06 18:21:54,706 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_84.pt
+2022-11-06 18:21:54,722 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_85.pt
+2022-11-06 18:21:54,722 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_86.pt
+2022-11-06 18:21:54,722 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_87.pt
+2022-11-06 18:21:54,722 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_88.pt
+2022-11-06 18:21:54,722 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_89.pt
+2022-11-06 18:21:54,737 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_90.pt
+2022-11-06 18:21:54,737 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_91.pt
+2022-11-06 18:21:54,737 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_92.pt
+2022-11-06 18:21:54,737 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_93.pt
+2022-11-06 18:21:54,737 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_94.pt
+2022-11-06 18:21:54,737 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_95.pt
+2022-11-06 18:21:54,753 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_96.pt
+2022-11-06 18:21:54,753 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_97.pt
+2022-11-06 18:21:54,753 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_98.pt
+2022-11-06 18:21:54,753 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_train\pred_99.pt
+2022-11-06 18:21:54,753 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_0.pt
+2022-11-06 18:21:54,769 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_1.pt
+2022-11-06 18:21:54,769 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_2.pt
+2022-11-06 18:21:54,769 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_3.pt
+2022-11-06 18:21:54,769 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_4.pt
+2022-11-06 18:21:54,769 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_5.pt
+2022-11-06 18:21:54,769 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_6.pt
+2022-11-06 18:21:54,784 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_7.pt
+2022-11-06 18:21:54,784 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_8.pt
+2022-11-06 18:21:54,784 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_9.pt
+2022-11-06 18:21:54,784 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_10.pt
+2022-11-06 18:21:54,784 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_11.pt
+2022-11-06 18:21:54,800 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_12.pt
+2022-11-06 18:21:54,800 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_13.pt
+2022-11-06 18:21:54,800 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_14.pt
+2022-11-06 18:21:54,800 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_15.pt
+2022-11-06 18:21:54,800 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_16.pt
+2022-11-06 18:21:54,816 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_17.pt
+2022-11-06 18:21:54,816 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_18.pt
+2022-11-06 18:21:54,816 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_19.pt
+2022-11-06 18:21:54,816 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_20.pt
+2022-11-06 18:21:54,816 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_21.pt
+2022-11-06 18:21:54,816 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_22.pt
+2022-11-06 18:21:54,831 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_23.pt
+2022-11-06 18:21:54,831 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_24.pt
+2022-11-06 18:21:54,831 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_25.pt
+2022-11-06 18:21:54,831 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_26.pt
+2022-11-06 18:21:54,831 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_27.pt
+2022-11-06 18:21:54,847 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_28.pt
+2022-11-06 18:21:54,847 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_29.pt
+2022-11-06 18:21:54,847 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_30.pt
+2022-11-06 18:21:54,847 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_31.pt
+2022-11-06 18:21:54,847 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_32.pt
+2022-11-06 18:21:54,847 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_33.pt
+2022-11-06 18:21:54,862 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_34.pt
+2022-11-06 18:21:54,862 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_35.pt
+2022-11-06 18:21:54,862 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_36.pt
+2022-11-06 18:21:54,862 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_37.pt
+2022-11-06 18:21:54,862 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_38.pt
+2022-11-06 18:21:54,878 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_39.pt
+2022-11-06 18:21:54,878 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_40.pt
+2022-11-06 18:21:54,878 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_41.pt
+2022-11-06 18:21:54,878 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_42.pt
+2022-11-06 18:21:54,878 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_43.pt
+2022-11-06 18:21:54,878 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_44.pt
+2022-11-06 18:21:54,894 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_45.pt
+2022-11-06 18:21:54,894 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_46.pt
+2022-11-06 18:21:54,894 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_47.pt
+2022-11-06 18:21:54,894 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_48.pt
+2022-11-06 18:21:54,909 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_49.pt
+2022-11-06 18:21:54,909 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_50.pt
+2022-11-06 18:21:54,909 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_51.pt
+2022-11-06 18:21:54,909 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_52.pt
+2022-11-06 18:21:54,909 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_53.pt
+2022-11-06 18:21:54,909 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_54.pt
+2022-11-06 18:21:54,925 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_55.pt
+2022-11-06 18:21:54,925 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_56.pt
+2022-11-06 18:21:54,925 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_57.pt
+2022-11-06 18:21:54,925 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_58.pt
+2022-11-06 18:21:54,925 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_59.pt
+2022-11-06 18:21:54,941 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_60.pt
+2022-11-06 18:21:54,941 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_61.pt
+2022-11-06 18:21:54,941 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_62.pt
+2022-11-06 18:21:54,941 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_63.pt
+2022-11-06 18:21:54,941 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_64.pt
+2022-11-06 18:21:54,941 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_65.pt
+2022-11-06 18:21:54,956 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_66.pt
+2022-11-06 18:21:54,956 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_67.pt
+2022-11-06 18:21:54,956 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_68.pt
+2022-11-06 18:21:54,956 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_69.pt
+2022-11-06 18:21:54,956 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_70.pt
+2022-11-06 18:21:54,972 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_71.pt
+2022-11-06 18:21:54,972 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_72.pt
+2022-11-06 18:21:54,972 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_73.pt
+2022-11-06 18:21:54,972 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_74.pt
+2022-11-06 18:21:54,972 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_75.pt
+2022-11-06 18:21:54,972 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_76.pt
+2022-11-06 18:21:54,987 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_77.pt
+2022-11-06 18:21:54,987 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_78.pt
+2022-11-06 18:21:54,987 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_79.pt
+2022-11-06 18:21:54,987 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_80.pt
+2022-11-06 18:21:54,987 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_81.pt
+2022-11-06 18:21:55,003 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_82.pt
+2022-11-06 18:21:55,003 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_83.pt
+2022-11-06 18:21:55,003 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_84.pt
+2022-11-06 18:21:55,003 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_85.pt
+2022-11-06 18:21:55,003 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_86.pt
+2022-11-06 18:21:55,019 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_87.pt
+2022-11-06 18:21:55,019 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_88.pt
+2022-11-06 18:21:55,019 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_89.pt
+2022-11-06 18:21:55,019 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_90.pt
+2022-11-06 18:21:55,019 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_91.pt
+2022-11-06 18:21:55,019 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_92.pt
+2022-11-06 18:21:55,034 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_93.pt
+2022-11-06 18:21:55,034 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_94.pt
+2022-11-06 18:21:55,034 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_95.pt
+2022-11-06 18:21:55,034 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_96.pt
+2022-11-06 18:21:55,034 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_97.pt
+2022-11-06 18:21:55,050 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_98.pt
+2022-11-06 18:21:55,050 - RoomAsNodeGNN - INFO - saving prediction: Results\RoomAsNodeClassification\2022_11_06__18_21_29\Prediction_valid\pred_99.pt
