@@ -62,11 +62,16 @@ def generate(num_option):
             edge_json.parse_path()
             edge_json.save_json_data()
 
+            node_json = create_node_json_v2.Node_json(
+                bricks, 12, 12, rg.Point3d(0, 0, 0), option)
+            
+            # store the ground truth data
+            node_json.parse_path_out()
+            node_json.save_json_data_out()
+
             # modify and intentionally make bad data by randomly
             # moving the boxes
             generate_error_data(bricks)
-            node_json = create_node_json_v2.Node_json(
-                bricks, 12, 12, rg.Point3d(0, 0, 0), option)
             node_json.parse_path()
             node_json.save_json_data()
             print("------------------------------------------")

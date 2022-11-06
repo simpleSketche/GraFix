@@ -23,7 +23,7 @@ class Node_json():
 
     def parse_path(self):
         root_path = self.get_cur_path()
-        root_path.append('data\\room_base_graph\\nodes')
+        root_path.append('data\\room_base_graph\\nodes_in')
         new_path = '\\'.join(root_path)
         is_path_exist = os.path.exists(new_path)
         if(is_path_exist==False):
@@ -32,7 +32,22 @@ class Node_json():
     
     def parse_json_path(self):
         json_path = self.get_cur_path()
-        json_path.append('data\\room_base_graph\\nodes\\{}.json'.format(int(self.option)))
+        json_path.append('data\\room_base_graph\\nodes_in\\{}.json'.format(int(self.option)))
+        new_json_path = '\\'.join(json_path)
+        return new_json_path
+    
+    def parse_path_out(self):
+        root_path = self.get_cur_path()
+        root_path.append('data\\room_base_graph\\nodes_out')
+        new_path = '\\'.join(root_path)
+        is_path_exist = os.path.exists(new_path)
+        if(is_path_exist==False):
+            os.makedirs(new_path)
+        return new_path
+    
+    def parse_json_path_out(self):
+        json_path = self.get_cur_path()
+        json_path.append('data\\room_base_graph\\nodes_out\\{}.json'.format(int(self.option)))
         new_json_path = '\\'.join(json_path)
         return new_json_path
 
@@ -47,6 +62,12 @@ class Node_json():
     
     def save_json_data(self):
         cur_path = self.parse_json_path()
+        node_data = self.create_json_data()
+        with open(cur_path, 'w') as f:
+            f.write(json.dumps(node_data))
+
+    def save_json_data_out(self):
+        cur_path = self.parse_json_path_out()
         node_data = self.create_json_data()
         with open(cur_path, 'w') as f:
             f.write(json.dumps(node_data))
