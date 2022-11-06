@@ -142,7 +142,7 @@ def parse_args() -> Namespace:
 		"--ckpt_dir",
 		type=Path,
 		help="Directory to save the model file.",
-		default="./Results/",
+		default="./Results/RoomAsNode",
 	)
 
 	# dataset
