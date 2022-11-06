@@ -27,7 +27,6 @@ def np2list(arr):
 def to_csv(arr, dir_name):
     np.savetxt(dir_name, arr, delimiter=",")
     
-
 count = 0
 
 save_dir = 'pred_csv'
