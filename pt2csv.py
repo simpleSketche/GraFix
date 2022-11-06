@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-results_dir = 'Results/RoomAsNodeRegression/2022_11_06__22_25_18/Prediction_valid'
+results_dir = 'Results/RoomAsNodeRegression/2022_11_06__22_25_18/Demo'
 
 graph_fname_list = glob.glob(results_dir+'/*.pt')
 
@@ -34,18 +34,20 @@ make_di_path(save_dir+'/edges')
 
 with torch.no_grad():
     for fname_i in graph_fname_list:
+        
+        print(fname_i[-7:-3])
         graph_i = torch.load(fname_i)
-        dir_name_x = save_dir+'/nodes_in'+'/'+str(count)+'.csv'
+        dir_name_x = save_dir+'/nodes_in'+'/'+fname_i[-7:-3]+'.csv'
         arr_x=graph_i['x'].detach().cpu().numpy()
         to_csv(arr_x, dir_name_x)
 
-        dir_name_edge = save_dir+'/edges'+'/'+str(count)+'.csv'
+        dir_name_edge = save_dir+'/edges'+'/'+fname_i[-7:-3]+'.csv'
         arr_edge = graph_i['edge_index'].detach().cpu().numpy()
         to_csv(arr_edge, dir_name_edge)
         
         arr_y=graph_i['y'].detach().cpu().numpy()
-        dir_name_y = save_dir+'/nodes_out'+'/'+str(count)+'.csv'
-        dir_name_y_gt = save_dir+'/nodes_out_gt'+'/'+str(count)+'.csv'
+        dir_name_y = save_dir+'/nodes_out'+'/'+fname_i[-7:-3]+'.csv'
+        dir_name_y_gt = save_dir+'/nodes_out_gt'+'/'+fname_i[-7:-3]+'.csv'
         arr_mov_gt = arr_x+ arr_y
         to_csv(arr_mov_gt, dir_name_y_gt)
         
