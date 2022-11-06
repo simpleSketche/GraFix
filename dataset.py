@@ -30,10 +30,18 @@ class RoomAsNodeRegressionDataset(Dataset):
         self.nodes_out_folder = root / "nodes_out"
         self.edges_folder = root / "edges"
         self.graphs = []
+        box_count = {}
         for data_name in os.listdir(self.nodes_in_folder)[:data_num]:
             graph = self._construct_graph(data_name)
             graph = self._normalize(graph)
             self.graphs.append(graph)
+            box_num = graph.x.size(0)
+            if box_num in box_count:
+                box_count[box_num] += 1
+            else:
+                box_count[box_num] = 1
+        print("box count:")
+        print(box_count)
 
     
     def _construct_graph(self, data_name: str):
@@ -91,7 +99,7 @@ class RoomAsNodeRegressionDataset(Dataset):
         x[:, node_vertices_feature_dim+4] = torch.tensor(clustering_coefficient)
 
         # graph
-        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
+        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=None, original_x=None, original_y=None, box_num=room_number, data_name=data_name)
         return graph
 
     def _normalize(self, graph):
@@ -122,8 +130,8 @@ class RoomAsNodeClassificationDataset(Dataset):
             graph = self._construct_graph(data_name)
             graph = self._normalize(graph)
             self.graphs.append(graph)
+            
 
-    
     def _construct_graph(self, data_name: str):
         nodes_in_data = json.loads((self.nodes_in_folder / data_name).read_text())
         nodes_out_data = json.loads((self.nodes_out_folder / data_name).read_text())
@@ -219,9 +227,23 @@ def output_graph_classification(save_path, norm_graph, prediction):
         torch.save(graph, save_path)
 
 
+def get_data_indexes_from_small_to_big(dataset: RoomAsNodeRegressionDataset):
+    count = {i: [] for i in range(1, 25)}
+    for i in range(len(dataset)):
+        box_num = dataset[i].x.shape[0]
+        count[box_num].append(i)
+    indexes_from_small_to_big = []
+    for i in range(1, 25):
+        if len(count[i]) > 0:
+            indexes_from_small_to_big.append(count[i][0])
+    for idx in indexes_from_small_to_big:
+        print(f"box num: {dataset[idx].x.shape[0]}, idx: {idx}")
+    return indexes_from_small_to_big
+
+
 
 
 if __name__ == "__main__":
-    dset = RoomAsNodeDataset(data_num=1000)
+    dset = RoomAsNodeRegressionDataset(data_num=1000)
     print(dset)
 

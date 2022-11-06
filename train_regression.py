@@ -136,6 +136,17 @@ def main(args):
 		pred = model(graph.x, graph.edge_index)
 		output_graph_regression(save_path, graph, pred)
 
+	save_demo_path = args.ckpt_dir / "Demo"
+	save_demo_path.mkdir(parents=True, exist_ok=True)
+	indexes_from_small_to_big = get_data_indexes_from_small_to_big(valid_dataset)
+	for i in indexes_from_small_to_big:
+		save_path = save_demo_path / f"pred_{i}.pt"
+		graph = valid_dataset[i].to(args.device)
+		pred = model(graph.x, graph.edge_index)
+		logger.info(f"saving prediction ({graph.x.shape[0]} boxes, {graph.data_name}): {save_path}")
+		output_graph_regression(save_path, graph, pred)
+
+
 
 
 
@@ -176,7 +187,7 @@ def parse_args() -> Namespace:
 	parser.add_argument(
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
-	parser.add_argument("--num_epoch", type=int, default=3000)
+	parser.add_argument("--num_epoch", type=int, default=1500)
 	parser.add_argument("--save_num", type=int, default=100)
 
 	args = parser.parse_args()
