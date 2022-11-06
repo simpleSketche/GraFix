@@ -2,65 +2,71 @@ import torch
 from torch.utils.data import Dataset
 from pathlib import Path
 import json
+import os
 from torch_geometric.data import Data
 from torch_geometric.utils import negative_sampling
 import networkx as nx
 
 
 NORM_DICT = {
-    "length": 10,
-    "location": 10,
+    "coord": 20,
 }
 
+MAX_ROOM_NUM = 9
 
+FILL_VALUE_X_NO_ROOM = -1
+FILL_VALUE_Y_NO_ROOM = -10000
 
-class BoxDataset(Dataset):
-    def __init__(self, root="data", data_num=100):
+GRAPH_BASED_FEATURE_DIM = 5
+
+class RoomAsNodeDataset(Dataset):
+    def __init__(self, root="data/room_base_graph", data_num=100):
         root = Path(root)
+        self.nodes_in_folder = root / "nodes_in"
+        self.nodes_out_folder = root / "nodes_out"
+        self.edges_folder = root / "edges"
         self.graphs = []
-        for i in range(1, data_num+1):
-            graph = self._construct_graph(root, i)
-            if graph != None:
-                graph = self._normalize(graph)
-                self.graphs.append(graph)
+        for data_name in os.listdir(self.nodes_in_folder)[:data_num]:
+            graph = self._construct_graph(data_name)
+            graph = self._normalize(graph)
+            self.graphs.append(graph)
     
 
-    def _construct_graph(self, root: Path, i: int):
-        node_data = json.loads((root / "nodes" / f"{i}.json").read_text())
-        edge_data = json.loads((root / "edges" / f"{i}.json").read_text())
+    def _construct_graph(self, data_name: str):
+        nodes_in_data = json.loads((self.nodes_in_folder / data_name).read_text())
+        nodes_out_data = json.loads((self.nodes_out_folder / data_name).read_text())
+        edges_data = json.loads((self.edges_folder / data_name).read_text())
 
-        # check if intersection
-        intersections = node_data["intersection"]
-        if sum(intersections) > 0:
-            return None
+        # node x (nodes_in_data)
+        room_number = len(nodes_in_data["corners"])
+        node_vertices_feature_dim = 2 * MAX_ROOM_NUM
+        x = torch.full((room_number, node_vertices_feature_dim + GRAPH_BASED_FEATURE_DIM), FILL_VALUE_X_NO_ROOM).to(torch.float)
+        for room_index in range(room_number):
+            for vertices_index, (vertices_x, vertices_y) in enumerate(nodes_in_data["corners"][room_index]):
+                x[room_index, vertices_index*2] = float(vertices_x)
+                x[room_index, vertices_index*2+1] = float(vertices_y)
 
-        # node x
-        node_number = len(node_data["node_id"]) - 1
-        node_geometric_feature_dim = 5
-        traditional_node_feature_dim = 5
-        x = torch.zeros(node_number, node_geometric_feature_dim + traditional_node_feature_dim)
-        node_location = {}
-        for node_index in range(1, node_number+1):
-            x[node_index-1, 0] = node_data["width"][node_index]
-            x[node_index-1, 1] = node_data["length"][node_index]
-            x[node_index-1, 2] = node_data["rotation"][node_index]
-            x[node_index-1, 3] = node_data["location"][node_index][0]
-            x[node_index-1, 4] = node_data["location"][node_index][1]
-
-        # edge_index
+        # edge_index (edges_data)
         edge_list = []
-        for edge_pair in edge_data["adjacency"]:
-            if -1 in edge_pair: continue
+        for edge_pair in edges_data["adjacency"]:
             if edge_pair in edge_list: continue
             index_1, index_2 = edge_pair
             edge_list.append([index_1, index_2])
             edge_list.append([index_2, index_1])
         edge_index = torch.tensor(edge_list).T
 
+        # node y (nodes_out_data)
+        y = torch.full((room_number, node_vertices_feature_dim), FILL_VALUE_Y_NO_ROOM).to(torch.float)
+        for room_index in range(room_number):
+            for vertices_index, (vertices_x, vertices_y) in enumerate(nodes_out_data["corners"][room_index]):
+                y[room_index, vertices_index*2] = float(vertices_x) - x[room_index, vertices_index*2]
+                y[room_index, vertices_index*2+1] = float(vertices_y) - x[room_index, vertices_index*2+1]
+
+
         # Add traditional node features as input
         # first construct graph with networkx
         G = nx.Graph()
-        for i in range(node_number):
+        for i in range(room_number):
             G.add_node(i)
         for edge_i, edge_j in edge_list:
             G.add_edge(edge_i, edge_j)
@@ -75,19 +81,19 @@ class BoxDataset(Dataset):
         # clustering coefficient
         clustering_coefficient = list(nx.clustering(G).values())
         # assign to node feature
-        x[:, 5] = torch.tensor(degree)
-        x[:, 6] = torch.tensor(eigenvector_centrality)
-        x[:, 7] = torch.tensor(closeness_centrality)
-        x[:, 8] = torch.tensor(betweenness_centrality)
-        x[:, 9] = torch.tensor(clustering_coefficient)
+        x[:, node_vertices_feature_dim+0] = torch.tensor(degree)
+        x[:, node_vertices_feature_dim+1] = torch.tensor(eigenvector_centrality)
+        x[:, node_vertices_feature_dim+2] = torch.tensor(closeness_centrality)
+        x[:, node_vertices_feature_dim+3] = torch.tensor(betweenness_centrality)
+        x[:, node_vertices_feature_dim+4] = torch.tensor(clustering_coefficient)
 
         # graph
-        graph = Data(x=x, edge_index=edge_index)
+        graph = Data(x=x, edge_index=edge_index, y=y)
         return graph
 
     def _normalize(self, graph):
-        graph.x[:, 0:2] /= NORM_DICT["length"]
-        graph.x[:, 3:5] /= NORM_DICT["location"]
+        mask = (graph.x != FILL_VALUE_X_NO_ROOM)
+        graph.x[mask] /= NORM_DICT["coord"]
         return graph
     
     def __len__(self):
@@ -100,6 +106,6 @@ class BoxDataset(Dataset):
 
 
 if __name__ == "__main__":
-    dset = BoxDataset(data_num=1)
+    dset = BoxDataset(data_num=100)
     print(dset)
 
