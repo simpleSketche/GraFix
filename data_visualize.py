@@ -20,19 +20,19 @@ def create_graph(edge_json):
     return G
 
 print(os.getcwd())
-index = 4999
+index = 10615
 json_path = os.getcwd() + '\\data\\room_base_graph\\edges\\{}.json'.format(index)
 print(json_path)
 data = read_specific_edge_json(json_path)
 G = create_graph(data)
 
 options = {
-    "font_size": 36,
-    "node_size": 3000,
+    "font_size": 8,
+    "node_size": 500,
     "node_color": "white",
     "edgecolors": "black",
-    "linewidths": 5,
-    "width": 5,
+    "linewidths": 2,
+    "width": 2,
 }
 nx.draw_networkx(G, **options)
 
