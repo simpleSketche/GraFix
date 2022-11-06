@@ -1,30 +1,42 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  5 23:05:19 2022
+from argparse import ArgumentParser, Namespace
+from pathlib import Path
+from typing import Dict
+from datetime import datetime
+import os
+import logging
 
-@author: SSajedi
-"""
-
-import torch
-import glob
-import json 
-from OsUtils import make_di_path, wipe_dir,save_pickle
-import pickle
 import numpy as np
-import pandas as pd
+import torch
+import torch.optim as optim
+from torch.utils.data import random_split
+from torch_geometric.loader import DataLoader
 import matplotlib.pyplot as plt
 
-results_dir = 'C:/Users/SSajedi/Desktop/GitHub/BoxStacker/Results/RoomAsNode/2022_11_06__16_47_15/Prediction_valid'
+from dataset import *
+from model import *
+from utils import *
 
-graph_fname_list = glob.glob(results_dir+'/*.pt')
+d = RoomAsNodeRegressionDataset(root='sample_test_data', data_num=1)
 
 
+model_args = {"input_dim": 8+GRAPH_BASED_FEATURE_DIM, "hidden_dim": 256, "output_dim": 8,
+   			 	  "num_layers": 1, "message_passing": 'GAT'}
+model = globals()['GNN'](**model_args).cuda()
+model.load_state_dict(torch.load('Results/RoomAsNodeRegression/2022_11_06__17_42_18/model.pt'))
+
+model.eval()
+
+save_path = 'sample_test_data/pred_1.pt'
+graph_i = d[0].cuda()
+pred_i = model(graph_i.x, graph_i.edge_index)
+output_graph_regression(save_path, graph_i, pred_i)
+
+from OsUtils import make_di_path, wipe_dir,save_pickle
 def to_csv(arr, dir_name):
     np.savetxt(dir_name, arr, delimiter=",")
     
-count = 0
-
-save_dir = 'pred_csv'
+graph_fname_list=['sample_test_data/pred_1.pt']
+save_dir = 'sample_test_data/pred_csv_test'
 make_di_path(save_dir)
 make_di_path(save_dir+'/nodes_in')
 make_di_path(save_dir+'/nodes_out')
@@ -32,6 +44,7 @@ make_di_path(save_dir+'/move_pred')
 make_di_path(save_dir+'/nodes_out_gt')
 make_di_path(save_dir+'/edges')
 
+count=0
 with torch.no_grad():
     for fname_i in graph_fname_list:
         graph_i = torch.load(fname_i)
@@ -59,3 +72,4 @@ with torch.no_grad():
         count+=1
         
         print(count)
+
