@@ -45,13 +45,13 @@ def main(args):
 	test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False)
 
 	model_args = {"input_dim": 8+GRAPH_BASED_FEATURE_DIM, "hidden_dim": args.hidden_dim, "output_dim": 8,
-			 	  "num_layers": args.num_layers}
+			 	  "num_layers": args.num_layers, "message_passing": args.message_passing}
 	model = globals()[args.model_name](**model_args).to(args.device)
 	logger.info(model)
 
 	# init optimizer
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-	scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=10, min_lr=3e-5)
+	scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.95, patience=10, min_lr=1e-4)
 	criterion = torch.nn.MSELoss()
 	best_eval_loss = np.inf
 
@@ -95,7 +95,7 @@ def main(args):
 			acc_eval /= iter_eval
 
 		# learning rate scheduler 
-		scheduler.step(loss_eval)
+		scheduler.step(loss_train)
 
 		logger.info(f"epoch: {epoch:4d}, train_acc: {acc_train:.4f}, eval_acc: {acc_eval:.4f}, train_loss: {loss_train:.4f}, eval_loss: {loss_eval:.4f}")
 
@@ -106,12 +106,21 @@ def main(args):
 			torch.save(model.state_dict(), os.path.join(args.ckpt_dir, "model.pt"))
 		
 	# save prediction
-	save_pred_path = args.ckpt_dir / "Prediction"
-	save_pred_path.mkdir(parents=True, exist_ok=True)
+	save_pred_train_path = args.ckpt_dir / "Prediction_train"
+	save_pred_train_path.mkdir(parents=True, exist_ok=True)
 	for i in range(args.save_num):
-		save_path = save_pred_path / f"pred_{i}.pt"
+		save_path = save_pred_train_path / f"pred_{i}.pt"
 		logger.info(f"saving prediction: {save_path}")
 		graph = train_dataset[i].to(args.device)
+		pred = model(graph.x, graph.edge_index)
+		output_graph(save_path, graph, pred)
+
+	save_pred_valid_path = args.ckpt_dir / "Prediction_valid"
+	save_pred_valid_path.mkdir(parents=True, exist_ok=True)
+	for i in range(args.save_num):
+		save_path = save_pred_valid_path / f"pred_{i}.pt"
+		logger.info(f"saving prediction: {save_path}")
+		graph = valid_dataset[i].to(args.device)
 		pred = model(graph.x, graph.edge_index)
 		output_graph(save_path, graph, pred)
 
@@ -140,9 +149,10 @@ def parse_args() -> Namespace:
 	parser.add_argument("--data_num", type=int, default=5000)
 
 	# model
-	parser.add_argument("--model_name", type=str, default="GCN")
-	parser.add_argument("--hidden_dim", type=int, default=256)
-	parser.add_argument("--num_layers", type=int, default=2)
+	parser.add_argument("--model_name", type=str, default="GNN")
+	parser.add_argument("--message_passing", type=str, default="GAT")
+	parser.add_argument("--hidden_dim", type=int, default=512)
+	parser.add_argument("--num_layers", type=int, default=3)
 
 	# optimizer
 	parser.add_argument("--lr", type=float, default=1e-3)
@@ -154,8 +164,8 @@ def parse_args() -> Namespace:
 	parser.add_argument(
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
-	parser.add_argument("--num_epoch", type=int, default=100)
-	parser.add_argument("--save_num", type=int, default=100)
+	parser.add_argument("--num_epoch", type=int, default=1500)
+	parser.add_argument("--save_num", type=int, default=50)
 
 	args = parser.parse_args()
 	return args
