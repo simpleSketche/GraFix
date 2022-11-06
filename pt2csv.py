@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-results_dir ='C:/Users/SSajedi/Desktop/GitHub/BoxStacker/Results/2022_11_06__10_59_04/Prediction'
+results_dir = 'C:/Users/SSajedi/Desktop/GitHub/BoxStacker/Results/RoomAsNode/2022_11_06__16_47_15/Prediction_valid'
 
 graph_fname_list = glob.glob(results_dir+'/*.pt')
 

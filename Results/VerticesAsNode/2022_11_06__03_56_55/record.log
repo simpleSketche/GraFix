@@ -1,0 +1,15 @@
+2022-11-06 03:56:55,451 - RoomAsNodeGNN - INFO - Namespace(batch_size=64, ckpt_dir=WindowsPath('Results/VerticesAsNode/2022_11_06__03_56_55'), data_num=5000, data_path=WindowsPath('data/vertices_as_nodes'), device=device(type='cuda'), hidden_dim=128, lr=0.001, message_passing='GAT', model_name='GNN', num_epoch=500, num_layers=1, save_num=0)
+2022-11-06 03:57:03,451 - RoomAsNodeGNN - INFO - Dataset length: 2155
+2022-11-06 03:57:03,455 - RoomAsNodeGNN - INFO - train, valid, test dataset len: 1724, 431, 0
+2022-11-06 03:57:04,675 - RoomAsNodeGNN - INFO - GNN(
+  (dnn1): Sequential(
+    (0): Linear(in_features=7, out_features=128, bias=True)
+    (1): ReLU()
+  )
+  (conv_layers): ModuleList(
+    (0): GATConv(128, 128, heads=4)
+  )
+  (dnn2): Sequential(
+    (0): Linear(in_features=128, out_features=2, bias=True)
+  )
+)

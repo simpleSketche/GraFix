@@ -44,7 +44,7 @@ class GNN(nn.Module):
             x = self.conv_layers[i](x, edge_index)
         # x = self.batch_norm_2(x)
         x = F.sigmoid(self.dnn2(x))
-        
+        print(x)
         return x
 
 
