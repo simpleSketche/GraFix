@@ -44,7 +44,7 @@ def main(args):
 	valid_loader = DataLoader(valid_dataset, batch_size=args.batch_size, shuffle=False)
 	test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False)
 
-	model_args = {"input_dim": MAX_ROOM_NUM*2+GRAPH_BASED_FEATURE_DIM, "hidden_dim": args.hidden_dim, "output_dim": MAX_ROOM_NUM*2,
+	model_args = {"input_dim": 8+GRAPH_BASED_FEATURE_DIM, "hidden_dim": args.hidden_dim, "output_dim": 8,
 			 	  "num_layers": args.num_layers}
 	model = globals()[args.model_name](**model_args).to(args.device)
 	logger.info(model)
@@ -64,8 +64,7 @@ def main(args):
 			pred = model(batch.x, batch.edge_index)
 
 			# calculate loss and update parameters
-			mask = (batch.y != FILL_VALUE_Y_NO_ROOM)
-			loss = criterion(pred[mask], batch.y[mask])
+			loss = criterion(pred, batch.y)
 			optimizer.zero_grad()
 			loss.backward()
 			optimizer.step()
@@ -73,7 +72,7 @@ def main(args):
 			# accumulate loss, accuracy
 			iter_train += 1
 			loss_train += loss.item()
-			acc_train += R2_score(pred[mask], batch.y[mask])
+			acc_train += R2_score(pred, batch.y)
 		
 		loss_train /= iter_train
 		acc_train /= iter_train
@@ -85,13 +84,12 @@ def main(args):
 			for batch in valid_loader:
 				batch = batch.to(args.device)
 				pred = model(batch.x, batch.edge_index)
-				mask = (batch.y != FILL_VALUE_Y_NO_ROOM)
-				loss = criterion(pred[mask], batch.y[mask])
+				loss = criterion(pred, batch.y)
 
 				# accumulate loss, accuracy
 				iter_eval += 1
 				loss_eval += loss.item()
-				acc_eval += R2_score(pred[mask], batch.y[mask])
+				acc_eval += R2_score(pred, batch.y)
 				
 			loss_eval /= iter_eval
 			acc_eval /= iter_eval
@@ -107,6 +105,19 @@ def main(args):
 			logger.info(f"Trained model saved, eval loss: {best_eval_loss:.4f}")
 			torch.save(model.state_dict(), os.path.join(args.ckpt_dir, "model.pt"))
 		
+	# save prediction
+	save_pred_path = args.ckpt_dir / "Prediction"
+	save_pred_path.mkdir(parents=True, exist_ok=True)
+	for i in range(args.save_num):
+		save_path = save_pred_path / f"pred_{i}.pt"
+		logger.info(f"saving prediction: {save_path}")
+		graph = train_dataset[i].to(args.device)
+		pred = model(graph.x, graph.edge_index)
+		output_graph(save_path, graph, pred)
+
+
+
+
 
 
 def parse_args() -> Namespace:
@@ -131,7 +142,7 @@ def parse_args() -> Namespace:
 	# model
 	parser.add_argument("--model_name", type=str, default="GCN")
 	parser.add_argument("--hidden_dim", type=int, default=256)
-	parser.add_argument("--num_layers", type=int, default=3)
+	parser.add_argument("--num_layers", type=int, default=2)
 
 	# optimizer
 	parser.add_argument("--lr", type=float, default=1e-3)
@@ -144,6 +155,7 @@ def parse_args() -> Namespace:
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
 	parser.add_argument("--num_epoch", type=int, default=100)
+	parser.add_argument("--save_num", type=int, default=100)
 
 	args = parser.parse_args()
 	return args

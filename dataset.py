@@ -6,10 +6,12 @@ import os
 from torch_geometric.data import Data
 from torch_geometric.utils import negative_sampling
 import networkx as nx
+from copy import deepcopy
 
 
 NORM_DICT = {
     "coord": 20,
+    "movement": 0.5,
 }
 
 MAX_ROOM_NUM = 9
@@ -31,7 +33,6 @@ class RoomAsNodeDataset(Dataset):
             graph = self._normalize(graph)
             self.graphs.append(graph)
     
-
     def _construct_graph(self, data_name: str):
         nodes_in_data = json.loads((self.nodes_in_folder / data_name).read_text())
         nodes_out_data = json.loads((self.nodes_out_folder / data_name).read_text())
@@ -39,10 +40,10 @@ class RoomAsNodeDataset(Dataset):
 
         # node x (nodes_in_data)
         room_number = len(nodes_in_data["corners"])
-        node_vertices_feature_dim = 2 * MAX_ROOM_NUM
+        node_vertices_feature_dim = 8
         x = torch.full((room_number, node_vertices_feature_dim + GRAPH_BASED_FEATURE_DIM), FILL_VALUE_X_NO_ROOM).to(torch.float)
         for room_index in range(room_number):
-            for vertices_index, (vertices_x, vertices_y) in enumerate(nodes_in_data["corners"][room_index]):
+            for vertices_index, (vertices_x, vertices_y) in enumerate(nodes_in_data["corners"][room_index][:-1]):
                 x[room_index, vertices_index*2] = float(vertices_x)
                 x[room_index, vertices_index*2+1] = float(vertices_y)
 
@@ -58,7 +59,7 @@ class RoomAsNodeDataset(Dataset):
         # node y (nodes_out_data)
         y = torch.full((room_number, node_vertices_feature_dim), FILL_VALUE_Y_NO_ROOM).to(torch.float)
         for room_index in range(room_number):
-            for vertices_index, (vertices_x, vertices_y) in enumerate(nodes_out_data["corners"][room_index]):
+            for vertices_index, (vertices_x, vertices_y) in enumerate(nodes_out_data["corners"][room_index][:-1]):
                 y[room_index, vertices_index*2] = float(vertices_x) - x[room_index, vertices_index*2]
                 y[room_index, vertices_index*2+1] = float(vertices_y) - x[room_index, vertices_index*2+1]
 
@@ -88,12 +89,14 @@ class RoomAsNodeDataset(Dataset):
         x[:, node_vertices_feature_dim+4] = torch.tensor(clustering_coefficient)
 
         # graph
-        graph = Data(x=x, edge_index=edge_index, y=y)
+        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
         return graph
 
     def _normalize(self, graph):
-        mask = (graph.x != FILL_VALUE_X_NO_ROOM)
-        graph.x[mask] /= NORM_DICT["coord"]
+        graph.original_x = deepcopy(graph.x[:, 0:8])
+        graph.original_y = deepcopy(graph.y)
+        graph.x[:, 0:8] /= NORM_DICT["coord"]
+        graph.y /= NORM_DICT["movement"]
         return graph
     
     def __len__(self):
@@ -105,7 +108,18 @@ class RoomAsNodeDataset(Dataset):
 
 
 
+def output_graph(save_path, norm_graph, prediction):
+        x = norm_graph.original_x
+        y = norm_graph.original_y
+        edge_index = norm_graph.edge_index
+        vertices_movement_prediction = prediction * NORM_DICT["movement"]
+        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=vertices_movement_prediction)
+        torch.save(graph, save_path)
+
+
+
+
 if __name__ == "__main__":
-    dset = BoxDataset(data_num=100)
+    dset = RoomAsNodeDataset(data_num=100)
     print(dset)
 
