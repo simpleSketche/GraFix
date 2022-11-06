@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from dataset import *
 from model import *
 from utils import binary_classification_accracy, R2_score
+from utils import *
 
 
 
@@ -51,9 +52,11 @@ def main(args):
 
 	# init optimizer
 	optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-	scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.95, patience=10, min_lr=1e-4)
+	scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.8, patience=10, min_lr=5e-5)
 	criterion = torch.nn.MSELoss()
 	best_eval_loss = np.inf
+	acc_record = {"train": [], "valid": []}
+	loss_record = {"train": [], "valid": []}
 
 	for epoch in range(1, args.num_epoch+1):
 		# Training loop - iterate over train dataloader and update model weights
@@ -61,7 +64,7 @@ def main(args):
 		loss_train, acc_train, iter_train = 0, 0, 0
 		for i, batch in enumerate(train_loader):
 			batch = batch.to(args.device)
-			pred = model(batch.x, batch.edge_index, batch.edge_attr)
+			pred = model(batch.x, batch.edge_index)
 
 			# calculate loss and update parameters
 			loss = criterion(pred, batch.y)
@@ -76,6 +79,8 @@ def main(args):
 		
 		loss_train /= iter_train
 		acc_train /= iter_train
+		acc_record["train"].append(acc_train.detach().cpu().numpy())
+		loss_record["train"].append(loss_train)
 
 		# Evaluation loop - calculate accuracy and save model weights
 		model.eval()
@@ -83,7 +88,7 @@ def main(args):
 			loss_eval, acc_eval, iter_eval = 0, 0, 0
 			for batch in valid_loader:
 				batch = batch.to(args.device)
-				pred = model(batch.x, batch.edge_index, batch.edge_attr)
+				pred = model(batch.x, batch.edge_index)
 				loss = criterion(pred, batch.y)
 
 				# accumulate loss, accuracy
@@ -93,9 +98,11 @@ def main(args):
 				
 			loss_eval /= iter_eval
 			acc_eval /= iter_eval
+			acc_record["valid"].append(acc_eval.cpu().numpy())
+			loss_record["valid"].append(loss_eval)
 
 		# learning rate scheduler 
-		scheduler.step(loss_train)
+		scheduler.step(loss_eval)
 
 		logger.info(f"epoch: {epoch:4d}, train_acc: {acc_train:.4f}, eval_acc: {acc_eval:.4f}, train_loss: {loss_train:.4f}, eval_loss: {loss_eval:.4f}")
 
@@ -105,6 +112,11 @@ def main(args):
 			logger.info(f"Trained model saved, eval loss: {best_eval_loss:.4f}")
 			torch.save(model.state_dict(), os.path.join(args.ckpt_dir, "model.pt"))
 		
+	# plot curves
+	plot_learningCurve(acc_record, args.ckpt_dir)
+	plot_lossCurve(loss_record, args.ckpt_dir)
+
+
 	# save prediction
 	save_pred_train_path = args.ckpt_dir / "Prediction_train"
 	save_pred_train_path.mkdir(parents=True, exist_ok=True)
@@ -113,7 +125,7 @@ def main(args):
 		logger.info(f"saving prediction: {save_path}")
 		graph = train_dataset[i].to(args.device)
 		pred = model(graph.x, graph.edge_index, graph.edge_attr)
-		output_graph(save_path, graph, pred)
+		output_graph_RoomAsNode(save_path, graph, pred)
 
 	save_pred_valid_path = args.ckpt_dir / "Prediction_valid"
 	save_pred_valid_path.mkdir(parents=True, exist_ok=True)
@@ -122,7 +134,7 @@ def main(args):
 		logger.info(f"saving prediction: {save_path}")
 		graph = valid_dataset[i].to(args.device)
 		pred = model(graph.x, graph.edge_index, graph.edge_attr)
-		output_graph(save_path, graph, pred)
+		output_graph_RoomAsNode(save_path, graph, pred)
 
 
 
@@ -151,7 +163,7 @@ def parse_args() -> Namespace:
 	# model
 	parser.add_argument("--model_name", type=str, default="GNN")
 	parser.add_argument("--message_passing", type=str, default="GAT")
-	parser.add_argument("--hidden_dim", type=int, default=512)
+	parser.add_argument("--hidden_dim", type=int, default=256)
 	parser.add_argument("--num_layers", type=int, default=1)
 
 	# optimizer
@@ -164,8 +176,8 @@ def parse_args() -> Namespace:
 	parser.add_argument(
 		"--device", type=torch.device, help="cpu, cuda, cuda:0, cuda:1", default="cuda"
 	)
-	parser.add_argument("--num_epoch", type=int, default=500)
-	parser.add_argument("--save_num", type=int, default=0)
+	parser.add_argument("--num_epoch", type=int, default=1500)
+	parser.add_argument("--save_num", type=int, default=50)
 
 	args = parser.parse_args()
 	return args

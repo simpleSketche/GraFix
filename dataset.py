@@ -59,6 +59,7 @@ class RoomAsNodeDataset(Dataset):
             edge_list.append([index_2, index_1])
         edge_index = torch.tensor(edge_list).T
 
+        '''
         # edge_attr
         # box center's distance
         # box connection type, one hot for (left, right, top, left)
@@ -82,6 +83,7 @@ class RoomAsNodeDataset(Dataset):
                 edge_attr[i, 4] = 1
             else:
                 raise ValueError("Connection does not exist!")
+        '''
 
 
         # node y (nodes_out_data)
@@ -116,7 +118,7 @@ class RoomAsNodeDataset(Dataset):
         x[:, node_vertices_feature_dim+4] = torch.tensor(clustering_coefficient)
 
         # graph
-        graph = Data(x=x, edge_index=edge_index, edge_attr=edge_attr, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
+        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
         return graph
 
     def _normalize(self, graph):
@@ -124,7 +126,6 @@ class RoomAsNodeDataset(Dataset):
         graph.original_y = deepcopy(graph.y)
         graph.x[:, 0:8] /= NORM_DICT["coord"]
         graph.y /= NORM_DICT["movement"]
-        graph.edge_attr[:, 0] /= NORM_DICT["center_distance"]
         return graph
     
     def __len__(self):
@@ -222,117 +223,11 @@ class RoomAsNodeSanityCheckDataset(Dataset):
 
 
 
-
-
-
-
-
-
-
-VERTICES_AS_NODE_Y_MAX = 0.1
-
-class VerticesAsNodeDataset(Dataset):
-    def __init__(self, root="data/vertices_as_nodes", data_num=100):
-        self.root = Path(root)
-        existed_index = []
-        self.graphs = []
-
-        for data_name in os.listdir(self.root):
-            data_index = data_name.split('_')[0]
-            if data_index in existed_index: continue
-            existed_index.append(data_index)
-            graph = self._construct_graph(data_index)
-            graph = self._normalize(graph)
-            self.graphs.append(graph)
-            if len(existed_index) >= data_num:
-                break
-    
-    def _construct_graph(self, data_index: str):
-        nodes_in_data = json.loads((self.root / f"{data_index}_in.json").read_text())
-        nodes_out_data = json.loads((self.root / f"{data_index}_out.json").read_text())
-        edges_data = json.loads((self.root / f"{data_index}_edges.json").read_text())
-
-        # node x (nodes_in_data)
-        node_number = len(nodes_in_data)
-        x = torch.zeros((node_number, 2 + GRAPH_BASED_FEATURE_DIM)).to(torch.float)
-        for node_index in range(node_number):
-            x[node_index, 0] = nodes_in_data[node_index][0]
-            x[node_index, 1] = nodes_in_data[node_index][1]             
-
-        # edge_index (edges_data)
-        edge_list = []
-        for edge_pair in edges_data:
-            if edge_pair in edge_list: continue
-            index_1, index_2 = edge_pair
-            edge_list.append([index_1, index_2])
-            edge_list.append([index_2, index_1])
-        edge_index = torch.tensor(edge_list).T
-
-        # node y (nodes_out_data)
-        y = torch.zeros((node_number, 2)).to(torch.float)
-        for node_index in range(node_number):
-            y[node_index, 0] = nodes_out_data[node_index][0] - x[node_index, 0]
-            y[node_index, 1] = nodes_out_data[node_index][1] - x[node_index, 1]
-
-
-        # Add traditional node features as input
-        # first construct graph with networkx
-        G = nx.Graph()
-        for i in range(node_number):
-            G.add_node(i)
-        for edge_i, edge_j in edge_list:
-            G.add_edge(edge_i, edge_j)
-        # node degree
-        degree = [pair[1] for pair in G.degree()]
-        eigenvector_centrality = list(nx.eigenvector_centrality(G, max_iter=1000).values())
-        # closness centrality
-        closeness_centrality = list(nx.closeness_centrality(G).values())
-        # betweenness_centrality
-        betweenness_centrality = list(nx.betweenness_centrality(G).values())
-        # clustering coefficient
-        clustering_coefficient = list(nx.clustering(G).values())
-        # assign to node feature
-        x[:, 2] = torch.tensor(degree)
-        x[:, 3] = torch.tensor(eigenvector_centrality)
-        x[:, 4] = torch.tensor(closeness_centrality)
-        x[:, 5] = torch.tensor(betweenness_centrality)
-        x[:, 6] = torch.tensor(clustering_coefficient)
-
-        # graph
-        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=None, original_x=None, original_y=None)
-        return graph
-
-    def _normalize(self, graph):
-        graph.original_x = deepcopy(graph.x[:, 0:2])
-        graph.original_y = deepcopy(graph.y)
-        graph.x[:, 0:2] /= NORM_DICT["coord"]
-        graph.y /= VERTICES_AS_NODE_Y_MAX
-        return graph
-    
-    def __len__(self):
-        return len(self.graphs)
-    
-    def __getitem__(self, i):
-        return self.graphs[i]
-
-
-
-
-
 def output_graph_RoomAsNode(save_path, norm_graph, prediction):
         x = norm_graph.original_x
         y = norm_graph.original_y
         edge_index = norm_graph.edge_index
         vertices_movement_prediction = prediction * NORM_DICT["movement"]
-        graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=vertices_movement_prediction)
-        torch.save(graph, save_path)
-
-
-def output_graph_VerticesAsNode(save_path, norm_graph, prediction):
-        x = norm_graph.original_x
-        y = norm_graph.original_y
-        edge_index = norm_graph.edge_index
-        vertices_movement_prediction = prediction * VERTICES_AS_NODE_Y_MAX
         graph = Data(x=x, edge_index=edge_index, y=y, vertices_movement_prediction=vertices_movement_prediction)
         torch.save(graph, save_path)
 
