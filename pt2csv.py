@@ -14,11 +14,11 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-results_dir = 'C:/Users/SSajedi/Desktop/GitHub/BoxStacker/Results/RoomAsNode/2022_11_06__16_47_15/Prediction_valid'
+results_dir = 'Results/RoomAsNodeRegression/2022_11_06__22_25_18/Prediction_valid'
 
 graph_fname_list = glob.glob(results_dir+'/*.pt')
 
-
+print(graph_fname_list)
 def to_csv(arr, dir_name):
     np.savetxt(dir_name, arr, delimiter=",")
     

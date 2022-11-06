@@ -22,7 +22,7 @@ d = RoomAsNodeRegressionDataset(root='sample_test_data', data_num=1)
 model_args = {"input_dim": 8+GRAPH_BASED_FEATURE_DIM, "hidden_dim": 256, "output_dim": 8,
    			 	  "num_layers": 1, "message_passing": 'GAT'}
 model = globals()['GNN'](**model_args).cuda()
-model.load_state_dict(torch.load('Results/RoomAsNodeRegression/2022_11_06__17_42_18/model.pt'))
+model.load_state_dict(torch.load('Results/RoomAsNodeRegression/2022_11_06__22_25_18/model.pt'))
 
 model.eval()
 
