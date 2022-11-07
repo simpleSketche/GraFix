@@ -12,9 +12,10 @@ We used the modular building generative model Yankun worked on in the past to ge
 2. Which corner of the box to move in order to fix the "floor plan"?
 <br>
 Graph Neural Network is able to learn the buttom logic of the fixing logic from small batch (2000 data) of small floor plan training samples, and we can apply the training result on relatively larger "floor plan" that contains more boxes. This is greatly advantageous compared to other neural network models.
-![image](https://github.com/simpleSketche/GraFix/blob/main/Results/images/data%20generator.gif)
+<br>
 
 ## Prediction
+![image](https://github.com/simpleSketche/GraFix/blob/main/Results/images/predict%20data.gif)
 ![image](https://user-images.githubusercontent.com/71196100/200372202-b45c4124-59f5-4d7d-b7a9-c71464247467.png)
 
 ## Team
