@@ -13,12 +13,12 @@ We used the modular building generative model Yankun worked on in the past to ge
 1. What is bad floor plan?
 2. Which corner of the box to move in order to fix the "floor plan"?
 <br>
-Graph Neural Network is able to learn the buttom logic of the fixing logic from small batch (2000 data) of small floor plan training samples, and we can apply the training result on relatively larger "floor plan" that contains more boxes. This is greatly advantageous compared to other neural network models.
+Graph Neural Network is able to learn the buttom logic of the fixing logic from small batch (2000 data) of small floor plan training samples, and we can apply the training result on relatively larger "floor plan" that contains more boxes. This is greatly advantageous and separates Graph Neural Network from other neural network models.
 <br/>
 
 
 ## Prediction
-The result on a relatively larger floor plan(more boxes) is very promising given that we only trained the gnn model with 2000 synthetic simple data, and each training was so fast that it took about 5 minutes. The loss curve is going down and the learning curve is going up, both of the curves seem consistently going down and not flattening, which gives us the hope that it would perform even better with much larger dataset mixed with realistic floor plan data.
+The result on a relatively larger floor plan(more boxes) is very promising given that we only trained the gnn model with 2000 synthetic simple data, and each training was so fast that it took about 5 minutes. The loss curve is going down and the learning curve is going up, both of the curves do not seem flattening, which gives us the hope that it would perform even better with much larger dataset mixed with realistic floor plan data.
 ![image](https://user-images.githubusercontent.com/71196100/200372202-b45c4124-59f5-4d7d-b7a9-c71464247467.png)
 ![image](https://user-images.githubusercontent.com/71196100/200382669-65b1a6c3-6b1a-4dee-9672-f573203f96f0.png)
 
