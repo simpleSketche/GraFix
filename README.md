@@ -37,7 +37,13 @@ Click the images to visit their github pages!
 [![image](https://user-images.githubusercontent.com/71196100/200366292-2880c5af-66ee-49b3-be91-9a08f94b6b5b.png)](https://github.com/Memortal)
 
 ## Synthetic Data Generation
-Please generate the synthetic graph dataset, please refer to the provided Grasshopper script using Rhino 7
+Synthetic data generator requires Rhinoinside python dependency to be installed, and you need to have Rhino license for it to run. However, feel free to use open-sourced geometry libraries and swap out Rhino dependency. The main geometric operations involved are:
+1. Find curve and curve intersection
+2. Create Point
+3. Create Vector
+4. Create Geometry plane to plane translation
+5. Create Curve from Polyline
+6. Create Polyline
 
 ## Dependencies
 To run this project, you would need:
